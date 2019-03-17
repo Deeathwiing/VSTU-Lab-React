@@ -1,15 +1,15 @@
 import $ from "jquery";
-import Popper from "popper.js";
+import "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "jquery";
 import "popper.js";
 
 function screenCheck() {
-  if (($(window).width() <= 1210) & ($(window).width() >= 801)) {
+  if ($(window).width() <= 1210 && $(window).width() >= 801) {
     $("#deleteAside").removeClass("d-none");
     $("#asideSearch").css("width", "150px");
     return;
-  } else if (($(window).width() <= 800) & ($(window).width() >= 451)) {
+  } else if ($(window).width() <= 800 && $(window).width() >= 451) {
     $("#deleteAside").removeClass("d-none");
     $("#asideSearch").css("width", "150px");
     $("#asideSearchBtn,#asideSearch").addClass("mx-auto");
