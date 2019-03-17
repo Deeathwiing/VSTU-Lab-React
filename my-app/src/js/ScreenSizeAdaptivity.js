@@ -1,31 +1,35 @@
 import $ from "jquery";
 import Popper from "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-function ScreenSizeAdaptivity() {
-  function screenCheck() {
-    if ($(window).width() <= 1210) {
-      $("#asideSearch")[0].style.width = "150px";
-    }
+import "jquery";
+import "popper.js";
 
-    if ($(window).width() <= 800) {
-      $("#asideSearchBtn,#asideSearch").addClass("mx-auto");
-    }
-
-    if ($(window).width() <= 450) {
-      $("#deleteAside").remove();
-      $("#section")[0].style.width = "100%";
-      const section = $("#Search")[0];
-      section.style.width = "200px";
-      section.style.marginRight = "5px";
-      $("#Reg")[0].style.width = "100%";
-    }
+function screenCheck() {
+  if (($(window).width() <= 1210) & ($(window).width() >= 801)) {
+    $("#deleteAside").removeClass("d-none");
+    $("#asideSearch").css("width", "150px");
+    return;
+  } else if (($(window).width() <= 800) & ($(window).width() >= 451)) {
+    $("#deleteAside").removeClass("d-none");
+    $("#asideSearch").css("width", "150px");
+    $("#asideSearchBtn,#asideSearch").addClass("mx-auto");
+    return;
+  } else if ($(window).width() <= 450) {
+    $("#deleteAside").addClass("d-none");
+    $("#section").css("width", "100%");
+    const Search = $("#Search");
+    Search.css({ width: "200px", marginRight: "5px" });
+    $("#Reg").css("width", "100%");
+    return;
   }
-
-  screenCheck();
-  $(window).on("resize", () => {
-    screenCheck();
-  });
-  ScreenSizeAdaptivity();
+  $("#deleteAside").removeClass("d-none");
 }
+$(document).ready(() => {
+  screenCheck();
+});
 
-export default ScreenSizeAdaptivity;
+$(window).on("resize", () => {
+  window.location.reload();
+  screenCheck();
+});
+export default screenCheck;

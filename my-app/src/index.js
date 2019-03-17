@@ -7,6 +7,9 @@ import $ from "jquery";
 import Popper from "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./css/style.css";
+import "jquery";
+import "popper.js";
+import "./js/ScreenSizeAdaptivity";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

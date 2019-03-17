@@ -1,12 +1,11 @@
 import React, { Component } from "react";
+import "jquery";
+import "popper.js";
 
 class Aside extends Component {
   render() {
     return (
-      <aside
-        className="d-flex flex-column mr-1 col p-0 sticky-top"
-        id="deleteAside"
-      >
+      <aside className=" flex-column mr-1 col p-0 sticky-top " id="deleteAside">
         <nav className="nav flex-column navbar-light bg-light shadow  ">
           <ul className="navbar-nav p-4 ">
             <li className="nav-item col">
