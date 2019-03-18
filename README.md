@@ -1,7 +1,7 @@
 # VSTU-Lab-React
 rep for lab
 
-Open site: open index.html in browser/node.js.
+Open site: use npm start in my-app folder,for more information check readme in my-app folder.
 
 Need use index.html?# only. (?#).
 
