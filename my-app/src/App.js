@@ -7,18 +7,19 @@ import "popper.js";
 import "jquery";
 import "popper.js";
 import "./js/ScreenSizeAdaptivity";
+import { BrowserRouter, Route } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return (
+const App = props => {
+  return (
+    <BrowserRouter>
       <div>
         <Slides />
         <Navbar />
         <Aside_Section />
         <Footer />
       </div>
-    );
-  }
-}
+    </BrowserRouter>
+  );
+};
 
 export default App;
