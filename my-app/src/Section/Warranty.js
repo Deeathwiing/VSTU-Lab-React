@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class News extends Component {
+class Warranty extends Component {
   render() {
     return <div />;
   }
 }
 
-export default News;
+export default Warranty;

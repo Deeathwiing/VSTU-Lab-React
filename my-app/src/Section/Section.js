@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import Items from "../Items";
+import Items from "./Items";
 import { BrowserRouter, Route } from "react-router-dom";
-import News from "../News";
-import Order from "../Order";
-import NewsAndPromotions from "../NewsAndPromotions";
+import News from "./News";
+import Order from "./Order";
+import NewsAndPromotions from "./NewsAndPromotions";
 import Administration from "../Administration";
 import "../Navbar";
+import Warranty from "./Warranty";
 
 const Section = props => {
   return (
@@ -17,6 +18,7 @@ const Section = props => {
         <Route path="/order" component={Order} />
         <Route path="/newsAndPromotions" component={NewsAndPromotions} />
         <Route path="/administration" component={Administration} />
+        <Route path="/warranty" component={Warranty} />
       </div>
     </section>
   );
