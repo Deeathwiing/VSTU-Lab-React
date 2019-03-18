@@ -67,7 +67,6 @@ tools/pixie.exe
 node_modules
 node_modules/.staging/@babel/code-frame-c960f198/README.md
 package-lock.json
-package.json
 .eslintrc.json
 .vscode/launch.json
 .vscode
