@@ -8,6 +8,10 @@ import "./css/style.css";
 import "jquery";
 import "popper.js";
 import "./js/ScreenSizeAdaptivity";
+import "./js/Registration";
+import "./js/login_and_administration";
+import { BrowserRouter, Route } from "react-router-dom";
+import "react-router-dom";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

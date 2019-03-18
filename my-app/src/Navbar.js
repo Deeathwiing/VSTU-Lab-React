@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import logo from "../src/images/icon.png";
+import { registration } from "./js/Registration";
+import { login } from "./js/login_and_administration";
+import { NavLink } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 class Navbar extends Component {
   render() {
@@ -66,9 +70,10 @@ class Navbar extends Component {
                       Редактирование профиля
                     </a>
                     <div className="dropdown-divider linkAdmin d-none" />
+
                     <a
                       className="dropdown-item d-none text-danger linkAdmin"
-                      href="admin.html"
+                      href="/administration"
                     >
                       Администрирование
                     </a>
@@ -127,6 +132,7 @@ class Navbar extends Component {
                         </div>
                       </div>
                       <button
+                        onClick={login}
                         type="submit"
                         className="btn btn-primary"
                         id="login"
@@ -217,6 +223,7 @@ class Navbar extends Component {
                         </div>
                       </div>
                       <button
+                        onClick={registration}
                         type="submit"
                         className="btn btn-primary "
                         id="RegistrationBtn"
@@ -257,7 +264,7 @@ class Navbar extends Component {
                     </a>
                     <div className="dropdown-divider" />
                     <a className="dropdown-item" href="#">
-                      Жидкость
+                      Жидкости
                     </a>
                     <div className="dropdown-divider" />
                     <a className="dropdown-item" href="#">

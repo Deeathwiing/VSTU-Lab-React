@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Aside from "./Aside";
-import Section from "./Section";
+import Section from "./Section/Section";
 
 class Aside_Section extends Component {
   render() {
