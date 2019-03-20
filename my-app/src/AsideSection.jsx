@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Aside from "./Aside";
 import Section from "./Section/Section";
 
-class Aside_Section extends Component {
+class AsideSection extends Component {
   render() {
     return (
       <div className="container p-0 d-flex flex-row">
@@ -13,4 +13,4 @@ class Aside_Section extends Component {
   }
 }
 
-export default Aside_Section;
+export default AsideSection;

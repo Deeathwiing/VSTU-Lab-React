@@ -39,5 +39,6 @@ export function registration() {
   users.push(newUser);
 
   localStorage.users = JSON.stringify(users);
-  $("#Reg").hide();
+  alert("Вы зарегистрировались,пожалуйста войдите");
+  $(".Reg").hide();
 }

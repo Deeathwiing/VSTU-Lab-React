@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import payments from "./images/payments.PNG";
-import telephone from "./images/telephone.PNG";
+import React, { Component } from 'react';
+import payments from './images/payments.PNG';
+import telephone from './images/telephone.PNG';
 
 class Footer extends Component {
   render() {
@@ -15,8 +15,8 @@ class Footer extends Component {
                 </div>
 
                 <div className="row">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                  molestiae perferendis, reiciendis quas possimus aspernatur.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae
+                  perferendis, reiciendis quas possimus aspernatur.
                 </div>
               </div>
 

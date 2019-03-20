@@ -1,6 +1,4 @@
-import React, { Component } from "react";
-import "jquery";
-import "popper.js";
+import React, { Component } from 'react';
 
 class Aside extends Component {
   render() {

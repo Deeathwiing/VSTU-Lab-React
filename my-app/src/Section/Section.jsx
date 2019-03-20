@@ -1,16 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import Items from "./Items";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import News from "./News";
 import Order from "./Order";
 import NewsAndPromotions from "./NewsAndPromotions";
 import Administration from "../Administration";
 import "../Navbar";
 import Warranty from "./Warranty";
+import LogIn from "./LogIn";
+import Registration from "./Registration";
 
-const Section = props => {
+const Section = () => {
   return (
-    <section className="d-flex flex-column ml-1 p-2" id="section">
+    <section className="d-flex flex-column ml-1 p-2 bg-light" id="section">
       <div>
         <Route path="/" component={News} />
         <Route path="/items" component={Items} />
@@ -19,6 +21,8 @@ const Section = props => {
         <Route path="/newsAndPromotions" component={NewsAndPromotions} />
         <Route path="/administration" component={Administration} />
         <Route path="/warranty" component={Warranty} />
+        <Route path="/login" component={LogIn} />
+        <Route path="/registration" component={Registration} />
       </div>
     </section>
   );
