@@ -15,39 +15,29 @@ export function registration() {
       this.administration = false;
     }
   }
-  let BDusers = [];
-  BDusers = localStorage.users ? JSON.parse(localStorage.users) : [];
+
+  let users = localStorage.users ? JSON.parse(localStorage.users) : [];
   const email = $("#regEmail")
     .val()
     .toLowerCase();
-  const firstName = $("#regFirstName")
-    .val()
-    .toLowerCase();
-  const lastName = $("#regLastName")
-    .val()
-    .toLowerCase();
+  const firstName = $("#regFirstName").val();
+  const lastName = $("#regLastName").val();
   const password = $("#regPassword").val();
 
-  for (let i = 0; i < BDusers.length; i++) {
-    const user = BDusers[i];
-
-    if (email === user.email) {
-      alert("Данный email занят");
-      return;
-    }
+  const isTaken = users.some(user => user.email === email);
+  if (isTaken) {
+    alert("Данный email занят");
+    return;
   }
 
-  if (
-    // eslint-disable-next-line eqeqeq
-    (firstName && lastName && password) == false
-  ) {
+  if (!firstName || !lastName || !password) {
     alert("Заполните все поля");
     return;
   }
 
   const newUser = new User(email, firstName, lastName, password);
-  BDusers.push(newUser);
+  users.push(newUser);
 
-  localStorage.users = JSON.stringify(BDusers);
+  localStorage.users = JSON.stringify(users);
   $("#Reg").hide();
 }

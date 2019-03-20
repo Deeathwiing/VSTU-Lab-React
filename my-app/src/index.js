@@ -9,7 +9,7 @@ import "jquery";
 import "popper.js";
 import "./js/ScreenSizeAdaptivity";
 import "./js/Registration";
-import "./js/login_and_administration";
+import "./js/loginAndAdministration";
 import { BrowserRouter, Route } from "react-router-dom";
 import "react-router-dom";
 

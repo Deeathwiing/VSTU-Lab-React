@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import $ from "jquery";
 import "popper.js";
 import "jquery";
 import { adminTable } from "./js/AdminTable";

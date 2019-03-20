@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "../src/images/icon.png";
 import { registration } from "./js/Registration";
-import { login } from "./js/login_and_administration";
+import { login } from "./js/loginAndAdministration";
 import { NavLink } from "react-router-dom";
 import { BrowserRouter, Route } from "react-router-dom";
 import "./Section/Section";
@@ -9,11 +9,11 @@ import "./Section/Section";
 const Navbar = props => {
   return (
     <div>
-      <header className="container mb-3 ">
-        <nav className="navbar row  navbar-expand-md navbar-light bg-light shadow ">
-          <div className=" col m-1 mr-4 ">
-            <a href="#" className="navbar-brand ">
-              <img id="object" className="" src={logo} alt="OM" />
+      <header className="container mb-3">
+        <nav className="navbar row  navbar-expand-md navbar-light bg-light shadow">
+          <div className=" col m-1 mr-4">
+            <a href="#" className="navbar-brand">
+              <img id="imgLogo" src={logo} />
               <span id="textLogo" className="ml-3">
                 Vape Shop
               </span>
@@ -29,14 +29,13 @@ const Navbar = props => {
             <span className="navbar-toggler-icon" />
           </button>
 
-          <div className="collapse navbar-collapse  col " id="navbarResponsive">
-            <ul className="navbar-nav row d-flex justify-content-around  ">
-              <li className="nav-item dropdown  d-none PersonalArea">
+          <div className="collapse navbar-collapse col" id="navbarResponsive">
+            <ul className="navbar-nav row d-flex justify-content-around">
+              <li className="nav-item dropdown d-none PersonalArea">
                 <a
                   href="#"
                   className="nav-link font-weight-bold dropdown-toggle"
                   role="button"
-                  id="navbarDropdown"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -80,9 +79,7 @@ const Navbar = props => {
               <li className="nav-item dropdown removeAfterReg">
                 <a
                   href=""
-                  id="signIn"
-                  className="nav-link font-weight-bold "
-                  id="navbarDropdown"
+                  className="nav-link font-weight-bold"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
@@ -91,7 +88,7 @@ const Navbar = props => {
                   Вход
                 </a>
                 <div
-                  className="dropdown-menu  bg-light"
+                  className="dropdown-menu bg-light"
                   aria-labelledby="navbarDropdown"
                 >
                   <form className="px-4 py-3">
@@ -115,15 +112,8 @@ const Navbar = props => {
                     </div>
                     <div className="form-group">
                       <div className="form-check">
-                        <input
-                          type="checkbox"
-                          className="form-check-input"
-                          id="dropdownCheck"
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="dropdownCheck"
-                        >
+                        <input type="checkbox" className="form-check-input" />
+                        <label className="form-check-label" htmlFor="checkbox">
                           Запомнить меня
                         </label>
                       </div>
@@ -150,9 +140,7 @@ const Navbar = props => {
               <li className="nav-item dropdown removeAfterReg">
                 <a
                   href="#"
-                  id="signIn"
-                  className="nav-link font-weight-bold "
-                  id="navbarDropdown"
+                  className="nav-link font-weight-bold"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
@@ -161,13 +149,13 @@ const Navbar = props => {
                   Регистрация
                 </a>
                 <div
-                  className="dropdown-menu  bg-light"
+                  className="dropdown-menu bg-light"
                   id="Reg"
                   aria-labelledby="navbarDropdown"
                 >
-                  <form className="px-4 py-3  ">
+                  <form className="px-4 py-3">
                     <div className="form-group">
-                      <label htmlFor="exampleDropdownFormEmail1">Email</label>
+                      <label htmlFor="regEmail">Email</label>
                       <input
                         type="email"
                         className="form-control"
@@ -176,7 +164,7 @@ const Navbar = props => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="inputAddress">Имя</label>
+                      <label htmlFor="regFirstName">Имя</label>
                       <input
                         type="text"
                         className="form-control"
@@ -185,7 +173,7 @@ const Navbar = props => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="inputAddress2">Фамилия</label>
+                      <label htmlFor="regLastName">Фамилия</label>
                       <input
                         type="text"
                         className="form-control"
@@ -194,9 +182,7 @@ const Navbar = props => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="exampleDropdownFormPassword1">
-                        Пароль
-                      </label>
+                      <label htmlFor="regPassword">Пароль</label>
                       <input
                         type="password"
                         className="form-control"
@@ -206,15 +192,8 @@ const Navbar = props => {
                     </div>
                     <div className="form-group">
                       <div className="form-check">
-                        <input
-                          type="checkbox"
-                          className="form-check-input"
-                          id="dropdownCheck"
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="dropdownCheck"
-                        >
+                        <input type="checkbox" className="form-check-input" />
+                        <label className="form-check-label" htmlFor="checkbox">
                           Запомнить меня
                         </label>
                       </div>
@@ -222,7 +201,7 @@ const Navbar = props => {
                     <button
                       onClick={registration}
                       type="submit"
-                      className="btn btn-primary "
+                      className="btn btn-primary"
                       id="RegistrationBtn"
                     >
                       Регистрация
@@ -231,10 +210,9 @@ const Navbar = props => {
                 </div>
               </li>
 
-              <li className="nav-item dropdown ">
+              <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  id="navbarDropdown"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
@@ -298,17 +276,17 @@ const Navbar = props => {
                 </a>
               </li>
 
-              <li className="nav-item ml-2 ">
-                <form className="form-inline  py-1 ">
+              <li className="nav-item ml-2">
+                <form className="form-inline py-1">
                   <input
-                    className="form-control mr-sm-2  shadow-lg  "
+                    className="form-control mr-sm-2 shadow-lg"
                     id="Search"
                     type="search"
                     placeholder="Поиск"
                     aria-label="Search"
                   />
                   <button
-                    className="btn btn-outline-secondary  my-2 my-sm-0 text-dark bg-light"
+                    className="btn btn-outline-secondary my-2 my-sm-0 text-dark bg-light"
                     type="submit"
                   >
                     Поиск

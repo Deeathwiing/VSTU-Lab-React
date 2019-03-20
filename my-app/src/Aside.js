@@ -5,11 +5,11 @@ import "popper.js";
 class Aside extends Component {
   render() {
     return (
-      <aside className=" flex-column mr-1 col p-0 sticky-top " id="deleteAside">
-        <nav className="nav flex-column navbar-light bg-light shadow  ">
-          <ul className="navbar-nav p-4 ">
+      <aside className=" flex-column mr-1 col p-0 sticky-top" id="deleteAside">
+        <nav className="nav flex-column navbar-light bg-light shadow">
+          <ul className="navbar-nav p-4">
             <li className="nav-item col">
-              <a href="#" className="nav-link font-weight-bold ">
+              <a href="#" className="nav-link font-weight-bold">
                 Главная
               </a>
             </li>
@@ -17,7 +17,6 @@ class Aside extends Component {
             <li className="nav-item dropdown col">
               <a
                 className="nav-link dropdown-toggle"
-                id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
@@ -73,21 +72,21 @@ class Aside extends Component {
 
             <li className="nav-item col">
               <a href="#" className="nav-link">
-                <span id="NewItems">Новинки и акции!</span>
+                <span>Новинки и акции!</span>
               </a>
             </li>
 
             <li className="nav-item ml-1 row">
-              <form className="form-inline  py-1 ">
+              <form className="form-inline">
                 <input
-                  className="form-control mr-sm-2  shadow-lg  "
+                  className="form-control mr-sm-2 shadow-lg"
                   id="asideSearch"
                   type="search"
                   placeholder="Поиск"
                   aria-label="Search"
                 />
                 <button
-                  className="btn btn-outline-secondary  my-2 my-sm-0 text-dark bg-light"
+                  className="btn btn-outline-secondary my-2 my-sm-0 text-dark bg-light"
                   type="submit"
                   id="asideSearchBtn"
                 >
