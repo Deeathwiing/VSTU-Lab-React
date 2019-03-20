@@ -9,6 +9,7 @@ import "../Navbar";
 import Warranty from "./Warranty";
 import LogIn from "./LogIn";
 import Registration from "./Registration";
+import AboutUs from "./AboutUs";
 
 const Section = () => {
   return (
@@ -23,6 +24,7 @@ const Section = () => {
         <Route path="/warranty" component={Warranty} />
         <Route path="/login" component={LogIn} />
         <Route path="/registration" component={Registration} />
+        <Route path="/about" component={AboutUs} />
       </div>
     </section>
   );

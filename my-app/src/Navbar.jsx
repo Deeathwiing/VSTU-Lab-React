@@ -9,12 +9,12 @@ const Navbar = () => (
     <header className="container mb-3">
       <nav className="navbar row  navbar-expand-md navbar-light bg-light shadow">
         <div className=" col m-1 mr-4">
-          <a href="#" className="navbar-brand">
+          <NavLink to="/newsAndPromotions" className="navbar-brand">
             <img id="imgLogo" src={logo} alt="Logo" />
             <span id="textLogo" className="ml-3">
               Vape Shop
             </span>
-          </a>
+          </NavLink>
         </div>
 
         <button
@@ -29,8 +29,8 @@ const Navbar = () => (
         <div className="collapse navbar-collapse col" id="navbarResponsive">
           <ul className="navbar-nav row d-flex justify-content-around">
             <li className="nav-item dropdown d-none PersonalArea">
-              <a
-                href="#"
+              <NavLink
+                to="#"
                 className="nav-link font-weight-bold dropdown-toggle"
                 role="button"
                 data-toggle="dropdown"
@@ -38,32 +38,31 @@ const Navbar = () => (
                 aria-expanded="false"
               >
                 Личный кабинет
-              </a>
+              </NavLink>
               <div
                 className="dropdown-menu bg-light"
                 aria-labelledby="navbarDropdown"
               >
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="#">
                   Заказы
-                </a>
+                </NavLink>
                 <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="#">
                   Скидки
-                </a>
+                </NavLink>
                 <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="/order">
                   Корзина
-                </a>
+                </NavLink>
                 <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="#">
                   Избранное
-                </a>
+                </NavLink>
                 <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="#">
                   Редактирование профиля
-                </a>
+                </NavLink>
                 <div className="dropdown-divider linkAdmin d-none" />
-
                 <NavLink
                   className="dropdown-item d-none text-danger linkAdmin"
                   to="/administration"
@@ -94,69 +93,69 @@ const Navbar = () => (
             </li>
 
             <li className="nav-item dropdown">
-              <a
+              <NavLink
                 className="nav-link dropdown-toggle"
                 role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-                href="#"
+                to="items"
               >
                 Каталог
-              </a>
+              </NavLink>
 
               <div
                 className="dropdown-menu bg-light"
                 aria-labelledby="navbarDropdown"
               >
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="/about">
                   Контакты
-                </a>
+                </NavLink>
                 <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="#">
                   Атомайзеры
-                </a>
+                </NavLink>
                 <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="#">
                   Электронные парогенераторы
-                </a>
+                </NavLink>
                 <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="#">
                   Жидкости
-                </a>
+                </NavLink>
                 <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="#">
                   Запчасти и комплектующие
-                </a>
+                </NavLink>
                 <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
+                <NavLink className="dropdown-item" to="#">
                   Все для самозамеса
-                </a>
+                </NavLink>
               </div>
             </li>
 
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <NavLink to="/newsAndPromotions" className="nav-link">
                 Новости и предложения
-              </a>
+              </NavLink>
             </li>
 
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <NavLink to="/order" className="nav-link">
                 Заказ
-              </a>
+              </NavLink>
             </li>
 
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <NavLink to="/warranty" className="nav-link">
                 Гарантия
-              </a>
+              </NavLink>
             </li>
 
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <NavLink to="/newsAndPromotions" className="nav-link">
                 <span id="NewItems">Новинки и акции!</span>
-              </a>
+              </NavLink>
             </li>
 
             <li className="nav-item ml-2">
