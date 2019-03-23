@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import payments from './images/payments.PNG';
-import telephone from './images/telephone.PNG';
+import React, { Component } from "react";
+import payments from "./images/payments.PNG";
+import telephone from "./images/telephone.PNG";
+import { NavLink } from "react-router-dom";
 
 class Footer extends Component {
   render() {
     return (
-      <div>
+      <span>
         <footer className="container p-0 d-flex justify-content-center mt-3">
-          <div className="navbar navbar-expand-lg navbar-light bg-light p-3 d-flex justify-content-center">
+          <div className="navbar navbar-expand-lg navbar-light bg-light p-1 d-flex justify-content-center">
             <div className="row text-center d-flex justify-content-center">
               <div className="col-sm-3 col-md-3 .col-lg-3 .col-xl-3">
                 <div className="row">
@@ -15,59 +16,59 @@ class Footer extends Component {
                 </div>
 
                 <div className="row">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae
-                  perferendis, reiciendis quas possimus aspernatur.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
+                  molestiae perferendis, reiciendis quas possimus aspernatur.
                 </div>
               </div>
 
-              <nav className="navbar-light bg-light navbar col-sm-6 .col-md-7 .col-lg-7 .col-xl-7 d-flex justify-content-center">
+              <nav className="navbar-light bg-light navbar p-3 col-sm-6 .col-md-7 .col-lg-7 .col-xl-7 d-flex justify-content-center">
                 <nav className="row navbar-nav d-flex justify-content-center">
                   <div>
-                    <a href="#" className="nav-link">
+                    <NavLink to="/news" className="nav-link">
                       Новости
-                    </a>
+                    </NavLink>
                   </div>
 
                   <div>
-                    <a href="#" className="nav-link">
+                    <NavLink to="/order" className="nav-link">
                       Заказ
-                    </a>
+                    </NavLink>
                   </div>
 
                   <div>
-                    <a href="#" className="nav-link">
+                    <NavLink to="warranty" className="nav-link">
                       Гарантия
-                    </a>
+                    </NavLink>
                   </div>
 
                   <div>
-                    <a href="#" className="nav-link">
+                    <NavLink to="about" className="nav-link">
                       Контакты
-                    </a>
+                    </NavLink>
                   </div>
 
                   <div>
-                    <a href="#" className="nav-link">
+                    <NavLink to="" className="nav-link">
                       Атомайзеры
-                    </a>
+                    </NavLink>
                   </div>
 
                   <div>
-                    <a href="#" className="nav-link">
+                    <NavLink to="" className="nav-link">
                       Вейпы
-                    </a>
+                    </NavLink>
                   </div>
 
                   <div>
-                    <a href="#" className="nav-link">
+                    <NavLink to="" className="nav-link">
                       Жидкости
-                    </a>
+                    </NavLink>
                   </div>
 
                   <div>
-                    <a href="#" className="nav-link">
+                    <NavLink to="" className="nav-link">
                       Запчасти
-                    </a>
+                    </NavLink>
                   </div>
                 </nav>
               </nav>
@@ -76,15 +77,13 @@ class Footer extends Component {
                 <div className="row d-flex justify-content-center">
                   <img src={telephone} alt="Call me us" />
                 </div>
-
-                <div className="row">9 (999) 999-99-99</div>
-
-                <div className="row">9 (999) 999-99-99</div>
+                <div className="numbers">+375 (29) 999-99-99</div>
+                <div className="numbers">+375 (29) 999-99-99</div>
               </div>
             </div>
           </div>
         </footer>
-      </div>
+      </span>
     );
   }
 }

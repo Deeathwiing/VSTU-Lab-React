@@ -1,15 +1,14 @@
-import React, { Component } from "react";
 import $ from "jquery";
 import "popper.js";
 import "jquery";
 
 export function adminTable() {
-  let usersBD = [];
-  usersBD = localStorage.users ? JSON.parse(localStorage.users) : [];
+  let usersBD = localStorage.users ? JSON.parse(localStorage.users) : [];
   for (let i = 0; i < usersBD.length; i++) {
     const userId = usersBD[i];
 
-    $("#adminTable").append(`
+    if (userId) {
+      $("#adminTable").append(`
                <tr id=trForDelete-${i}>
                 <th scope="row">${i}</th>
                 <td>${userId.firstName}</td>
@@ -19,24 +18,25 @@ export function adminTable() {
                 <td id="tdForBtn-${i}"></td>
               </tr>
 `);
-    /* if (!userId.deleteAccountRequest) {
-      $(`#btnForDelete-${i}`).remove();
-    } */
-    if (userId.deleteAccountRequest) {
-      $(`#tdForBtn-${i}`)
-        .append(`<button class="btnForDelete btn-danger btn-block " id=btnForDelete-${i}
+
+      if (userId.deleteAccountRequest) {
+        $(`#tdForBtn-${i}`)
+          .append(`<button class="btnForDelete btn-danger btn-block " id=btnForDelete-${i}
 }  >Delete User</button>`);
+      }
     }
   }
 
-  // eslint-disable-next-line func-names
   $("#adminTable").on("click", ".btnForDelete", function() {
-    const idToDelete = +$(this)
-      .attr("id")
-      .substr(13);
+    const idToDelete = Number(
+      $(this)
+        .attr("id")
+        .substr(13)
+    );
 
     if (usersBD[idToDelete].deleteAccountRequest) {
-      usersBD.splice(idToDelete, 1);
+      // usersBD.splice(idToDelete, 1);
+      delete usersBD[idToDelete];
       localStorage.users = JSON.stringify(usersBD);
       $(`#btnForDelete-${idToDelete}`).remove();
       $(`#trForDelete-${idToDelete}`).remove();

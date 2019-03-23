@@ -10,6 +10,10 @@ import Warranty from "./Warranty";
 import LogIn from "./LogIn";
 import Registration from "./Registration";
 import AboutUs from "./AboutUs";
+import AdminTable from "./AdminTable";
+import ItemsAdmin from "./ItemsAdmin";
+import AddItems from "./AddItems";
+import AllItemsAdmin from "./AllItemsAdmin";
 
 const Section = () => {
   return (
@@ -25,6 +29,16 @@ const Section = () => {
         <Route path="/login" component={LogIn} />
         <Route path="/registration" component={Registration} />
         <Route path="/about" component={AboutUs} />
+        <Route path="/administration/admintable" component={AdminTable} />
+        <Route path="/administration/itemsadmin" component={ItemsAdmin} />
+        <Route
+          path="/administration/itemsadmin/additems"
+          component={AddItems}
+        />
+        <Route
+          path="/administration/itemsadmin/allitems"
+          component={AllItemsAdmin}
+        />
       </div>
     </section>
   );

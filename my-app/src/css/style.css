@@ -45,3 +45,11 @@ aside {
 #Reg {
   width: 400%;
 }
+
+.numbers {
+  font-size: 1em;
+}
+
+.card {
+  display: inline-block;
+}

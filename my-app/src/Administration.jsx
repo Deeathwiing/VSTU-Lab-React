@@ -1,25 +1,24 @@
-import React from 'react';
-import { adminTable } from './js/AdminTable';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Administration = () => (
-  <div className="container-fluid">
-    <h1 className="header"> Administrator Page </h1>
-    <button type="button" onClick={adminTable}>
-      Users List
-    </button>
-    <table className="table table-striped table-dark">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">firstName</th>
-          <th scope="col">lastName</th>
-          <th scope="col">email</th>
-          <th scope="col">Remove request</th>
-        </tr>
-      </thead>
-      <tbody id="adminTable" />
-    </table>
-  </div>
+  <nav className="navbarAdmin row navbar-light bg-light navbar p-3 justify-content-center">
+    <nav className="navbar-nav">
+      <div className="row">
+        <NavLink to="/administration/admintable" className="nav-link mx-2">
+          AdminTable
+        </NavLink>
+
+        <NavLink to="/administration/itemsadmin" className="nav-link mx-2">
+          Все товары
+        </NavLink>
+
+        <NavLink to="warranty" className="nav-link mx-2">
+          Что то там еще
+        </NavLink>
+      </div>
+    </nav>
+  </nav>
 );
 
 export default Administration;

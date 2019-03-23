@@ -1,8 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./images/icon.png";
-import { registration } from "./js/Registration";
-import { login } from "./js/loginAndAdministration";
 
 const Navbar = () => (
   <div>

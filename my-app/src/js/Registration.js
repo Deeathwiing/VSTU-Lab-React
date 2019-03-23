@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import $ from "jquery";
 import "popper.js";
 import "jquery";
