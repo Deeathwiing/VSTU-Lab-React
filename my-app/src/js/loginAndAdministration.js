@@ -21,6 +21,7 @@ export function login() {
     $(".removeAfterReg").hide();
     $(".PersonalArea").removeClass("d-none");
     checklogin = true;
+    localStorage.user = JSON.stringify({ checklogin });
   }
 
   admin = usersBD.some(
@@ -35,6 +36,7 @@ export function login() {
   }
 
   if (admin) {
+    localStorage.user = JSON.stringify({ admin });
     $(".linkAdmin").removeClass("d-none");
   }
 }
