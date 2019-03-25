@@ -10,10 +10,6 @@ import Warranty from "./Warranty";
 import LogIn from "./LogIn";
 import Registration from "./Registration";
 import AboutUs from "./AboutUs";
-import AdminTable from "./AdminTable";
-import ItemsAdmin from "./ItemsAdmin";
-import AddItems from "./AddItems";
-import AllItemsAdmin from "./AllItemsAdmin";
 import { AdminRoute } from "../AdminRoute";
 
 const Section = () => {

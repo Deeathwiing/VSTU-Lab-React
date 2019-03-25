@@ -4,7 +4,7 @@ class ErrorAdmin extends Component {
   render() {
     return (
       <div>
-        <h3>Вы не туда зашли,мисье,не хотите сибаса ?</h3>
+        <h3>У вас нет прав доступа</h3>
       </div>
     );
   }
