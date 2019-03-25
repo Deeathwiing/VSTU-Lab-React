@@ -4,7 +4,6 @@ import { Route } from "react-router-dom";
 import News from "./News";
 import Order from "./Order";
 import NewsAndPromotions from "./NewsAndPromotions";
-import Administration from "../Administration";
 import "../Navbar";
 import Warranty from "./Warranty";
 import LogIn from "./LogIn";
@@ -21,7 +20,7 @@ const Section = () => {
         <Route path="/news" component={News} />
         <Route path="/order" component={Order} />
         <Route path="/newsAndPromotions" component={NewsAndPromotions} />
-        <AdminRoute path="/administration" component={Administration} />
+        <AdminRoute path="/administration" />
         <Route path="/warranty" component={Warranty} />
         <Route path="/login" component={LogIn} />
         <Route path="/registration" component={Registration} />

@@ -4,7 +4,6 @@ import $ from "jquery";
 import "popper.js";
 import "jquery";
 
-// passportn express
 export function login() {
   let checklogin = false;
   let admin = false;
@@ -18,8 +17,6 @@ export function login() {
     user => logEmail === user.email && logPass === user.password
   );
   if (isTaken) {
-    $(".removeAfterReg").hide();
-    $(".PersonalArea").removeClass("d-none");
     checklogin = true;
     localStorage.user = JSON.stringify({ checklogin });
   }
@@ -37,6 +34,5 @@ export function login() {
 
   if (admin) {
     localStorage.user = JSON.stringify({ admin });
-    $(".linkAdmin").removeClass("d-none");
   }
 }
