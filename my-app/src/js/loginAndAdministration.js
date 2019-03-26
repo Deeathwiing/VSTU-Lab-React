@@ -18,7 +18,7 @@ export function login() {
   );
   if (isTaken) {
     checklogin = true;
-    localStorage.user = JSON.stringify({ checklogin });
+    localStorage.user = JSON.stringify({ logEmail, checklogin });
   }
 
   admin = usersBD.some(
@@ -33,6 +33,6 @@ export function login() {
   }
 
   if (admin) {
-    localStorage.user = JSON.stringify({ admin });
+    localStorage.user = JSON.stringify({ logEmail, admin });
   }
 }

@@ -51,7 +51,7 @@ const Navbar = props => {
                       className="dropdown-menu bg-light"
                       aria-labelledby="navbarDropdown"
                     >
-                      <NavLink className="dropdown-item" to="#">
+                      <NavLink className="dropdown-item" to="/order">
                         Заказы
                       </NavLink>
                       <div className="dropdown-divider" />

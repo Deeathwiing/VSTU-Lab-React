@@ -5,7 +5,6 @@ import Footer from "./Footer";
 import "./js/ScreenSizeAdaptivity";
 import { BrowserRouter } from "react-router-dom";
 import AsideSection from "./AsideSection";
-import "./js/DeleteItems";
 
 const App = () => (
   <BrowserRouter>
