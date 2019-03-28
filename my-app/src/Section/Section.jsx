@@ -10,6 +10,7 @@ import LogIn from "./LogIn";
 import Registration from "./Registration";
 import AboutUs from "./AboutUs";
 import { AdminRoute } from "../AdminRoute";
+import EditProfile from "./EditProfile";
 
 const Section = () => {
   return (
@@ -25,6 +26,7 @@ const Section = () => {
         <Route path="/login" component={LogIn} />
         <Route path="/registration" component={Registration} />
         <Route path="/about" component={AboutUs} />
+        <Route path="/editprofile" component={EditProfile} />
       </div>
     </section>
   );

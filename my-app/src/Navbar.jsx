@@ -67,7 +67,7 @@ const Navbar = props => {
                         Избранное
                       </NavLink>
                       <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
+                      <NavLink className="dropdown-item" to="/editprofile">
                         Редактирование профиля
                       </NavLink>
                       <div className="dropdown-divider linkAdmin" />
