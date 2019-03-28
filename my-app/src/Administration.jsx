@@ -16,7 +16,7 @@ const Administration = props => {
               AdminTable
             </NavLink>
 
-            <NavLink to="/administration/itemsadmin" className="nav-link mx-2">
+            <NavLink to="/administration/adminitems" className="nav-link mx-2">
               Все товары
             </NavLink>
 
@@ -27,10 +27,10 @@ const Administration = props => {
         </nav>
       </nav>
       <Route path="/administration/admintable" component={AdminTable} />
-      <Route path="/administration/itemsadmin" component={ItemsAdmin} />
-      <Route path="/administration/itemsadmin/additems" component={AddItems} />
+      <Route path="/administration/adminitems" component={ItemsAdmin} />
+      <Route path="/administration/adminitems/additems" component={AddItems} />
       <Route
-        path="/administration/itemsadmin/allitems"
+        path="/administration/adminitems/allitems"
         component={AllItemsAdmin}
       />
     </div>

@@ -3,6 +3,7 @@ import "popper.js";
 import "jquery";
 
 export function adminTable() {
+  $(`#loadUsers`).remove();
   let usersBD = localStorage.users ? JSON.parse(localStorage.users) : [];
   for (let i = 0; i < usersBD.length; i++) {
     const userId = usersBD[i];

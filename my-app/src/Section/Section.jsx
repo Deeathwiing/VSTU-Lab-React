@@ -17,7 +17,7 @@ const Section = () => {
     <section className="d-flex flex-column ml-1 p-2 bg-light" id="section">
       <div>
         <Route path="/" component={News} />
-        <Route path="/items" component={Items} />
+
         <Route path="/news" component={News} />
         <Route path="/order" component={Order} />
         <Route path="/newsAndPromotions" component={NewsAndPromotions} />
@@ -27,6 +27,7 @@ const Section = () => {
         <Route path="/registration" component={Registration} />
         <Route path="/about" component={AboutUs} />
         <Route path="/editprofile" component={EditProfile} />
+        <Route path="/items" component={Items} />
       </div>
     </section>
   );

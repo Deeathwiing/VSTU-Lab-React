@@ -96,8 +96,8 @@ const Navbar = props => {
                       className="dropdown-menu bg-light"
                       aria-labelledby="navbarDropdown"
                     >
-                      <NavLink className="dropdown-item" to="/about">
-                        Контакты
+                      <NavLink className="dropdown-item" to="/items">
+                        Все товары
                       </NavLink>
                       <div className="dropdown-divider" />
                       <NavLink className="dropdown-item" to="#">

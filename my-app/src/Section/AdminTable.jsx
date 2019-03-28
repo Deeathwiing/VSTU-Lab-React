@@ -5,7 +5,7 @@ const AdminTable = () => {
   return (
     <div className="container-fluid">
       <h1 className="header"> Administrator Page </h1>
-      <button type="button" onClick={adminTable}>
+      <button id="loadUsers" type="button" onClick={adminTable}>
         Load users list
       </button>
       <table className="table table-striped table-dark">

@@ -24,7 +24,6 @@ let itemsAdmin = items.map(item => {
   }
 });
 
-console.log(itemsAdmin);
 const AllItemsAdmin = () => {
   return <div className="card-columns">{itemsAdmin}</div>;
 };

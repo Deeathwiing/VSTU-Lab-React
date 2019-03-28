@@ -9,18 +9,17 @@ const ItemsAdmin = () => {
       <NavLink
         type="button"
         className="btn btn-primary m-2"
-        to="/administration/itemsadmin/additems"
+        to="/administration/adminitems/additems"
       >
         Add item
       </NavLink>
       <NavLink
         type="button"
         className="btn btn-primary m-2"
-        to="/administration/itemsadmin/allitems"
+        to="/administration/adminitems/allitems"
       >
         All items
       </NavLink>
-      <Items />
     </div>
   );
 };
