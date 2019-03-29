@@ -15,8 +15,12 @@ export function addItems() {
     }
   }
 
-  let items = localStorage.items ? JSON.parse(localStorage.items) : [];
-  const id = items.length;
+  let items = localStorage.getItem("items")
+    ? JSON.parse(localStorage.getItem("items"))
+    : [];
+  let lastElement = items[items.length - 1];
+  const id = lastElement ? lastElement.id + 1 : 0;
+
   const picture = $(".addItemPicture").val();
   const title = $(".addItemTitle").val();
   const description = $(".addItemDescription").val();
@@ -28,5 +32,5 @@ export function addItems() {
 
   const newItem = new Item(id, picture, title, description, price, tags);
   items.push(newItem);
-  localStorage.items = JSON.stringify(items);
+  localStorage.setItem("items", JSON.stringify(items));
 }

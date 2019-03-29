@@ -8,8 +8,14 @@ let checkAdmin = user.admin;
 
 export const AdminRoute = props => {
   if (checkAdmin) {
-    return <Route path="/administration" render={() => <Administration />} />;
+    return (
+      <Route
+        state={props.state}
+        path="/administration"
+        render={() => <Administration state={props.state} />}
+      />
+    );
   } else {
-    return <Route path="/administration" render={() => <ErrorAdmin />} />;
+    return <Route path="/administration" component={ErrorAdmin} />;
   }
 };

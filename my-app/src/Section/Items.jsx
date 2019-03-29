@@ -1,11 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 
-let items = localStorage.items ? JSON.parse(localStorage.items) : [];
-
-let itemsAdmin = items.map(item => {
-  if (item) {
+const Item = props => {
+  let item = props.state.map(item => {
     return (
-      <div className={"card dataId" + item.id}>
+      <div key={item.id} className={"card dataId" + item.id}>
         <img src={item.picture} className="card-img-top" alt={item.title} />
         <div className="card-body">
           <h2 className="card-title">{item.title}</h2>
@@ -15,12 +13,16 @@ let itemsAdmin = items.map(item => {
         </div>
       </div>
     );
-  }
-});
-class Items extends Component {
-  render() {
-    return <div className="card-columns">{itemsAdmin}</div>;
-  }
-}
+  });
+  return item;
+};
 
-export default Items;
+const items = props => {
+  return (
+    <div className="card-columns">
+      <Item state={props.state} />
+    </div>
+  );
+};
+
+export default items;

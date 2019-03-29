@@ -1,8 +1,7 @@
 import React from "react";
-import Items from "./Items";
 import { NavLink } from "react-router-dom";
 
-const ItemsAdmin = () => {
+const ItemsAdmin = props => {
   return (
     <div className="container-fluid">
       <h1 className="header"> All items </h1>
@@ -14,6 +13,7 @@ const ItemsAdmin = () => {
         Add item
       </NavLink>
       <NavLink
+        state={props.state}
         type="button"
         className="btn btn-primary m-2"
         to="/administration/adminitems/allitems"

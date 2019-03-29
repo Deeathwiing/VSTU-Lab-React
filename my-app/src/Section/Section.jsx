@@ -12,22 +12,25 @@ import AboutUs from "./AboutUs";
 import { AdminRoute } from "../AdminRoute";
 import EditProfile from "./EditProfile";
 
-const Section = () => {
+const Section = props => {
   return (
     <section className="d-flex flex-column ml-1 p-2 bg-light" id="section">
       <div>
         <Route path="/" component={News} />
 
         <Route path="/news" component={News} />
-        <Route path="/order" component={Order} />
+        <Route path="/order" render={() => <Order state={props.state} />} />
         <Route path="/newsAndPromotions" component={NewsAndPromotions} />
-        <AdminRoute path="/administration" />
+        <AdminRoute state={props.state} path="/administration" />
         <Route path="/warranty" component={Warranty} />
         <Route path="/login" component={LogIn} />
         <Route path="/registration" component={Registration} />
         <Route path="/about" component={AboutUs} />
-        <Route path="/editprofile" component={EditProfile} />
-        <Route path="/items" component={Items} />
+        <Route
+          path="/editprofile"
+          render={() => <EditProfile state={props.state} />}
+        />
+        <Route path="/items" render={() => <Items state={props.state} />} />
       </div>
     </section>
   );

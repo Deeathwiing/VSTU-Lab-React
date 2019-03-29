@@ -10,7 +10,7 @@ export function adminTable() {
 
     if (userId) {
       $("#adminTable").append(`
-               <tr id=trForDelete-${i}>
+               <tr key={i} id=trForDelete-${i}>
                 <th scope="row">${i}</th>
                 <td>${userId.firstName}</td>
                 <td>${userId.lastName}</td>
@@ -22,23 +22,18 @@ export function adminTable() {
 
       if (userId.deleteAccountRequest) {
         $(`#tdForBtn-${i}`)
-          .append(`<button class="btnForDelete btn-danger btn-block " id=btnForDelete-${i}
+          .append(`<button class="btnForDelete btn-danger btn-block " data-id=${i}
 }  >Delete User</button>`);
       }
     }
   }
 
   $("#adminTable").on("click", ".btnForDelete", function() {
-    const idToDelete = Number(
-      $(this)
-        .attr("id")
-        .substr(13)
-    );
+    const idToDelete = Number($(this).attr("data-id"));
 
     if (usersBD[idToDelete].deleteAccountRequest) {
-      // usersBD.splice(idToDelete, 1);
       delete usersBD[idToDelete];
-      localStorage.users = JSON.stringify(usersBD);
+      localStorage.setItem("users", JSON.stringify(usersBD));
       $(`#btnForDelete-${idToDelete}`).remove();
       $(`#trForDelete-${idToDelete}`).remove();
     }

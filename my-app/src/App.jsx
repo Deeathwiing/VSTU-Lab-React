@@ -6,13 +6,15 @@ import "./js/ScreenSizeAdaptivity";
 import { BrowserRouter } from "react-router-dom";
 import AsideSection from "./AsideSection";
 
-const App = () => (
-  <BrowserRouter>
-    <Slides />
-    <Navbar />
-    <AsideSection />
-    <Footer />
-  </BrowserRouter>
-);
+const App = props => {
+  return (
+    <BrowserRouter state={props.state}>
+      <Slides />
+      <Navbar />
+      <AsideSection state={props.state} />
+      <Footer />
+    </BrowserRouter>
+  );
+};
 
 export default App;

@@ -2,19 +2,23 @@ import $ from "jquery";
 
 function deleteItems() {
   $(".card-columns").on("click", ".btnForDelete", function() {
-    const idToDelete = Number(
-      $(this)
-        .attr("id")
-        .substr(13)
-    );
-    console.log(idToDelete);
-    let items = localStorage.items ? JSON.parse(localStorage.items) : [];
-    console.log(items);
+    const idToDelete = Number($(this).attr("data-id"));
 
-    delete items[idToDelete];
+    let items = localStorage.getItem("items")
+      ? JSON.parse(localStorage.getItem("items"))
+      : [];
 
-    localStorage.items = JSON.stringify(items);
-    $(`.dataId${idToDelete}`).remove();
+    items = items.filter(item => {
+      if (item.id !== idToDelete) {
+        return item;
+      } else return false;
+    });
+
+    localStorage.setItem("items", JSON.stringify(items));
+
+    $(".card-columns")
+      .find(`[data-id=${idToDelete}]`)
+      .remove();
     return;
   });
   return;

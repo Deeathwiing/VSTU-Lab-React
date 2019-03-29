@@ -10,6 +10,10 @@ import "./js/Registration";
 import "./js/loginAndAdministration";
 import "./js/DeleteItems";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+let itemsBD = localStorage.getItem("items")
+  ? JSON.parse(localStorage.getItem("items"))
+  : [];
+
+ReactDOM.render(<App state={itemsBD} />, document.getElementById("root"));
 
 serviceWorker.unregister();

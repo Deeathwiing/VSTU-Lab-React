@@ -27,11 +27,16 @@ const Administration = props => {
         </nav>
       </nav>
       <Route path="/administration/admintable" component={AdminTable} />
-      <Route path="/administration/adminitems" component={ItemsAdmin} />
+      <Route
+        state={props.state}
+        path="/administration/adminitems"
+        component={ItemsAdmin}
+      />
       <Route path="/administration/adminitems/additems" component={AddItems} />
       <Route
+        state={props.state}
         path="/administration/adminitems/allitems"
-        component={AllItemsAdmin}
+        render={() => <AllItemsAdmin state={props.state} />}
       />
     </div>
   );

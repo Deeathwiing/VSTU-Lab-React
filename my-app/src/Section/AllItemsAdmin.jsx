@@ -1,11 +1,9 @@
 import React from "react";
 
-let items = localStorage.items ? JSON.parse(localStorage.items) : [];
-
-let itemsAdmin = items.map(item => {
-  if (item) {
+const Item = props => {
+  let itemsAdmin = props.state.map(item => {
     return (
-      <div className={"card dataId" + item.id}>
+      <div key={item.id} className="card" data-id={item.id}>
         <img src={item.picture} className="card-img-top" alt={item.title} />
         <div className="card-body">
           <h2 className="card-title">{item.title}</h2>
@@ -14,18 +12,23 @@ let itemsAdmin = items.map(item => {
           <p className="card-text">{item.tags}</p>
           <button
             className="btn-danger btn-block btnForDelete"
-            id={"btnForDelete-" + item.id}
+            data-id={item.id}
           >
             Delete item
           </button>
         </div>
       </div>
     );
-  }
-});
+  });
+  return itemsAdmin;
+};
 
-const AllItemsAdmin = () => {
-  return <div className="card-columns">{itemsAdmin}</div>;
+const AllItemsAdmin = props => {
+  return (
+    <div className="card-columns">
+      <Item state={props.state} />
+    </div>
+  );
 };
 
 export default AllItemsAdmin;
