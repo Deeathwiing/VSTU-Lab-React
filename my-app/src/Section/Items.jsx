@@ -3,7 +3,7 @@ import $ from "jquery";
 
 const Item = props => {
   function addRating() {
-    $(".rating").on("click", ".ratingstar", function() {
+    $(".rating").on("click", ".ratingStar", function() {
       const itemId = Number($(this).attr("item-id"));
 
       const ratingValue = Number($(this).attr("rating-value"));
@@ -58,19 +58,19 @@ const Item = props => {
           <p className="card-text">{item.tags}</p>
         </div>
         <div className="rating">
-          <span className="ratingstar item" item-id={item.id} rating-value={5}>
+          <span className="ratingStar item" item-id={item.id} rating-value={5}>
             ☆
           </span>
-          <span className="ratingstar item" item-id={item.id} rating-value={4}>
+          <span className="ratingStar item" item-id={item.id} rating-value={4}>
             ☆
           </span>
-          <span className="ratingstar item" item-id={item.id} rating-value={3}>
+          <span className="ratingStar item" item-id={item.id} rating-value={3}>
             ☆
           </span>
-          <span className="ratingstar item" item-id={item.id} rating-value={2}>
+          <span className="ratingStar item" item-id={item.id} rating-value={2}>
             ☆
           </span>
-          <span className="ratingstar item" item-id={item.id} rating-value={1}>
+          <span className="ratingStar item" item-id={item.id} rating-value={1}>
             ☆
           </span>
         </div>

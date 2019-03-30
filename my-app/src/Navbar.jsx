@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import logo from "./images/icon.png";
 
 let user = localStorage.user ? JSON.parse(localStorage.user) : [];
-let checkUser = user.checklogin;
+let checkUser = user.checkLogin;
 let checkAdmin = user.admin;
 
 const Navbar = props => {
@@ -42,15 +42,11 @@ const Navbar = props => {
                       className="nav-link font-weight-bold dropdown-toggle"
                       role="button"
                       data-toggle="dropdown"
-                      aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Личный кабинет
                     </NavLink>
-                    <div
-                      className="dropdown-menu bg-light"
-                      aria-labelledby="navbarDropdown"
-                    >
+                    <div className="dropdown-menu bg-light">
                       <NavLink className="dropdown-item" to="/order">
                         Заказы
                       </NavLink>
@@ -85,17 +81,13 @@ const Navbar = props => {
                       className="nav-link dropdown-toggle"
                       role="button"
                       data-toggle="dropdown"
-                      aria-haspopup="true"
                       aria-expanded="false"
                       to="items"
                     >
                       Каталог
                     </NavLink>
 
-                    <div
-                      className="dropdown-menu bg-light"
-                      aria-labelledby="navbarDropdown"
-                    >
+                    <div className="dropdown-menu bg-light">
                       <NavLink className="dropdown-item" to="/items">
                         Все товары
                       </NavLink>
@@ -203,15 +195,11 @@ const Navbar = props => {
                       className="nav-link font-weight-bold dropdown-toggle"
                       role="button"
                       data-toggle="dropdown"
-                      aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Личный кабинет
                     </NavLink>
-                    <div
-                      className="dropdown-menu bg-light"
-                      aria-labelledby="navbarDropdown"
-                    >
+                    <div className="dropdown-menu bg-light">
                       <NavLink className="dropdown-item" to="#">
                         Заказы
                       </NavLink>
@@ -228,7 +216,7 @@ const Navbar = props => {
                         Избранное
                       </NavLink>
                       <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
+                      <NavLink className="dropdown-item" to="/editprofile">
                         Редактирование профиля
                       </NavLink>
                     </div>
@@ -239,17 +227,17 @@ const Navbar = props => {
                       className="nav-link dropdown-toggle"
                       role="button"
                       data-toggle="dropdown"
-                      aria-haspopup="true"
                       aria-expanded="false"
                       to="items"
                     >
                       Каталог
                     </NavLink>
 
-                    <div
-                      className="dropdown-menu bg-light"
-                      aria-labelledby="navbarDropdown"
-                    >
+                    <div className="dropdown-menu bg-light">
+                      <NavLink className="dropdown-item" to="/items">
+                        Все товары
+                      </NavLink>
+                      <div className="dropdown-divider" />
                       <NavLink className="dropdown-item" to="/about">
                         Контакты
                       </NavLink>
@@ -374,17 +362,17 @@ const Navbar = props => {
                     className="nav-link dropdown-toggle"
                     role="button"
                     data-toggle="dropdown"
-                    aria-haspopup="true"
                     aria-expanded="false"
                     to="items"
                   >
                     Каталог
                   </NavLink>
 
-                  <div
-                    className="dropdown-menu bg-light"
-                    aria-labelledby="navbarDropdown"
-                  >
+                  <div className="dropdown-menu bg-light">
+                    <NavLink className="dropdown-item" to="/items">
+                      Все товары
+                    </NavLink>
+                    <div className="dropdown-divider" />
                     <NavLink className="dropdown-item" to="/about">
                       Контакты
                     </NavLink>

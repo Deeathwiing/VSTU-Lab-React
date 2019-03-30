@@ -6,9 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./css/style.css";
 import "./js/ScreenSizeAdaptivity";
-import "./js/Registration";
-import "./js/loginAndAdministration";
-import "./js/DeleteItems";
 
 let itemsBD = localStorage.getItem("items")
   ? JSON.parse(localStorage.getItem("items"))
