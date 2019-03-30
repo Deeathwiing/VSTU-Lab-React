@@ -5,26 +5,36 @@ const Item = props => {
   function addRating() {
     $(".rating").on("click", ".ratingstar", function() {
       const itemId = Number($(this).attr("item-id"));
-      console.log(itemId);
+
       const ratingValue = Number($(this).attr("rating-value"));
-      console.log(ratingValue);
+
       let items = localStorage.getItem("items")
         ? JSON.parse(localStorage.getItem("items"))
         : [];
       let user = localStorage.getItem("user")
         ? JSON.parse(localStorage.getItem("user"))
         : [];
+      const personalRating = {
+        user: user.logEmail,
+        ratingValue: ratingValue
+      };
 
       items = items.map(item => {
         if (item.id === itemId) {
-          console.log(item.rating);
-          if ((item.rating.user = user.logEmail)) {
-            const personalRating = {
-              user: user.logEmail,
-              ratingValue: ratingValue
-            };
-            item.rating = personalRating;
-          }
+          let singleRating = item.rating;
+          let checkRating = false;
+          if (singleRating[0]) {
+            singleRating.forEach(function(element, i, singleRating) {
+              if (element.user === user.logEmail) {
+                singleRating[i] = personalRating;
+                checkRating = true;
+              }
+            });
+            if (!checkRating) {
+              singleRating.push(personalRating);
+            }
+          } else singleRating.push(personalRating);
+          item.rating = singleRating;
         }
         return item;
       });
