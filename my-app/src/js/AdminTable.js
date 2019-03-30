@@ -4,38 +4,41 @@ import "jquery";
 
 export function adminTable() {
   $(`#loadUsers`).remove();
-  let usersBD = localStorage.users ? JSON.parse(localStorage.users) : [];
+  let usersBD = localStorage.getItem("users")
+    ? JSON.parse(localStorage.getItem("users"))
+    : [];
   for (let i = 0; i < usersBD.length; i++) {
-    const userId = usersBD[i];
+    let user = usersBD[i];
+    const userId = user.id;
 
-    if (userId) {
-      $("#adminTable").append(`
-               <tr key={i} id=trForDelete-${i}>
-                <th scope="row">${i}</th>
-                <td>${userId.firstName}</td>
-                <td>${userId.lastName}</td>
-                <td>${userId.email}</td>
-                <td>${userId.deleteAccountRequest}</td>
+    $("#adminTable").append(`
+               <tr key={i} id=trForDelete-${userId}>
+                <th scope="row">${userId}</th>
+                <td>${user.firstName}</td>
+                <td>${user.lastName}</td>
+                <td>${user.email}</td>
+                <td>${user.deleteAccountRequest}</td>
                 <td id="tdForBtn-${i}"></td>
               </tr>
 `);
 
-      if (userId.deleteAccountRequest) {
-        $(`#tdForBtn-${i}`)
-          .append(`<button class="btnForDelete btn-danger btn-block " data-id=${i}
+    if (user.deleteAccountRequest) {
+      $(`#tdForBtn-${i}`)
+        .append(`<button class="btnForDelete btn-danger btn-block " data-id=${userId}
 }  >Delete User</button>`);
-      }
     }
   }
 
   $("#adminTable").on("click", ".btnForDelete", function() {
     const idToDelete = Number($(this).attr("data-id"));
 
-    if (usersBD[idToDelete].deleteAccountRequest) {
-      delete usersBD[idToDelete];
-      localStorage.setItem("users", JSON.stringify(usersBD));
-      $(`#btnForDelete-${idToDelete}`).remove();
-      $(`#trForDelete-${idToDelete}`).remove();
-    }
+    usersBD = usersBD.filter(user => {
+      if ((user.id === idToDelete) & user.deleteAccountRequest) {
+        $(`#btnForDelete-${idToDelete}`).remove();
+        $(`#trForDelete-${idToDelete}`).remove();
+        return false;
+      } else return user;
+    });
+    localStorage.setItem("users", JSON.stringify(usersBD));
   });
 }

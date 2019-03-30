@@ -8,18 +8,16 @@ export function login() {
   let checklogin = false;
   let admin = false;
 
-  let usersBD = localStorage.users ? JSON.parse(localStorage.users) : [];
+  let usersBD = localStorage.getItem("users")
+    ? JSON.parse(localStorage.getItem("users"))
+    : [];
   const logEmail = $("#logEmail")
     .val()
     .toLowerCase();
   const logPass = $("#logPass").val();
-  const isTaken = usersBD.some(
+  checklogin = usersBD.some(
     user => logEmail === user.email && logPass === user.password
   );
-  if (isTaken) {
-    checklogin = true;
-    localStorage.user = JSON.stringify({ logEmail, checklogin });
-  }
 
   admin = usersBD.some(
     user =>
@@ -28,11 +26,15 @@ export function login() {
       user.administration
   );
 
-  if (!checklogin) {
-    alert("Введите правильный email и пароль");
+  if (checklogin) {
+    if (admin) {
+      localStorage.setItem("user", JSON.stringify({ logEmail, admin }));
+    } else {
+      localStorage.setItem("user", JSON.stringify({ logEmail, checklogin }));
+    }
   }
 
-  if (admin) {
-    localStorage.user = JSON.stringify({ logEmail, admin });
+  if (!checklogin & !admin) {
+    alert("Введите правильный email и пароль");
   }
 }

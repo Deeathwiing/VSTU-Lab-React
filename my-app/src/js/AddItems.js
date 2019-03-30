@@ -5,13 +5,14 @@ import "popper.js";
 
 export function addItems() {
   class Item {
-    constructor(id, picture, title, description, price, tags) {
+    constructor(id, picture, title, description, price, tags, rating) {
       this.id = id;
       this.picture = picture;
       this.title = title;
       this.description = description;
       this.price = price;
       this.tags = tags;
+      this.rating = rating;
     }
   }
 
@@ -26,11 +27,20 @@ export function addItems() {
   const description = $(".addItemDescription").val();
   const price = $(".addItemPrice").val() + " $";
   const tags = [];
+  const rating = [];
   for (let i = 0; i < 3; i++) {
     tags[i] = "#" + $(`.addItemTag-${i}`).val() + " ";
   }
 
-  const newItem = new Item(id, picture, title, description, price, tags);
+  const newItem = new Item(
+    id,
+    picture,
+    title,
+    description,
+    price,
+    tags,
+    rating
+  );
   items.push(newItem);
   localStorage.setItem("items", JSON.stringify(items));
 }

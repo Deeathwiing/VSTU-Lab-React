@@ -5,7 +5,8 @@ import "popper.js";
 
 export function registration() {
   class User {
-    constructor(email, firstName, lastName, password) {
+    constructor(id, email, firstName, lastName, password) {
+      this.id = id;
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
@@ -15,13 +16,17 @@ export function registration() {
     }
   }
 
-  let users = localStorage.users ? JSON.parse(localStorage.users) : [];
+  let users = localStorage.getItem("users")
+    ? JSON.parse(localStorage.getItem("users"))
+    : [];
   const email = $("#regEmail")
     .val()
     .toLowerCase();
   const firstName = $("#regFirstName").val();
   const lastName = $("#regLastName").val();
   const password = $("#regPassword").val();
+  let lastElement = users[users.length - 1];
+  const id = lastElement ? lastElement.id + 1 : 0;
 
   const isTaken = users.some(user => user.email === email);
   if (isTaken) {
@@ -34,10 +39,10 @@ export function registration() {
     return;
   }
 
-  const newUser = new User(email, firstName, lastName, password);
+  const newUser = new User(id, email, firstName, lastName, password);
   users.push(newUser);
 
-  localStorage.users = JSON.stringify(users);
+  localStorage.setItem("users", JSON.stringify(users));
   alert("Вы зарегистрировались,пожалуйста войдите");
   $(".Reg").hide();
 }
