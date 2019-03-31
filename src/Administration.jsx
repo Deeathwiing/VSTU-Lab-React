@@ -9,8 +9,8 @@ import AllItemsAdmin from "./Section/AllItemsAdmin";
 const Administration = props => {
   return (
     <div>
-      <nav className="navbarAdmin row navbar-light bg-light navbar p-3 justify-content-center">
-        <nav className="navbar-nav">
+      <nav className="navbarAdmin row navbar-light bg-light p-3 justify-content-center">
+        <div className="navbar-nav">
           <div className="row">
             <NavLink to="/administration/admintable" className="nav-link mx-2">
               AdminTable
@@ -24,7 +24,7 @@ const Administration = props => {
               Что то там еще
             </NavLink>
           </div>
-        </nav>
+        </div>
       </nav>
       <Route path="/administration/admintable" component={AdminTable} />
       <Route

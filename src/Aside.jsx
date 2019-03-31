@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Aside extends Component {
   render() {
     return (
-      <aside className=" flex-column mr-1 col p-0 sticky-top" id="deleteAside">
+      <aside className=" flex-column mr-1 col p-0 sticky-top" id="delete-Aside">
         <nav className="nav flex-column navbar-light bg-light shadow">
           <ul className="navbar-nav p-4">
             <li className="nav-item col">
@@ -13,18 +13,11 @@ class Aside extends Component {
             </li>
 
             <li className="nav-item dropdown col">
-              <a
-                className="nav-link dropdown-toggle"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                href="#"
-              >
+              <a className="nav-link dropdown-toggle" role="button" href="#">
                 Каталог
               </a>
 
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div className="dropdown-menu">
                 <a className="dropdown-item" href="#">
                   Контакты
                 </a>
@@ -78,7 +71,7 @@ class Aside extends Component {
               <form className="form-inline">
                 <input
                   className="form-control mr-sm-2 shadow-lg"
-                  id="asideSearch"
+                  id="aside-Search"
                   type="search"
                   placeholder="Поиск"
                   aria-label="Search"
@@ -86,7 +79,7 @@ class Aside extends Component {
                 <button
                   className="btn btn-outline-secondary my-2 my-sm-0 text-dark bg-light"
                   type="submit"
-                  id="asideSearchBtn"
+                  id="aside-Search-Btn"
                 >
                   Поиск
                 </button>

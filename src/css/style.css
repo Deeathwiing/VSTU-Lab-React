@@ -7,10 +7,6 @@ header {
   height: 20%;
 }
 
-.navbar {
-  height: 10%;
-}
-
 section {
   width: 70%;
   height: 60%;
@@ -26,11 +22,11 @@ aside {
   height: 100%;
 }
 
-.navbar-brand #imgLogo {
+.navbar-brand #img-Logo {
   width: 35%;
 }
 
-#NewItems {
+#New-Items {
   color: red;
 }
 

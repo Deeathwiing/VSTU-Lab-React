@@ -87,8 +87,8 @@ const Registration = () => {
         </div>
         <div className="form-group">
           <div className="form-check">
-            <input type="checkbox" className="form-check-input" />
-            <label className="form-check-label" htmlFor="checkbox">
+            <input type="checkbox" className="form-check-input" id="RememberMeCheckbox" />
+            <label className="form-check-label" htmlFor="RememberMeCheckbox">
               Запомнить меня
             </label>
           </div>

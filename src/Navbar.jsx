@@ -15,7 +15,7 @@ const Navbar = props => {
             <nav className="navbar row  navbar-expand-md navbar-light bg-light shadow">
               <div className=" col m-1 mr-4">
                 <NavLink to="/newsAndPromotions" className="navbar-brand">
-                  <img id="imgLogo" src={logo} alt="Logo" />
+                  <img id="img-Logo" src={logo} alt="Logo" />
                   <span id="textLogo" className="ml-3">
                     Vape Shop
                   </span>
@@ -134,7 +134,7 @@ const Navbar = props => {
 
                   <li className="nav-item">
                     <NavLink to="/newsAndPromotions" className="nav-link">
-                      <span id="NewItems">Новинки и акции!</span>
+                      <span id="New-Items">Новинки и акции!</span>
                     </NavLink>
                   </li>
 
@@ -168,7 +168,7 @@ const Navbar = props => {
             <nav className="navbar row  navbar-expand-md navbar-light bg-light shadow">
               <div className=" col m-1 mr-4">
                 <NavLink to="/newsAndPromotions" className="navbar-brand">
-                  <img id="imgLogo" src={logo} alt="Logo" />
+                  <img id="img-Logo" src={logo} alt="Logo" />
                   <span id="textLogo" className="ml-3">
                     Vape Shop
                   </span>
@@ -284,7 +284,7 @@ const Navbar = props => {
 
                   <li className="nav-item">
                     <NavLink to="/newsAndPromotions" className="nav-link">
-                      <span id="NewItems">Новинки и акции!</span>
+                      <span id="New-Items">Новинки и акции!</span>
                     </NavLink>
                   </li>
 
@@ -319,7 +319,7 @@ const Navbar = props => {
           <nav className="navbar row  navbar-expand-md navbar-light bg-light shadow">
             <div className=" col m-1 mr-4">
               <NavLink to="/newsAndPromotions" className="navbar-brand">
-                <img id="imgLogo" src={logo} alt="Logo" />
+                <img id="img-Logo" src={logo} alt="Logo" />
                 <span id="textLogo" className="ml-3">
                   Vape Shop
                 </span>
@@ -419,7 +419,7 @@ const Navbar = props => {
 
                 <li className="nav-item">
                   <NavLink to="/newsAndPromotions" className="nav-link">
-                    <span id="NewItems">Новинки и акции!</span>
+                    <span id="New-Items">Новинки и акции!</span>
                   </NavLink>
                 </li>
 
