@@ -1,0 +1,32 @@
+@media (max-width: 1210px) {
+  #asideSearch {
+    width: 150px;
+  }
+}
+
+@media (max-width: 800px) and (min-width: 451px) {
+  #asideSearchBtn,
+  #asideSearch {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+
+@media (max-width: 450px) {
+  #asideSearch {
+    width: 150px;
+  }
+  #deleteAside {
+    display: none;
+  }
+  #section {
+    width: 100%;
+  }
+  #Search {
+    width: 200px;
+    margin-right: 5px;
+  }
+  #Reg {
+    width: 100%;
+  }
+}

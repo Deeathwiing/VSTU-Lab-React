@@ -5,7 +5,8 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./css/style.css";
-import "./js/ScreenSizeAdaptivity";
+import "./css/media.css";
+//import "./js/ScreenSizeAdaptivity";
 
 let itemsBD = localStorage.getItem("items")
   ? JSON.parse(localStorage.getItem("items"))
