@@ -1,7 +1,7 @@
 import React from "react";
 import $ from "jquery";
 
-const Registration = () => {
+const Registration = props => {
   function registration() {
     class User {
       constructor(id, email, firstName, lastName, password) {
@@ -87,7 +87,11 @@ const Registration = () => {
         </div>
         <div className="form-group">
           <div className="form-check">
-            <input type="checkbox" className="form-check-input" id="RememberMeCheckbox" />
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="RememberMeCheckbox"
+            />
             <label className="form-check-label" htmlFor="RememberMeCheckbox">
               Запомнить меня
             </label>

@@ -1,7 +1,7 @@
 import React from "react";
 import $ from "jquery";
 
-const AddItems = () => {
+const AddItems = props => {
   function addItems() {
     class Item {
       constructor(id, picture, title, description, price, tags, rating) {
@@ -15,9 +15,7 @@ const AddItems = () => {
       }
     }
 
-    let items = localStorage.getItem("items")
-      ? JSON.parse(localStorage.getItem("items"))
-      : [];
+    let items = props.state.items;
     let lastElement = items[items.length - 1];
     const id = lastElement ? lastElement.id + 1 : 0;
 
@@ -100,7 +98,7 @@ const AddItems = () => {
         <button
           type="button"
           onClick={addItems}
-          className="btn btn-primary mt-2 "
+          className="btn btn-primary mt-2"
         >
           Upload item
         </button>

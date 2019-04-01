@@ -6,12 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./css/style.css";
 import "./css/media.css";
-//import "./js/ScreenSizeAdaptivity";
+import state from "./redux/state";
 
-let itemsBD = localStorage.getItem("items")
-  ? JSON.parse(localStorage.getItem("items"))
-  : [];
-
-ReactDOM.render(<App state={itemsBD} />, document.getElementById("root"));
+ReactDOM.render(<App state={state} />, document.getElementById("root"));
 
 serviceWorker.unregister();

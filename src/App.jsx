@@ -7,11 +7,11 @@ import AsideSection from "./AsideSection";
 
 const App = props => {
   return (
-    <BrowserRouter state={props.state}>
+    <BrowserRouter>
       <Slides />
-      <Navbar />
+      <Navbar state={props.state} />
       <AsideSection state={props.state} />
-      <Footer />
+      <Footer state={props.state} />
     </BrowserRouter>
   );
 };

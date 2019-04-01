@@ -2,18 +2,15 @@ import React from "react";
 import $ from "jquery";
 
 const Item = props => {
+  let state = props.state;
   function addRating() {
     $(".rating").on("click", ".ratingStar", function() {
       const itemId = Number($(this).attr("item-id"));
 
       const ratingValue = Number($(this).attr("rating-value"));
 
-      let items = localStorage.getItem("items")
-        ? JSON.parse(localStorage.getItem("items"))
-        : [];
-      let user = localStorage.getItem("user")
-        ? JSON.parse(localStorage.getItem("user"))
-        : [];
+      let items = state.items;
+      let user = state.user;
       const personalRating = {
         user: user.logEmail,
         ratingValue: ratingValue
@@ -47,7 +44,7 @@ const Item = props => {
     addRating();
   });
 
-  let item = props.state.map(item => {
+  let item = props.state.items.map(item => {
     return (
       <div key={item.id} className={"card dataId" + item.id}>
         <img src={item.picture} className="card-img-top" alt={item.title} />

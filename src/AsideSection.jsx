@@ -5,7 +5,7 @@ import Section from "./Section/Section";
 const AsideSection = props => {
   return (
     <div className="aside-section container p-0 d-flex flex-row">
-      <Aside />
+      <Aside state={props.state} />
       <Section state={props.state} />
     </div>
   );

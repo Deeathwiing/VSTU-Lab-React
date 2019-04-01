@@ -3,12 +3,9 @@ import Administration from "./Administration";
 import { Route } from "react-router-dom";
 import ErrorAdmin from "./ErrorAdmin";
 
-let user = localStorage.getItem("user")
-  ? JSON.parse(localStorage.getItem("user"))
-  : [];
-let checkAdmin = user.admin;
-
 export const AdminRoute = props => {
+  let user = props.state.user;
+  let checkAdmin = user.admin;
   if (checkAdmin) {
     return (
       <Route

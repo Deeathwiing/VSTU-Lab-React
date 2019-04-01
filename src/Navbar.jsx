@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./images/icon.png";
-
-let user = localStorage.user ? JSON.parse(localStorage.user) : [];
-let checkUser = user.checkLogin;
-let checkAdmin = user.admin;
+import { NavLinksAdministration, NavLinkDropDown } from "./NavLinks";
 
 const Navbar = props => {
+  let user = props.state.user;
+  let checkUser = user.checkLogin;
+  let checkAdmin = user.admin;
+
   if (checkUser || checkAdmin) {
     if (checkAdmin) {
       return (
@@ -47,28 +48,15 @@ const Navbar = props => {
                       Личный кабинет
                     </NavLink>
                     <div className="dropdown-menu bg-light">
-                      <NavLink className="dropdown-item" to="/order">
-                        Заказы
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Скидки
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="/order">
-                        Корзина
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Избранное
-                      </NavLink>
-                      <div className="dropdown-divider" />
+                      <NavLinkDropDown
+                        state={props.state.NavLinkPersonalArea}
+                      />
                       <NavLink className="dropdown-item" to="/editprofile">
                         Редактирование профиля
                       </NavLink>
-                      <div className="dropdown-divider linkAdmin" />
+                      <div className="dropdown-divider" />
                       <NavLink
-                        className="dropdown-item text-danger linkAdmin"
+                        className="dropdown-item text-danger"
                         to="/administration"
                       >
                         Администрирование
@@ -88,55 +76,14 @@ const Navbar = props => {
                     </NavLink>
 
                     <div className="dropdown-menu bg-light">
-                      <NavLink className="dropdown-item" to="/items">
-                        Все товары
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Атомайзеры
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Электронные парогенераторы
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Жидкости
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Запчасти и комплектующие
-                      </NavLink>
-                      <div className="dropdown-divider" />
+                      <NavLinkDropDown state={props.state.NavLinkCatalog} />
                       <NavLink className="dropdown-item" to="#">
                         Все для самозамеса
                       </NavLink>
                     </div>
                   </li>
 
-                  <li className="nav-item">
-                    <NavLink to="/newsAndPromotions" className="nav-link">
-                      Новости и предложения
-                    </NavLink>
-                  </li>
-
-                  <li className="nav-item">
-                    <NavLink to="/order" className="nav-link">
-                      Заказ
-                    </NavLink>
-                  </li>
-
-                  <li className="nav-item">
-                    <NavLink to="/warranty" className="nav-link">
-                      Гарантия
-                    </NavLink>
-                  </li>
-
-                  <li className="nav-item">
-                    <NavLink to="/newsAndPromotions" className="nav-link">
-                      <span id="New-Items">Новинки и акции!</span>
-                    </NavLink>
-                  </li>
+                  <NavLinksAdministration state={props.state.NavLinkNavbar} />
 
                   <li className="nav-item ml-2">
                     <form className="form-inline py-1">
@@ -200,22 +147,9 @@ const Navbar = props => {
                       Личный кабинет
                     </NavLink>
                     <div className="dropdown-menu bg-light">
-                      <NavLink className="dropdown-item" to="#">
-                        Заказы
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Скидки
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="/order">
-                        Корзина
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Избранное
-                      </NavLink>
-                      <div className="dropdown-divider" />
+                      <NavLinkDropDown
+                        state={props.state.NavLinkPersonalArea}
+                      />
                       <NavLink className="dropdown-item" to="/editprofile">
                         Редактирование профиля
                       </NavLink>
@@ -234,59 +168,14 @@ const Navbar = props => {
                     </NavLink>
 
                     <div className="dropdown-menu bg-light">
-                      <NavLink className="dropdown-item" to="/items">
-                        Все товары
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="/about">
-                        Контакты
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Атомайзеры
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Электронные парогенераторы
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Жидкости
-                      </NavLink>
-                      <div className="dropdown-divider" />
-                      <NavLink className="dropdown-item" to="#">
-                        Запчасти и комплектующие
-                      </NavLink>
-                      <div className="dropdown-divider" />
+                      <NavLinkDropDown state={props.state.NavLinkCatalog} />
                       <NavLink className="dropdown-item" to="#">
                         Все для самозамеса
                       </NavLink>
                     </div>
                   </li>
 
-                  <li className="nav-item">
-                    <NavLink to="/newsAndPromotions" className="nav-link">
-                      Новости и предложения
-                    </NavLink>
-                  </li>
-
-                  <li className="nav-item">
-                    <NavLink to="/order" className="nav-link">
-                      Заказ
-                    </NavLink>
-                  </li>
-
-                  <li className="nav-item">
-                    <NavLink to="/warranty" className="nav-link">
-                      Гарантия
-                    </NavLink>
-                  </li>
-
-                  <li className="nav-item">
-                    <NavLink to="/newsAndPromotions" className="nav-link">
-                      <span id="New-Items">Новинки и акции!</span>
-                    </NavLink>
-                  </li>
+                  <NavLinksAdministration state={props.state.NavLinkNavbar} />
 
                   <li className="nav-item ml-2">
                     <form className="form-inline py-1">
@@ -337,7 +226,7 @@ const Navbar = props => {
 
             <div className="collapse navbar-collapse col" id="navbarResponsive">
               <ul className="navbar-nav row d-flex justify-content-around">
-                <li className="nav-item dropdown removeAfterReg">
+                <li className="nav-item dropdown">
                   <NavLink
                     to="/login"
                     className="nav-link font-weight-bold"
@@ -347,7 +236,7 @@ const Navbar = props => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item dropdown removeAfterReg">
+                <li className="nav-item dropdown">
                   <NavLink
                     to="/registration"
                     className="nav-link font-weight-bold"
@@ -369,59 +258,14 @@ const Navbar = props => {
                   </NavLink>
 
                   <div className="dropdown-menu bg-light">
-                    <NavLink className="dropdown-item" to="/items">
-                      Все товары
-                    </NavLink>
-                    <div className="dropdown-divider" />
-                    <NavLink className="dropdown-item" to="/about">
-                      Контакты
-                    </NavLink>
-                    <div className="dropdown-divider" />
-                    <NavLink className="dropdown-item" to="#">
-                      Атомайзеры
-                    </NavLink>
-                    <div className="dropdown-divider" />
-                    <NavLink className="dropdown-item" to="#">
-                      Электронные парогенераторы
-                    </NavLink>
-                    <div className="dropdown-divider" />
-                    <NavLink className="dropdown-item" to="#">
-                      Жидкости
-                    </NavLink>
-                    <div className="dropdown-divider" />
-                    <NavLink className="dropdown-item" to="#">
-                      Запчасти и комплектующие
-                    </NavLink>
-                    <div className="dropdown-divider" />
+                    <NavLinkDropDown state={props.state.NavLinkCatalog} />
                     <NavLink className="dropdown-item" to="#">
                       Все для самозамеса
                     </NavLink>
                   </div>
                 </li>
 
-                <li className="nav-item">
-                  <NavLink to="/newsAndPromotions" className="nav-link">
-                    Новости и предложения
-                  </NavLink>
-                </li>
-
-                <li className="nav-item">
-                  <NavLink to="/order" className="nav-link">
-                    Заказ
-                  </NavLink>
-                </li>
-
-                <li className="nav-item">
-                  <NavLink to="/warranty" className="nav-link">
-                    Гарантия
-                  </NavLink>
-                </li>
-
-                <li className="nav-item">
-                  <NavLink to="/newsAndPromotions" className="nav-link">
-                    <span id="New-Items">Новинки и акции!</span>
-                  </NavLink>
-                </li>
+                <NavLinksAdministration state={props.state.NavLinkNavbar} />
 
                 <li className="nav-item ml-2">
                   <form className="form-inline py-1">

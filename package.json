@@ -41,5 +41,13 @@
   "keywords": [],
   "author": "Deathwing",
   "license": "ISC",
-  "main": ".eslintrc.js"
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deeathwiing/VSTU-Lab-React.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Deeathwiing/VSTU-Lab-React/issues"
+  },
+  "homepage": "https://github.com/Deeathwiing/VSTU-Lab-React#readme"
 }

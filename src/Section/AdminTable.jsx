@@ -1,54 +1,58 @@
 import React from "react";
 import $ from "jquery";
+export const AdminTable = props => {
+  let users = props.state.users;
 
-const AdminTable = () => {
-  function adminTable() {
-    $(`#loadUsers`).remove();
-    let usersBD = localStorage.getItem("users")
-      ? JSON.parse(localStorage.getItem("users"))
-      : [];
-    for (let i = 0; i < usersBD.length; i++) {
-      let user = usersBD[i];
-      const userId = user.id;
+  function deleteUser(btn) {
+    const idToDelete = Number(btn.target.getAttribute("data-id"));
 
-      $("#adminTable").append(`
-               <tr key={i} id=trForDelete-${userId}>
-                <th scope="row">${userId}</th>
-                <td>${user.firstName}</td>
-                <td>${user.lastName}</td>
-                <td>${user.email}</td>
-                <td>${user.deleteAccountRequest}</td>
-                <td id="tdForBtn-${i}"></td>
-              </tr>
-`);
-
-      if (user.deleteAccountRequest) {
-        $(`#tdForBtn-${i}`)
-          .append(`<button class="btnForDelete btn-danger btn-block " data-id=${userId}
-}  >Delete User</button>`);
-      }
-    }
-
-    $("#adminTable").on("click", ".btnForDelete", function() {
-      const idToDelete = Number($(this).attr("data-id"));
-
-      usersBD = usersBD.filter(user => {
-        if ((user.id === idToDelete) & user.deleteAccountRequest) {
-          $(`#btnForDelete-${idToDelete}`).remove();
-          $(`#trForDelete-${idToDelete}`).remove();
-          return false;
-        } else return user;
-      });
-      localStorage.setItem("users", JSON.stringify(usersBD));
+    users = users.filter(user => {
+      if ((user.id === idToDelete) & user.deleteAccountRequest) {
+        $(`#trForDelete-${idToDelete}`).remove();
+        return false;
+      } else return user;
     });
+    localStorage.setItem("users", JSON.stringify(users));
   }
 
+  const BtnDelete = element => {
+    if (element.state.deleteAccountRequest) {
+      return (
+        <button
+          className="btnForDelete btn-danger btn-block "
+          data-id={element.state.id}
+          key={element.state.id}
+          onClick={deleteUser}
+        >
+          Delete
+        </button>
+      );
+    }
+    return BtnDelete;
+  };
+  const Table = () => {
+    let usersTable = users.map(element => {
+      return (
+        <tr key={element.id} id={"trForDelete-" + element.id}>
+          <th scope="row">{element.id}</th>
+          <td>{element.firstName}</td>
+          <td>{element.lastName}</td>
+          <td>{element.email}</td>
+          <td>{element.deleteAccountRequest.toString()}</td>
+          <td key={element.deleteAccountRequest.toString()}>
+            <BtnDelete
+              state={element}
+              key={element.deleteAccountRequest.toString()}
+            />
+          </td>
+        </tr>
+      );
+    });
+    return usersTable;
+  };
   return (
     <div className="container-fluid">
       <h1 className="header"> Administrator Page </h1>
-      <button id="loadUsers" type="button" onClick={adminTable}>
-        Load users list
-      </button>
       <table className="table table-striped table-dark">
         <thead>
           <tr>
@@ -59,10 +63,10 @@ const AdminTable = () => {
             <th scope="col">Remove request</th>
           </tr>
         </thead>
-        <tbody id="adminTable" />
+        <tbody id="adminTable">
+          <Table />
+        </tbody>
       </table>
     </div>
   );
 };
-
-export default AdminTable;

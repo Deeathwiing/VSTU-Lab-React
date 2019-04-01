@@ -1,40 +1,36 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { Route } from "react-router-dom";
-import AdminTable from "./Section/AdminTable";
 import ItemsAdmin from "./Section/ItemsAdmin";
 import AddItems from "./Section/AddItems";
 import AllItemsAdmin from "./Section/AllItemsAdmin";
+import { NavLinksAdministration } from "./NavLinks";
+import { AdminTable } from "./Section/AdminTable";
 
 const Administration = props => {
   return (
     <div>
-      <nav className="navbarAdmin row navbar-light bg-light p-3 justify-content-center">
-        <div className="navbar-nav">
+      <nav className="navbarAdmin row navbar-light bg-light w-100 p-3 justify-content-center">
+        <ul className="navbar-nav">
           <div className="row">
-            <NavLink to="/administration/admintable" className="nav-link mx-2">
-              AdminTable
-            </NavLink>
-
-            <NavLink to="/administration/adminitems" className="nav-link mx-2">
-              Все товары
-            </NavLink>
-
-            <NavLink to="warranty" className="nav-link mx-2">
-              Что то там еще
-            </NavLink>
+            <NavLinksAdministration state={props.state.NavLinkAdministration} />
           </div>
-        </div>
+        </ul>
       </nav>
-      <Route path="/administration/admintable" component={AdminTable} />
+
+      <Route
+        path="/administration/admintable"
+        render={() => <AdminTable state={props.state} />}
+      />
       <Route
         state={props.state}
         path="/administration/adminitems"
         component={ItemsAdmin}
       />
-      <Route path="/administration/adminitems/additems" component={AddItems} />
       <Route
-        state={props.state}
+        path="/administration/adminitems/additems"
+        render={() => <AddItems state={props.state} />}
+      />
+      <Route
         path="/administration/adminitems/allitems"
         render={() => <AllItemsAdmin state={props.state} />}
       />

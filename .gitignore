@@ -93,3 +93,5 @@ package-lock.json
 .vscode/launch.json
 .vscode
 
+questions.md
+questions.txt
