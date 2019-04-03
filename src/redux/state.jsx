@@ -166,4 +166,136 @@ let state = {
   ]
 };
 
+export function addItems(picture, title, description, price, tags, rating) {
+  class Item {
+    constructor(id, picture, title, description, price, tags, rating) {
+      this.id = id;
+      this.picture = picture;
+      this.title = title;
+      this.description = description;
+      this.price = price;
+      this.tags = tags;
+      this.rating = rating;
+    }
+  }
+
+  let items = state.items;
+  let lastElement = items[items.length - 1];
+  const id = lastElement ? lastElement.id + 1 : 0;
+
+  const newItem = new Item(
+    id,
+    picture,
+    title,
+    description,
+    price,
+    tags,
+    rating
+  );
+
+  items.push(newItem);
+  localStorage.setItem("items", JSON.stringify(items));
+  state.items = items;
+  reRender(state);
+}
+
+export function deleteItems(id) {
+  let items = state.items;
+  function check(item) {
+    if (item.id !== id) {
+      return true;
+    } else return false;
+  }
+  items = items.filter(function(item) {
+    return check(item);
+  });
+
+  localStorage.setItem("items", JSON.stringify(items));
+  state.items = items;
+  reRender(state);
+}
+
+export function addUser(email, firstName, lastName, password) {
+  class User {
+    constructor(id, email, firstName, lastName, password) {
+      this.id = id;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+      this.password = password;
+      this.deleteAccountRequest = false;
+      this.administration = false;
+    }
+  }
+
+  let users = state.users;
+
+  let lastElement = users[users.length - 1];
+  const id = lastElement ? lastElement.id + 1 : 0;
+
+  const isTaken = users.some(user => user.email === email);
+  if (isTaken) {
+    alert("Данный email занят");
+    return;
+  }
+
+  if (!firstName || !lastName || !password) {
+    alert("Заполните все поля");
+    return;
+  }
+
+  const newUser = new User(id, email, firstName, lastName, password);
+
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
+  state.users = users;
+  reRender(state);
+}
+
+export function deleteUser(idToDelete) {
+  let users = state.users.filter(user => {
+    if ((user.id === idToDelete) & user.deleteAccountRequest) {
+      return false;
+    } else return user;
+  });
+  localStorage.setItem("users", JSON.stringify(users));
+  state.users = users;
+  reRender(state);
+}
+
+export function logIn(logEmail, logPass) {
+  let checkLogin = false;
+  let admin = false;
+  let usersBD = state.users;
+
+  checkLogin = usersBD.some(
+    user => logEmail === user.email && logPass === user.password
+  );
+  admin = usersBD.some(
+    user =>
+      logEmail === user.email &&
+      logPass === user.password &&
+      user.administration
+  );
+  if (!checkLogin & !admin) {
+    alert("Введите правильный email и пароль");
+  }
+  if (checkLogin) {
+    if (admin) {
+      state.user = [{ logEmail, admin }];
+      localStorage.setItem("user", JSON.stringify({ logEmail, admin }));
+    } else {
+      state.user = [{ logEmail, checkLogin }];
+      localStorage.setItem("user", JSON.stringify({ logEmail, checkLogin }));
+    }
+  }
+
+  reRender(state);
+}
+
+export const subscribe = observer => {
+  reRender = observer;
+};
+
+let reRender = () => {};
 export default state;

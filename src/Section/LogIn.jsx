@@ -2,40 +2,13 @@ import React from "react";
 import $ from "jquery";
 import { NavLink } from "react-router-dom";
 
-const LogIn = () => {
+const LogIn = props => {
   function login() {
-    let checkLogin = false;
-    let admin = false;
-
-    let usersBD = localStorage.getItem("users")
-      ? JSON.parse(localStorage.getItem("users"))
-      : [];
     const logEmail = $("#logEmail")
       .val()
       .toLowerCase();
     const logPass = $("#logPass").val();
-    checkLogin = usersBD.some(
-      user => logEmail === user.email && logPass === user.password
-    );
-
-    admin = usersBD.some(
-      user =>
-        logEmail === user.email &&
-        logPass === user.password &&
-        user.administration
-    );
-
-    if (checkLogin) {
-      if (admin) {
-        localStorage.setItem("user", JSON.stringify({ logEmail, admin }));
-      } else {
-        localStorage.setItem("user", JSON.stringify({ logEmail, checkLogin }));
-      }
-    }
-
-    if (!checkLogin & !admin) {
-      alert("Введите правильный email и пароль");
-    }
+    props.logIn(logEmail, logPass);
   }
 
   return (

@@ -3,22 +3,6 @@ import $ from "jquery";
 
 const AddItems = props => {
   function addItems() {
-    class Item {
-      constructor(id, picture, title, description, price, tags, rating) {
-        this.id = id;
-        this.picture = picture;
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.tags = tags;
-        this.rating = rating;
-      }
-    }
-
-    let items = props.state.items;
-    let lastElement = items[items.length - 1];
-    const id = lastElement ? lastElement.id + 1 : 0;
-
     const picture = $(".addItemPicture").val();
     const title = $(".addItemTitle").val();
     const description = $(".addItemDescription").val();
@@ -29,17 +13,7 @@ const AddItems = props => {
       tags[i] = "#" + $(`.addItemTag-${i}`).val() + " ";
     }
 
-    const newItem = new Item(
-      id,
-      picture,
-      title,
-      description,
-      price,
-      tags,
-      rating
-    );
-    items.push(newItem);
-    localStorage.setItem("items", JSON.stringify(items));
+    props.addItems(picture, title, description, price, tags, rating);
   }
   return (
     <div className="container-fluid">

@@ -9,9 +9,15 @@ export const AdminRoute = props => {
   if (checkAdmin) {
     return (
       <Route
-        state={props.state}
         path="/administration"
-        render={() => <Administration state={props.state} />}
+        render={() => (
+          <Administration
+            state={props.state}
+            addItems={props.addItems}
+            deleteItems={props.deleteItems}
+            deleteUser={props.deleteUser}
+          />
+        )}
       />
     );
   } else {

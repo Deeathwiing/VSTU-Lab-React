@@ -1,9 +1,3 @@
-import * as serviceWorker from "./serviceWorker";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
-import "./css/style.css";
-import "./css/media.css";
-import state, { subscribe } from "./redux/state";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
@@ -12,6 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./css/style.css";
 import "./css/media.css";
 import {
+  state,
   addItems,
   deleteItems,
   addUser,
@@ -19,7 +14,7 @@ import {
   deleteUser
 } from "./redux/state";
 
-let reRender = state => {
+let reRender = () => {
   ReactDOM.render(
     <App
       state={state}
@@ -32,9 +27,3 @@ let reRender = state => {
     document.getElementById("root")
   );
 };
-
-reRender(state);
-
-subscribe(reRender);
-
-serviceWorker.unregister();

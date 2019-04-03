@@ -5,14 +5,7 @@ export const AdminTable = props => {
 
   function deleteUser(btn) {
     const idToDelete = Number(btn.target.getAttribute("data-id"));
-
-    users = users.filter(user => {
-      if ((user.id === idToDelete) & user.deleteAccountRequest) {
-        $(`#trForDelete-${idToDelete}`).remove();
-        return false;
-      } else return user;
-    });
-    localStorage.setItem("users", JSON.stringify(users));
+    props.deleteUser(idToDelete);
   }
 
   const BtnDelete = element => {

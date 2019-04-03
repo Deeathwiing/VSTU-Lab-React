@@ -21,10 +21,24 @@ const Section = props => {
         <Route path="/news" component={News} />
         <Route path="/order" render={() => <Order state={props.state} />} />
         <Route path="/newsAndPromotions" component={NewsAndPromotions} />
-        <AdminRoute state={props.state} path="/administration" />
+        <AdminRoute
+          state={props.state}
+          addItems={props.addItems}
+          deleteItems={props.deleteItems}
+          deleteUser={props.deleteUser}
+          path="/administration"
+        />
         <Route path="/warranty" component={Warranty} />
-        <Route path="/login" component={LogIn} />
-        <Route path="/registration" component={Registration} />
+        <Route
+          path="/login"
+          render={() => <LogIn state={props.state} logIn={props.logIn} />}
+        />
+        <Route
+          path="/registration"
+          render={() => (
+            <Registration state={props.state} addUser={props.addUser} />
+          )}
+        />
         <Route path="/about" component={AboutUs} />
         <Route
           path="/editprofile"

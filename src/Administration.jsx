@@ -19,7 +19,9 @@ const Administration = props => {
 
       <Route
         path="/administration/admintable"
-        render={() => <AdminTable state={props.state} />}
+        render={() => (
+          <AdminTable state={props.state} deleteUser={props.deleteUser} />
+        )}
       />
       <Route
         state={props.state}
@@ -28,11 +30,15 @@ const Administration = props => {
       />
       <Route
         path="/administration/adminitems/additems"
-        render={() => <AddItems state={props.state} />}
+        render={() => (
+          <AddItems state={props.state} addItems={props.addItems} />
+        )}
       />
       <Route
         path="/administration/adminitems/allitems"
-        render={() => <AllItemsAdmin state={props.state} />}
+        render={() => (
+          <AllItemsAdmin state={props.state} deleteItems={props.deleteItems} />
+        )}
       />
     </div>
   );
