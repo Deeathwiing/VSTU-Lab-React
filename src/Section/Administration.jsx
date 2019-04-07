@@ -1,10 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import ItemsAdmin from "./Section/ItemsAdmin";
-import AddItems from "./Section/AddItems";
-import AllItemsAdmin from "./Section/AllItemsAdmin";
-import { NavLinksAdministration } from "./NavLinks";
-import { AdminTable } from "./Section/AdminTable/AdminTable";
+import ItemsAdmin from "./ItemsAdmin";
+import AddItems from "./AddItems";
+import AllItemsAdmin from "./AllItemsAdmin";
+import { NavLinksAdministration } from "../NavLinks";
+import { AdminTable } from "./AdminTable/AdminTable";
 
 const Administration = props => {
   return (

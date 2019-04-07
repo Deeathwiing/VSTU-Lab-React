@@ -4,12 +4,11 @@ import { Route } from "react-router-dom";
 import News from "./News";
 import Order from "./Order";
 import NewsAndPromotions from "./NewsAndPromotions";
-import "../Navbar";
 import Warranty from "./Warranty";
 import LogIn from "./LogIn";
 import Registration from "./Registration";
 import AboutUs from "./AboutUs";
-import { AdminRoute } from "../AdminRoute";
+import { AdminRoute } from "./AdminRoute";
 import EditProfile from "./EditProfile";
 
 const Section = props => {
