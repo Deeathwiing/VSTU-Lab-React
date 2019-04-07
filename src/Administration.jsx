@@ -4,7 +4,7 @@ import ItemsAdmin from "./Section/ItemsAdmin";
 import AddItems from "./Section/AddItems";
 import AllItemsAdmin from "./Section/AllItemsAdmin";
 import { NavLinksAdministration } from "./NavLinks";
-import { AdminTable } from "./Section/AdminTable";
+import { AdminTable } from "./Section/AdminTable/AdminTable";
 
 const Administration = props => {
   return (
@@ -20,7 +20,7 @@ const Administration = props => {
       <Route
         path="/administration/admintable"
         render={() => (
-          <AdminTable state={props.state} deleteUser={props.deleteUser} />
+          <AdminTable state={props.state} dispatch={props.dispatch} />
         )}
       />
       <Route
@@ -31,13 +31,13 @@ const Administration = props => {
       <Route
         path="/administration/adminitems/additems"
         render={() => (
-          <AddItems state={props.state} addItems={props.addItems} />
+          <AddItems state={props.state} dispatch={props.dispatch} />
         )}
       />
       <Route
         path="/administration/adminitems/allitems"
         render={() => (
-          <AllItemsAdmin state={props.state} deleteItems={props.deleteItems} />
+          <AllItemsAdmin state={props.state} dispatch={props.dispatch} />
         )}
       />
     </div>

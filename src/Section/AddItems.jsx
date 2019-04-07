@@ -12,9 +12,20 @@ const AddItems = props => {
     for (let i = 0; i < 3; i++) {
       tags[i] = "#" + $(`.addItemTag-${i}`).val() + " ";
     }
-
-    props.addItems(picture, title, description, price, tags, rating);
+    let actionCreator = () => {
+      return {
+        type: "ADD-ITEMS",
+        picture: picture,
+        title: title,
+        description: description,
+        price: price,
+        tags: tags,
+        rating: rating
+      };
+    };
+    props.dispatch(actionCreator());
   }
+
   return (
     <div className="container-fluid">
       <div className="input-group mb-3">

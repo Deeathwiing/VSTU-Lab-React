@@ -11,12 +11,7 @@ export const AdminRoute = props => {
       <Route
         path="/administration"
         render={() => (
-          <Administration
-            state={props.state}
-            addItems={props.addItems}
-            deleteItems={props.deleteItems}
-            deleteUser={props.deleteUser}
-          />
+          <Administration state={props.state} dispatch={props.dispatch} />
         )}
       />
     );

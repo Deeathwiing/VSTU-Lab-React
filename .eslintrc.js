@@ -2,7 +2,8 @@ module.exports = {
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest":true
     },
     "extends": "airbnb",
     "globals": {
@@ -22,5 +23,6 @@ module.exports = {
     "rules": {
         "linebreak-style" : "off",
         "func-names" : "off",
+        "react/jsx-one-expression-per-line":"off"
     }
 };

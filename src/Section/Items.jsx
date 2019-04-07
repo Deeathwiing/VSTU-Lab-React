@@ -1,48 +1,16 @@
 import React from "react";
-import $ from "jquery";
 
 const Item = props => {
-  let state = props.state;
-  function addRating() {
-    $(".rating").on("click", ".ratingStar", function() {
-      const itemId = Number($(this).attr("item-id"));
+  function addRating(btn) {
+    const itemId = Number(btn.target.getAttribute("item-id"));
+    const ratingValue = Number(btn.target.getAttribute("rating-value"));
 
-      const ratingValue = Number($(this).attr("rating-value"));
-
-      let items = state.items;
-      let user = state.user;
-      const personalRating = {
-        user: user.logEmail,
-        ratingValue: ratingValue
-      };
-
-      items = items.map(item => {
-        if (item.id === itemId) {
-          let singleRating = item.rating;
-          let checkRating = false;
-          if (singleRating[0]) {
-            singleRating.forEach(function(element, i, singleRating) {
-              if (element.user === user.logEmail) {
-                singleRating[i] = personalRating;
-                checkRating = true;
-              }
-            });
-            if (!checkRating) {
-              singleRating.push(personalRating);
-            }
-          } else singleRating.push(personalRating);
-          item.rating = singleRating;
-        }
-        return item;
-      });
-      localStorage.setItem("items", JSON.stringify(items));
-      return;
+    props.dispatch({
+      type: "ADD-RATING",
+      itemId: itemId,
+      ratingValue: ratingValue
     });
-    return;
   }
-  $(document).ready(() => {
-    addRating();
-  });
 
   let item = props.state.items.map(item => {
     return (
@@ -55,19 +23,44 @@ const Item = props => {
           <p className="card-text">{item.tags}</p>
         </div>
         <div className="rating">
-          <span className="ratingStar item" item-id={item.id} rating-value={5}>
+          <span
+            onClick={addRating}
+            className="ratingStar item"
+            item-id={item.id}
+            rating-value={5}
+          >
             ☆
           </span>
-          <span className="ratingStar item" item-id={item.id} rating-value={4}>
+          <span
+            onClick={addRating}
+            className="ratingStar item"
+            item-id={item.id}
+            rating-value={4}
+          >
             ☆
           </span>
-          <span className="ratingStar item" item-id={item.id} rating-value={3}>
+          <span
+            onClick={addRating}
+            className="ratingStar item"
+            item-id={item.id}
+            rating-value={3}
+          >
             ☆
           </span>
-          <span className="ratingStar item" item-id={item.id} rating-value={2}>
+          <span
+            onClick={addRating}
+            className="ratingStar item"
+            item-id={item.id}
+            rating-value={2}
+          >
             ☆
           </span>
-          <span className="ratingStar item" item-id={item.id} rating-value={1}>
+          <span
+            onClick={addRating}
+            className="ratingStar item"
+            item-id={item.id}
+            rating-value={1}
+          >
             ☆
           </span>
         </div>
@@ -80,7 +73,7 @@ const Item = props => {
 const items = props => {
   return (
     <div className="card-columns">
-      <Item state={props.state} />
+      <Item state={props.state} dispatch={props.dispatch} />
     </div>
   );
 };

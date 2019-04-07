@@ -10,14 +10,7 @@ const App = props => {
     <BrowserRouter>
       <Slides />
       <Navbar state={props.state} />
-      <AsideSection
-        state={props.state}
-        addItems={props.addItems}
-        deleteItems={props.deleteItems}
-        addUser={props.addUser}
-        logIn={props.logIn}
-        deleteUser={props.deleteUser}
-      />
+      <AsideSection state={props.state} dispatch={props.dispatch} />
       <Footer state={props.state} />
     </BrowserRouter>
   );

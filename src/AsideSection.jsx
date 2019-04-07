@@ -6,14 +6,7 @@ const AsideSection = props => {
   return (
     <div className="aside-section container p-0 d-flex flex-row">
       <Aside state={props.state} />
-      <Section
-        state={props.state}
-        addItems={props.addItems}
-        deleteItems={props.deleteItems}
-        addUser={props.addUser}
-        logIn={props.logIn}
-        deleteUser={props.deleteUser}
-      />
+      <Section state={props.state} dispatch={props.dispatch} />
     </div>
   );
 };

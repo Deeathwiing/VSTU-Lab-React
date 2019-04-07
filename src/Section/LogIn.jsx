@@ -8,7 +8,7 @@ const LogIn = props => {
       .val()
       .toLowerCase();
     const logPass = $("#logPass").val();
-    props.logIn(logEmail, logPass);
+    props.dispatch({ type: "LOGIN", logEmail: logEmail, logPass: logPass });
   }
 
   return (
