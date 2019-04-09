@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class AllItemsAdmin extends Component {
   constructor(props) {
@@ -7,13 +7,12 @@ class AllItemsAdmin extends Component {
     this.state = this.props.state;
   }
   deleteItems = event => {
-    const idToDelete = Number(event.target.getAttribute("data-id"));
-    this.setState(
-      this.props.dispatch({
-        type: "DELETE-ITEMS",
-        idToDelete: idToDelete
-      })
-    );
+    const idToDelete = Number(event.target.getAttribute('data-id'));
+    const actionCreator = () => ({
+      type: 'DELETE-ITEMS',
+      idToDelete: idToDelete,
+    });
+    this.setState(this.props.dispatch(actionCreator()));
   };
   Item = () => {
     let itemsAdmin = this.state.items.map(item => {

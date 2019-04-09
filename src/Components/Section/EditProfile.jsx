@@ -2,7 +2,8 @@ import React from 'react';
 
 const EditProfile = (props) => {
   function removeRequest() {
-    props.dispatch({ type: 'REMOVE-REQUEST' });
+    const actionCreator = () => ({ type: 'REMOVE-REQUEST' });
+    props.dispatch(actionCreator());
   }
 
   return (

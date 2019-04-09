@@ -5,11 +5,13 @@ const Item = (props) => {
     const itemId = Number(btn.target.getAttribute('item-id'));
     const ratingValue = Number(btn.target.getAttribute('rating-value'));
 
-    props.dispatch({
+    const actionCreator = () => ({
       type: 'ADD-RATING',
       itemId,
       ratingValue,
     });
+
+    props.dispatch(actionCreator());
   }
 
   const item = props.state.items.map(element => (

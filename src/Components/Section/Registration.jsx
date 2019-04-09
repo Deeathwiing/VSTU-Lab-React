@@ -10,13 +10,15 @@ const Registration = (props) => {
     const lastName = $('#regLastName').val();
     const password = $('#regPassword').val();
 
-    props.dispatch({
+    const actionCreator = () => ({
       type: 'REGISTRATION',
       email,
       firstName,
       lastName,
       password,
     });
+
+    props.dispatch(actionCreator());
     alert('Вы зарегистрировались,пожалуйста войдите');
     $('.Reg').hide();
   }
