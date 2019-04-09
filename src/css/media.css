@@ -1,22 +1,22 @@
 @media (max-width: 1210px) {
-  #aside-Search {
+  #aside-search {
     width: 150px;
   }
 }
 
 @media (max-width: 800px) and (min-width: 451px) {
-  #aside-Search-Btn,
-  #aside-Search {
+  #aside-search-Btn,
+  #aside-search {
     margin-right: auto !important;
     margin-left: auto !important;
   }
 }
 
 @media (max-width: 450px) {
-  #aside-Search {
+  #aside-search {
     width: 150px;
   }
-  #delete-Aside {
+  #delete-aside {
     display: none;
   }
   #section {

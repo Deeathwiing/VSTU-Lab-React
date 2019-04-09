@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-const EditProfile = props => {
+const EditProfile = (props) => {
   function removeRequest() {
-    props.dispatch({ type: "REMOVE-REQUEST" });
+    props.dispatch({ type: 'REMOVE-REQUEST' });
   }
 
   return (

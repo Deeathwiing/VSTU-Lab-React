@@ -1,8 +1,10 @@
-import React from "react";
-export const BtnDelete = props => {
+import React from 'react';
+
+const BtnDelete = (props) => {
   if (props.state.deleteAccountRequest) {
     return (
       <button
+        type="button"
         className="btnForDelete btn-danger btn-block "
         data-id={props.state.id}
         key={props.state.id}
@@ -14,3 +16,5 @@ export const BtnDelete = props => {
   }
   return null;
 };
+
+export default BtnDelete;
