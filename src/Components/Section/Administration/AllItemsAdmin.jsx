@@ -8,11 +8,8 @@ class AllItemsAdmin extends Component {
   }
   deleteItems = event => {
     const idToDelete = Number(event.target.getAttribute('data-id'));
-    const actionCreator = () => ({
-      type: 'DELETE-ITEMS',
-      idToDelete: idToDelete,
-    });
-    this.setState(this.props.dispatch(actionCreator()));
+
+    this.setState(this.props.dispatch(this.props.deleteItemsActionCreator(idToDelete)));
   };
   Item = () => {
     let itemsAdmin = this.state.items.map(item => {

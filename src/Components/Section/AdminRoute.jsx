@@ -1,16 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Administration from './Administration';
 import ErrorAdmin from './ErrorAdmin';
+import AdministrationContainer from './Administration/AdministrationContainer';
 
 const AdminRoute = (props) => {
   if (props.state.user.admin) {
-    return (
-      <Route
-        path="/administration"
-        render={() => <Administration state={props.state} dispatch={props.dispatch} />}
-      />
-    );
+    return <Route path="/administration" component={AdministrationContainer} />;
   }
   return <Route path="/administration" component={ErrorAdmin} />;
 };

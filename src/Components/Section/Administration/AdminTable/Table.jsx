@@ -9,8 +9,7 @@ class Table extends Component {
   }
   deleteUser = event => {
     const idToDelete = Number(event.target.getAttribute('data-id'));
-    const actionCreator = () => ({ type: 'DELETE-USERS', idToDelete: idToDelete });
-    this.setState(this.props.dispatch(actionCreator()));
+    this.setState(this.props.dispatch(this.props.deleteUsersActionCreator(idToDelete)));
   };
 
   usersTable = () =>

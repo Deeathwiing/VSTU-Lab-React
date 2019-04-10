@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import { NavLink } from 'react-router-dom';
+import { loginActionCreator } from '../../redux/reducers/userReducer';
 
 const LogIn = (props) => {
   function login() {
@@ -8,8 +9,8 @@ const LogIn = (props) => {
       .val()
       .toLowerCase();
     const logPass = $('#logPass').val();
-    const actionCreator = () => ({ type: 'LOGIN', logEmail, logPass });
-    props.dispatch(actionCreator());
+
+    props.dispatch(loginActionCreator(logEmail, logPass));
   }
 
   return (

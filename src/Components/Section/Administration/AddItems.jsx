@@ -13,16 +13,9 @@ const AddItems = (props) => {
     for (let i = 0; i < 3; i++) {
       tags[i] = `#${$(`.addItemTag-${i}`).val()} `;
     }
-    const actionCreator = () => ({
-      type: 'ADD-ITEMS',
-      picture,
-      title,
-      description,
-      price,
-      tags,
-      rating,
-    });
-    props.dispatch(actionCreator());
+
+    const action = props.addItemsActionCreator(picture, title, description, price, tags, rating);
+    props.dispatch(action);
   }
 
   return (

@@ -15,10 +15,13 @@ const AdminTable = props => (
         </tr>
       </thead>
       <tbody id="adminTable">
-        <Table users={props.state.users} dispatch={props.dispatch} />
+        <Table
+          users={props.state}
+          dispatch={props.dispatch}
+          deleteUsersActionCreator={props.deleteUsersActionCreator}
+        />
       </tbody>
     </table>
   </div>
 );
-
 export default AdminTable;

@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import { registrationActionCreator } from '../../redux/reducers/usersReducer';
 
 const Registration = (props) => {
   function registration() {
@@ -10,15 +11,7 @@ const Registration = (props) => {
     const lastName = $('#regLastName').val();
     const password = $('#regPassword').val();
 
-    const actionCreator = () => ({
-      type: 'REGISTRATION',
-      email,
-      firstName,
-      lastName,
-      password,
-    });
-
-    props.dispatch(actionCreator());
+    props.dispatch(registrationActionCreator(email, firstName, lastName, password));
     alert('Вы зарегистрировались,пожалуйста войдите');
     $('.Reg').hide();
   }

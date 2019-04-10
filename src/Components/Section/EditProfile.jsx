@@ -1,9 +1,9 @@
 import React from 'react';
+import { removeRequestActionCreator } from '../../redux/reducers/usersReducer';
 
 const EditProfile = (props) => {
   function removeRequest() {
-    const actionCreator = () => ({ type: 'REMOVE-REQUEST' });
-    props.dispatch(actionCreator());
+    props.dispatch(removeRequestActionCreator());
   }
 
   return (

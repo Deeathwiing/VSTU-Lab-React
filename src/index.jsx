@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './css/style.css';
 import './css/media.css';
-import store from './redux/state';
+import store from './redux/store';
 
 ReactDOM.render(
   <App state={store._state} dispatch={store.dispatch.bind(store)} />,

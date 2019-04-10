@@ -1,17 +1,12 @@
 import React from 'react';
+import { ratingActionCreator } from '../../redux/reducers/itemsReducer';
 
 const Item = (props) => {
   function addRating(btn) {
     const itemId = Number(btn.target.getAttribute('item-id'));
     const ratingValue = Number(btn.target.getAttribute('rating-value'));
 
-    const actionCreator = () => ({
-      type: 'ADD-RATING',
-      itemId,
-      ratingValue,
-    });
-
-    props.dispatch(actionCreator());
+    props.dispatch(ratingActionCreator(itemId, ratingValue));
   }
 
   const item = props.state.items.map(element => (
