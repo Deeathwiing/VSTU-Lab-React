@@ -1,5 +1,11 @@
 const LOGIN = 'LOGIN';
-const userReducer = (state, action) => {
+
+const initialState = localStorage.getItem('user')
+  ? JSON.parse(localStorage.getItem('user'))
+  : [null];
+// users: localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [],
+
+const userReducer = (state = initialState, action) => {
   // должно придти как user так и users
 
   switch (action.type) {
@@ -7,7 +13,9 @@ const userReducer = (state, action) => {
       let checkLogin = false;
       let admin = false;
       const logEmail = action.logEmail;
-      const usersBD = state.users;
+      const usersBD = localStorage.getItem('users')
+        ? JSON.parse(localStorage.getItem('users'))
+        : [];
 
       checkLogin = usersBD.some(
         user => logEmail === user.email && action.logPass === user.password,
@@ -18,18 +26,19 @@ const userReducer = (state, action) => {
       if (!checkLogin && !admin) {
         alert('Введите правильный email и пароль');
       }
+      let newState = null;
       if (checkLogin) {
         if (admin) {
-          state.user = [{ logEmail, admin }];
+          newState = [{ logEmail, admin }];
           localStorage.setItem('user', JSON.stringify({ logEmail, admin }));
         } else {
-          state.user = [{ logEmail, checkLogin }];
+          newState = [{ logEmail, checkLogin }];
           localStorage.setItem('user', JSON.stringify({ logEmail, checkLogin }));
         }
       }
-      return state.user;
+      return newState;
     default:
-      return state.user;
+      return state;
   }
 };
 

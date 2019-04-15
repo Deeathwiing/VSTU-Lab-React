@@ -15,11 +15,7 @@ const AdminTable = props => (
         </tr>
       </thead>
       <tbody id="adminTable">
-        <Table
-          users={props.state}
-          dispatch={props.dispatch}
-          deleteUsersActionCreator={props.deleteUsersActionCreator}
-        />
+        <Table state={props.state} deleteUser={props.deleteUser} />
       </tbody>
     </table>
   </div>

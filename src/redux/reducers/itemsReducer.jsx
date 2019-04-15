@@ -2,7 +2,11 @@
 const ADD_ITEMS = 'ADD-ITEMS';
 const DELETE_ITEMS = 'DELETE-ITEMS';
 const ADD_RATING = 'ADD-RATING';
-const itemsReducer = (state, action) => {
+
+const initialState = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+// user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : [],
+
+const itemsReducer = (state = initialState, action) => {
   // Должно придти items,user,
   switch (action.type) {
     case ADD_ITEMS:
@@ -18,7 +22,9 @@ const itemsReducer = (state, action) => {
         }
       }
 
-      const lastElement = state.items[state.items.length - 1];
+      const stateLength = state.length;
+      const lastElement = state[stateLength - 1];
+
       const id = lastElement ? lastElement.id + 1 : 0;
 
       const newItem = new Item(
@@ -31,9 +37,9 @@ const itemsReducer = (state, action) => {
         action.newRating,
       );
 
-      state.items.push(newItem);
-      localStorage.setItem('items', JSON.stringify(state.items));
-      return state.items;
+      const newStateAfterAddItems = [...state, newItem];
+      localStorage.setItem('items', JSON.stringify(newStateAfterAddItems));
+      return newStateAfterAddItems;
     case DELETE_ITEMS:
       const check = (item) => {
         if (item.id !== action.idToDelete) {
@@ -41,19 +47,18 @@ const itemsReducer = (state, action) => {
         }
         return false;
       };
-      state.items = state.items.filter(item => check(item));
-
-      localStorage.setItem('items', JSON.stringify(state.items));
-      return state.items;
+      const newStateAfterDelete = state.filter(item => check(item));
+      localStorage.setItem('items', JSON.stringify(newStateAfterDelete));
+      return newStateAfterDelete;
 
     case ADD_RATING:
-      const user = state.user;
+      const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : [];
       const personalRating = {
         user: user.logEmail,
         ratingValue: action.ratingValue,
       };
 
-      state.items = state.items.map((item) => {
+      const newStateAfterAddRating = state.map((item) => {
         if (item.id === action.itemId) {
           const singleRating = item.rating;
           let checkRating = false;
@@ -72,11 +77,11 @@ const itemsReducer = (state, action) => {
         }
         return item;
       });
-      localStorage.setItem('items', JSON.stringify(state.items));
+      localStorage.setItem('items', JSON.stringify(newStateAfterAddRating));
 
-      return state.items;
+      return newStateAfterAddRating;
     default:
-      return state.items;
+      return state;
   }
 };
 
@@ -93,7 +98,7 @@ export const deleteItemsActionCreator = idToDelete => ({
   type: DELETE_ITEMS,
   idToDelete,
 });
-export const ratingActionCreator = (itemId, ratingValue) => ({
+export const addRatingActionCreator = (itemId, ratingValue) => ({
   type: ADD_RATING,
   itemId,
   ratingValue,

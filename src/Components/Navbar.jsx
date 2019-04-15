@@ -3,6 +3,80 @@ import { NavLink } from 'react-router-dom';
 import logo from '../images/icon.png';
 import { NavLinksAdministration, NavLinkDropDown } from './NavLinks';
 
+const navLinks = {
+  NavLinkNavbar: [
+    {
+      to: '/newsAndPromotions',
+      classNames: 'nav-link',
+      description: 'Новости и предложения',
+    },
+    {
+      to: '/order',
+      classNames: 'nav-link',
+      description: 'Заказ',
+    },
+    {
+      to: '/warranty',
+      classNames: 'nav-link',
+      description: 'Гарантия',
+    },
+    {
+      to: '/newsAndPromotions',
+      classNames: 'nav-link text-danger',
+      description: 'Новинки и акции!',
+    },
+  ],
+  NavLinkPersonalArea: [
+    {
+      to: '/order',
+      classNames: 'dropdown-item',
+      description: 'Заказы',
+    },
+    {
+      to: '#',
+      classNames: 'dropdown-item',
+      description: 'Скидки',
+    },
+    {
+      to: '/order',
+      classNames: 'dropdown-item',
+      description: 'Корзина',
+    },
+    {
+      to: '#',
+      classNames: 'dropdown-item',
+      description: 'Избранное',
+    },
+  ],
+  NavLinkCatalog: [
+    {
+      to: '/items',
+      classNames: 'dropdown-item',
+      description: 'Все товары',
+    },
+    {
+      to: '#',
+      classNames: 'dropdown-item',
+      description: 'Атомайзеры',
+    },
+    {
+      to: '#',
+      classNames: 'dropdown-item',
+      description: 'Электронные парогенераторы',
+    },
+    {
+      to: '#',
+      classNames: 'dropdown-item',
+      description: 'Жидкости',
+    },
+    {
+      to: '#',
+      classNames: 'dropdown-item',
+      description: 'Запчасти и комплектующие',
+    },
+  ],
+};
+
 const Navbar = (props) => {
   const user = props.state.user;
   const checkUser = user.checkLogin;
@@ -43,7 +117,7 @@ const Navbar = (props) => {
                       Личный кабинет
                     </NavLink>
                     <div className="dropdown-menu bg-light">
-                      <NavLinkDropDown state={props.state.NavLinkPersonalArea} />
+                      <NavLinkDropDown state={navLinks.NavLinkPersonalArea} />
                       <NavLink className="dropdown-item" to="/editprofile">
                         Редактирование профиля
                       </NavLink>
@@ -66,14 +140,14 @@ const Navbar = (props) => {
                     </NavLink>
 
                     <div className="dropdown-menu bg-light">
-                      <NavLinkDropDown state={props.state.NavLinkCatalog} />
+                      <NavLinkDropDown state={navLinks.NavLinkCatalog} />
                       <NavLink className="dropdown-item" to="#">
                         Все для самозамеса
                       </NavLink>
                     </div>
                   </li>
 
-                  <NavLinksAdministration state={props.state.NavLinkNavbar} />
+                  <NavLinksAdministration state={navLinks.NavLinkNavbar} />
 
                   <li className="nav-item ml-2">
                     <form className="form-inline py-1">
@@ -134,7 +208,7 @@ const Navbar = (props) => {
                     Личный кабинет
                   </NavLink>
                   <div className="dropdown-menu bg-light">
-                    <NavLinkDropDown state={props.state.NavLinkPersonalArea} />
+                    <NavLinkDropDown state={navLinks.NavLinkPersonalArea} />
                     <NavLink className="dropdown-item" to="/editprofile">
                       Редактирование профиля
                     </NavLink>
@@ -153,14 +227,14 @@ const Navbar = (props) => {
                   </NavLink>
 
                   <div className="dropdown-menu bg-light">
-                    <NavLinkDropDown state={props.state.NavLinkCatalog} />
+                    <NavLinkDropDown state={navLinks.NavLinkCatalog} />
                     <NavLink className="dropdown-item" to="#">
                       Все для самозамеса
                     </NavLink>
                   </div>
                 </li>
 
-                <NavLinksAdministration state={props.state.NavLinkNavbar} />
+                <NavLinksAdministration state={navLinks.NavLinkNavbar} />
 
                 <li className="nav-item ml-2">
                   <form className="form-inline py-1">
@@ -234,14 +308,14 @@ const Navbar = (props) => {
                 </NavLink>
 
                 <div className="dropdown-menu bg-light">
-                  <NavLinkDropDown state={props.state.NavLinkCatalog} />
+                  <NavLinkDropDown state={navLinks.NavLinkCatalog} />
                   <NavLink className="dropdown-item" to="#">
                     Все для самозамеса
                   </NavLink>
                 </div>
               </li>
 
-              <NavLinksAdministration state={props.state.NavLinkNavbar} />
+              <NavLinksAdministration state={navLinks.NavLinkNavbar} />
 
               <li className="nav-item ml-2">
                 <form className="form-inline py-1">

@@ -171,12 +171,13 @@ const store = {
     return this._state;
   },
 
-  dispatch(action) {
+  /* dispatch(action) {
     this._state.user = userReducer({ user: this._state.user, users: this._state.users }, action);
     this._state.users = usersReducer({ user: this._state.user, users: this._state.users }, action);
     this._state.items = itemsReducer({ user: this._state.user, items: this._state.items }, action);
   },
+  */
 };
 
-export default store;
-window.store = store;
+/* export default store;
+window.store = store; */

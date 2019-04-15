@@ -2,6 +2,62 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavLinkDropDown, NavLinksAdministration } from './NavLinks';
 
+const navLinks = {
+  NavLinkAside: [
+    {
+      to: '/newsAndPromotions',
+      classNames: 'nav-link',
+      description: 'Новости и предложения',
+      liClass: 'col',
+    },
+    {
+      to: '/order',
+      classNames: 'nav-link',
+      description: 'Заказ',
+      liClass: 'col',
+    },
+    {
+      to: '/warranty',
+      classNames: 'nav-link',
+      description: 'Гарантия',
+      liClass: 'col',
+    },
+    {
+      to: '/newsAndPromotions',
+      classNames: 'nav-link text-danger',
+      description: 'Новинки и акции!',
+      liClass: 'col',
+    },
+  ],
+  NavLinkCatalog: [
+    {
+      to: '/items',
+      classNames: 'dropdown-item',
+      description: 'Все товары',
+    },
+    {
+      to: '#',
+      classNames: 'dropdown-item',
+      description: 'Атомайзеры',
+    },
+    {
+      to: '#',
+      classNames: 'dropdown-item',
+      description: 'Электронные парогенераторы',
+    },
+    {
+      to: '#',
+      classNames: 'dropdown-item',
+      description: 'Жидкости',
+    },
+    {
+      to: '#',
+      classNames: 'dropdown-item',
+      description: 'Запчасти и комплектующие',
+    },
+  ],
+};
+
 const Aside = props => (
   <aside className=" flex-column mr-1 col p-0 sticky-top" id="delete-aside">
     <nav className="nav flex-column navbar-light bg-light shadow">
@@ -24,13 +80,13 @@ const Aside = props => (
           </NavLink>
 
           <div className="dropdown-menu bg-light">
-            <NavLinkDropDown state={props.state.NavLinkCatalog} />
+            <NavLinkDropDown state={navLinks.NavLinkCatalog} />
             <NavLink className="dropdown-item" to="#">
               Все для самозамеса
             </NavLink>
           </div>
         </li>
-        <NavLinksAdministration state={props.state.NavLinkAside} />
+        <NavLinksAdministration state={navLinks.NavLinkAside} />
 
         <li className="nav-item ml-1 row">
           <form className="form-inline">

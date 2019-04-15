@@ -1,21 +1,17 @@
 import React from 'react';
-import $ from 'jquery';
-import { registrationActionCreator } from '../../redux/reducers/usersReducer';
 
-const Registration = (props) => {
-  function registration() {
+import $ from 'jquery';
+
+const RegistrationInput = (props) => {
+  const registrationAttr = (event) => {
     const email = $('#regEmail')
       .val()
       .toLowerCase();
     const firstName = $('#regFirstName').val();
     const lastName = $('#regLastName').val();
     const password = $('#regPassword').val();
-
-    props.dispatch(registrationActionCreator(email, firstName, lastName, password));
-    alert('Вы зарегистрировались,пожалуйста войдите');
-    $('.Reg').hide();
-  }
-
+    props.reg(event, email, firstName, lastName, password);
+  };
   return (
     <div className="Reg">
       <form className="px-4 py-3">
@@ -49,7 +45,7 @@ const Registration = (props) => {
           </div>
         </div>
         <button
-          onClick={registration}
+          onClick={registrationAttr}
           type="button"
           className="btn btn-primary"
           id="RegistrationBtn"
@@ -61,4 +57,4 @@ const Registration = (props) => {
   );
 };
 
-export default Registration;
+export default RegistrationInput;

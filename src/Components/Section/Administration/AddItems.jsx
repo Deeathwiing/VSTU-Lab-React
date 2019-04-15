@@ -3,7 +3,7 @@ import React from 'react';
 import $ from 'jquery';
 
 const AddItems = (props) => {
-  function addItems() {
+  const addItem = (event) => {
     const picture = $('.addItemPicture').val();
     const title = $('.addItemTitle').val();
     const description = $('.addItemDescription').val();
@@ -13,10 +13,8 @@ const AddItems = (props) => {
     for (let i = 0; i < 3; i++) {
       tags[i] = `#${$(`.addItemTag-${i}`).val()} `;
     }
-
-    const action = props.addItemsActionCreator(picture, title, description, price, tags, rating);
-    props.dispatch(action);
-  }
+    props.addItems(event, picture, title, description, price, tags, rating);
+  };
 
   return (
     <div className="container-fluid">
@@ -60,7 +58,7 @@ const AddItems = (props) => {
       </div>
 
       <div className="justify-content-center d-flex">
-        <button type="button" onClick={addItems} className="btn btn-primary mt-2">
+        <button type="button" onClick={addItem} className="btn btn-primary mt-2">
           Upload item
         </button>
       </div>
