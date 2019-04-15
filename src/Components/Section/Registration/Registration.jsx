@@ -6,19 +6,29 @@ import News from '../News';
 class Registration extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { check: true, usersLenght: this.props.state.usersLenght };
+    this.state = { check: true, usersLenght: this.props.state.usersLenght, regAction: false };
   }
 
-  componentWillReceiveProps = () => {
-    this.setState({ check: false });
+  static getDerivedStateFromProps(props, state) {
+    if (state.regAction) {
+      if (state.usersLenght != props.state.usersLenght) {
+        return { check: false };
+      }
+      return { check: true, regAction: false };
+    }
+    return { check: true, regAction: false };
+  }
+
+  regCheck = (event, email, firstName, lastName, password) => {
+    this.props.reg(event, email, firstName, lastName, password);
+    this.setState({ regAction: true });
   };
 
-  check = () => this.state.check;
-
   render() {
-    if (this.props.state.user[0] === null) {
-      if (this.check()) {
-        return <RegistrationInput reg={this.props.reg} />;
+    // debugger;
+    if ((this.props.state.user.admin || this.props.state.user.checkLogin) == undefined) {
+      if (this.state.check) {
+        return <RegistrationInput reg={this.regCheck} />;
       }
       return <RegistrationSuccessfull />;
     }

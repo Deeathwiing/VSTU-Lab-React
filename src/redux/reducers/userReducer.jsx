@@ -26,13 +26,13 @@ const userReducer = (state = initialState, action) => {
       if (!checkLogin && !admin) {
         alert('Введите правильный email и пароль');
       }
-      let newState = null;
+      let newState;
       if (checkLogin) {
         if (admin) {
-          newState = [{ logEmail, admin }];
+          newState = { logEmail, admin };
           localStorage.setItem('user', JSON.stringify({ logEmail, admin }));
         } else {
-          newState = [{ logEmail, checkLogin }];
+          newState = { logEmail, checkLogin };
           localStorage.setItem('user', JSON.stringify({ logEmail, checkLogin }));
         }
       }

@@ -9,8 +9,8 @@ export const CustomNavLink = props => (
 
 export const NavLinksAdministration = (props) => {
   const link = props.state.map(element => (
-    <li className={`nav-tem ${element.liClass}`} key={element.description}>
-      <CustomNavLink state={element} />
+    <li key={element.description} className={`nav-tem ${element.liClass}`}>
+      <CustomNavLink key={element.description} state={element} />
     </li>
   ));
   return link;
@@ -19,7 +19,7 @@ export const NavLinksAdministration = (props) => {
 export const NavLinkDropDown = (props) => {
   const link = props.state.map(element => (
     <span key={element.description}>
-      <CustomNavLink state={element} />
+      <CustomNavLink key={element.description} state={element} />
       <div className="dropdown-divider" />
     </span>
   ));

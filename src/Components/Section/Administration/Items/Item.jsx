@@ -3,6 +3,16 @@
 import React from 'react';
 
 const Item = (props) => {
+  const check = (event) => {
+    if (
+      (props.state.user.admin || props.state.user.checkLogin) == undefined
+        ? false
+        : props.state.user.admin || props.state.user.checkLogin
+    ) {
+      props.addRating(event);
+    }
+  };
+
   const item = props.state.items.map(element => (
     <div key={element.id} className={`card dataId${element.id}`}>
       <img src={element.picture} className="card-img-top" alt={element.title} />
@@ -13,44 +23,19 @@ const Item = (props) => {
         <p className="card-text">{element.tags}</p>
       </div>
       <div className="rating">
-        <span
-          onClick={props.addRating}
-          className="ratingStar item"
-          item-id={element.id}
-          rating-value={5}
-        >
+        <span onClick={check} className="ratingStar item" item-id={element.id} rating-value={5}>
           ☆
         </span>
-        <span
-          onClick={props.addRating}
-          className="ratingStar item"
-          item-id={element.id}
-          rating-value={4}
-        >
+        <span onClick={check} className="ratingStar item" item-id={element.id} rating-value={4}>
           ☆
         </span>
-        <span
-          onClick={props.addRating}
-          className="ratingStar item"
-          item-id={element.id}
-          rating-value={3}
-        >
+        <span onClick={check} className="ratingStar item" item-id={element.id} rating-value={3}>
           ☆
         </span>
-        <span
-          onClick={props.addRating}
-          className="ratingStar item"
-          item-id={element.id}
-          rating-value={2}
-        >
+        <span onClick={check} className="ratingStar item" item-id={element.id} rating-value={2}>
           ☆
         </span>
-        <span
-          onClick={props.addRating}
-          className="ratingStar item"
-          item-id={element.id}
-          rating-value={1}
-        >
+        <span onClick={check} className="ratingStar item" item-id={element.id} rating-value={1}>
           ☆
         </span>
       </div>

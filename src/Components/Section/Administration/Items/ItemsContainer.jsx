@@ -3,7 +3,7 @@ import { addRatingActionCreator } from '../../../../redux/reducers/itemsReducer'
 import Items from './Items';
 
 const mapStateToProps = state => ({
-  state: { items: state.items },
+  state: { items: state.items, user: state.user },
 });
 
 const mapDispatchToProps = dispatch => ({

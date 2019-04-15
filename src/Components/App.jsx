@@ -1,13 +1,13 @@
 import React from 'react';
 
 import Slides from './SlidesInHead';
-import Navbar from './Navbar';
 import Footer from './Footer';
 import AsideSection from './AsideSection';
+import NavbarContainer from './Navbar/navbarContainer';
 
 const App = props => [
   <Slides key="Slides" />,
-  <Navbar state={props.state} key="Navbar" />,
+  <NavbarContainer key="Navbar" />,
   <AsideSection state={props.state} dispatch={props.dispatch} key="AsideSection" />,
   <Footer key="Footer" />,
 ];

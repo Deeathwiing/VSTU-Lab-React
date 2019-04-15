@@ -8,9 +8,9 @@ class Table extends Component {
     this.state = { users: this.props.state };
   }
 
-  componentWillReceiveProps = () => {
-    this.setState((state, props) => ({ users: props.state }));
-  };
+  static getDerivedStateFromProps(props, state) {
+    return { users: props.state };
+  }
 
   usersTable = () => this.state.users.map(element => (
     <tr key={element.id} id={`trForDelete-${element.id}`}>
