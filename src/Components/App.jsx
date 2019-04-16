@@ -5,10 +5,10 @@ import Footer from './Footer';
 import AsideSection from './AsideSection';
 import NavbarContainer from './Navbar/navbarContainer';
 
-const App = props => [
+const App = () => [
   <Slides key="Slides" />,
   <NavbarContainer key="Navbar" />,
-  <AsideSection state={props.state} dispatch={props.dispatch} key="AsideSection" />,
+  <AsideSection key="AsideSection" />,
   <Footer key="Footer" />,
 ];
 
