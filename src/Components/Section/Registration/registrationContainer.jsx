@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import { registrationActionCreator } from '../../../redux/reducers/usersReducer';
 import Registration from './Registration';
+import { registrationActionCreator } from '../../../redux/actionCreators/usersActionCreator';
 
 const mapStateToProps = state => ({
   state: { user: state.user, usersLenght: state.users.length },

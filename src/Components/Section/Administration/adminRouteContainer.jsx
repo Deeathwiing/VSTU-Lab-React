@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
+import AdminRoute from './adminRoute';
 import {
   addItemsActionCreator,
   deleteItemsActionCreator,
-} from '../../../redux/reducers/itemsReducer';
-import { deleteUsersActionCreator } from '../../../redux/reducers/usersReducer';
-import AdminRoute from './adminRoute';
+} from '../../../redux/actionCreators/ItemsActionCreators';
+import { deleteUsersActionCreator } from '../../../redux/actionCreators/usersActionCreator';
 
 const mapStateToProps = state => ({
   state: { items: state.items, users: state.users, user: state.user },

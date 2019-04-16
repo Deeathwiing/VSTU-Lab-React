@@ -42,10 +42,4 @@ const userReducer = (state = initialState, action) => {
   }
 };
 
-export const loginActionCreator = (logEmail, logPass) => ({
-  type: LOGIN,
-  logEmail,
-  logPass,
-});
-
 export default userReducer;

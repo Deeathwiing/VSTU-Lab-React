@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { addRatingActionCreator } from '../../../../redux/reducers/itemsReducer';
 import Items from './Items';
+import { addRatingActionCreator } from '../../../../redux/actionCreators/ItemsActionCreators';
 
 const mapStateToProps = state => ({
   state: { items: state.items, user: state.user },

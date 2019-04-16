@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { removeRequestActionCreator } from '../../../redux/reducers/usersReducer';
 import EditProfile from './editProfile';
+import { removeRequestActionCreator } from '../../../redux/actionCreators/usersActionCreator';
 
 const mapStateToProps = state => ({
   state: { users: state.users },

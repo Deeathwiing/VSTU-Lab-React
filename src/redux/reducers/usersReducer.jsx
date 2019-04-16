@@ -59,7 +59,7 @@ const usersReducer = (state = initialState, action) => {
       return newStateAfterDelete;
 
     case REMOVE_REQUEST:
-      const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : [];
+      const user = action.user;
       const email = user.logEmail;
       const newStateAfterRemoveRequest = state.map((element) => {
         if (element.email === email) {
@@ -76,22 +76,5 @@ const usersReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export const deleteUsersActionCreator = idToDelete => ({
-  type: DELETE_USERS,
-  idToDelete,
-});
-
-export const registrationActionCreator = (email, firstName, lastName, password) => ({
-  type: REGISTRATION,
-  email,
-  firstName,
-  lastName,
-  password,
-});
-
-export const removeRequestActionCreator = () => ({
-  type: REMOVE_REQUEST,
-});
 
 export default usersReducer;
