@@ -11,7 +11,7 @@ const itemsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEMS:
       class Item {
-        constructor(id, picture, title, description, price, tags, rating) {
+        constructor(id, picture, title, description, price, tags, rating, averageRating) {
           this.id = id;
           this.picture = picture;
           this.title = title;
@@ -19,6 +19,7 @@ const itemsReducer = (state = initialState, action) => {
           this.price = price;
           this.tags = tags;
           this.rating = rating;
+          this.averageRating = averageRating;
         }
       }
 
@@ -26,7 +27,7 @@ const itemsReducer = (state = initialState, action) => {
       const lastElement = state[stateLength - 1];
 
       const id = lastElement ? lastElement.id + 1 : 0;
-
+      const averageRating = null;
       const newItem = new Item(
         id,
         action.newPicture,
@@ -35,6 +36,7 @@ const itemsReducer = (state = initialState, action) => {
         action.newPrice,
         action.newTags,
         action.newRating,
+        averageRating,
       );
 
       const newStateAfterAddItems = [...state, newItem];

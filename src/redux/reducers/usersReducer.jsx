@@ -61,8 +61,7 @@ const usersReducer = (state = initialState, action) => {
     case REMOVE_REQUEST:
       const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : [];
       const email = user.logEmail;
-      const usersBD = state.users;
-      const newStateAfterRemoveRequest = usersBD.map((element) => {
+      const newStateAfterRemoveRequest = state.map((element) => {
         if (element.email === email) {
           element.deleteAccountRequest = true;
           return element;
