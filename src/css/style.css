@@ -51,26 +51,82 @@ aside {
   display: inline-block;
 }
 
+/* Rating */
+
 .rating {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  padding: 0.9em;
-}
-.rating > span {
-  display: inline-block;
-  position: relative;
-  width: 1.1em;
-}
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-  content: "\2605";
-  position: absolute;
-  color: gold;
+  margin: 1em 1em 1em 1em;
+  padding: 0;
+  border: none;
 }
 
-.rating > .active-rating:before,
-.rating > .active-rating ~ span:before {
-  content: "\2605";
+/* Group */
+
+.rating-group {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  background-image: url(../images/off.svg);
+  background-size: 1em auto;
+  background-repeat: repeat-x;
+}
+
+.rating-group:focus-within {
+  outline: 0.2em solid #4a90e2;
+  outline-offset: 0.2em;
+}
+
+/* Star */
+
+.rating-star {
   position: absolute;
-  color: gold;
+  top: 0;
+  left: 0;
+  margin: 0;
+  height: 1em;
+  font-size: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-size: 1em auto;
+  background-repeat: repeat-x;
+}
+
+.rating-star:focus {
+  outline: none;
+}
+
+.rating-star:hover,
+.rating-star:checked {
+  background-image: url(../images/on.svg);
+}
+
+.rating-star:hover ~ .rating-star {
+  background-image: url(../images/off.svg);
+}
+
+/* Options */
+
+.rating-star:nth-of-type(1) {
+  z-index: 5;
+  width: 1em;
+}
+
+.rating-star:nth-of-type(2) {
+  z-index: 4;
+  width: 2em;
+}
+
+.rating-star:nth-of-type(3) {
+  z-index: 3;
+  width: 3em;
+}
+
+.rating-star:nth-of-type(4) {
+  z-index: 2;
+  width: 4em;
+}
+
+.rating-star:nth-of-type(5) {
+  z-index: 1;
+  width: 5em;
 }

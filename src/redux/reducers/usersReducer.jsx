@@ -2,7 +2,7 @@
 const REGISTRATION = 'REGISTRATION';
 const DELETE_USERS = 'DELETE-USERS';
 const REMOVE_REQUEST = 'REMOVE-REQUEST';
-
+const CHANGE_FIRSTNAMELASTNAME = 'CHANGE_FIRSTNAME';
 const initialState = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
 const usersReducer = (state = initialState, action) => {
   // должны придти users & user
@@ -72,6 +72,23 @@ const usersReducer = (state = initialState, action) => {
       localStorage.setItem('users', JSON.stringify(newStateAfterRemoveRequest));
 
       return newStateAfterRemoveRequest;
+
+    case CHANGE_FIRSTNAMELASTNAME:
+      const userChangeName = action.user;
+      const emailChangeName = userChangeName.logEmail;
+      const newStateAfterChange = state.map((element) => {
+        if (element.email === emailChangeName) {
+          element.firstName = action.firstName;
+          element.lastName = action.lastName;
+          return element;
+        }
+        return element;
+      });
+
+      localStorage.setItem('users', JSON.stringify(newStateAfterChange));
+
+      return newStateAfterChange;
+
     default:
       return state;
   }

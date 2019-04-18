@@ -75,7 +75,14 @@ const itemsReducer = (state = initialState, action) => {
               singleRating.push(personalRating);
             }
           } else singleRating.push(personalRating);
+
           item.rating = singleRating;
+
+          const ratingValueArr = item.rating.map(element => Number(element.ratingValue));
+
+          const nextAverageRating = ratingValueArr.reduce((sum, current) => sum + current) / ratingValueArr.length;
+
+          item.averageRating = Math.round(nextAverageRating);
         }
         return item;
       });

@@ -22,23 +22,61 @@ const Item = (props) => {
         <p className="card-text">{element.price}</p>
         <p className="card-text">{element.tags}</p>
       </div>
-      <div className="rating">
-        <span onClick={check} className="ratingStar item" item-id={element.id} rating-value={5}>
-          ☆
-        </span>
-        <span onClick={check} className="ratingStar item" item-id={element.id} rating-value={4}>
-          ☆
-        </span>
-        <span onClick={check} className="ratingStar item" item-id={element.id} rating-value={3}>
-          ☆
-        </span>
-        <span onClick={check} className="ratingStar item" item-id={element.id} rating-value={2}>
-          ☆
-        </span>
-        <span onClick={check} className="ratingStar item" item-id={element.id} rating-value={1}>
-          ☆
-        </span>
-      </div>
+
+      <fieldset className="rating" key={element.id}>
+        <div className="rating-group">
+          <input
+            item-id={element.id}
+            onChange={check}
+            className="rating-star"
+            type="radio"
+            name="health"
+            value="1"
+            aria-label="Ужасно"
+            checked={element.averageRating === 1 && 'checked'}
+          />
+          <input
+            item-id={element.id}
+            onChange={check}
+            className="rating-star"
+            type="radio"
+            name="health"
+            value="2"
+            aria-label="Сносно"
+            checked={element.averageRating === 2 && 'checked'}
+          />
+          <input
+            item-id={element.id}
+            onChange={check}
+            className="rating-star"
+            type="radio"
+            name="health"
+            value="3"
+            aria-label="Нормально"
+            checked={element.averageRating === 3 && 'checked'}
+          />
+          <input
+            item-id={element.id}
+            onChange={check}
+            className="rating-star"
+            type="radio"
+            name="health"
+            value="4"
+            aria-label="Хорошо"
+            checked={element.averageRating === 4 && 'checked'}
+          />
+          <input
+            item-id={element.id}
+            onChange={check}
+            className="rating-star"
+            type="radio"
+            name="health"
+            value="5"
+            aria-label="Отлично"
+            checked={element.averageRating === 5 && 'checked'}
+          />
+        </div>
+      </fieldset>
     </div>
   ));
   return item;

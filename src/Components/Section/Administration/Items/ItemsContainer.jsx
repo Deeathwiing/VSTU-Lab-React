@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addRating: (event) => {
     const itemId = Number(event.target.getAttribute('item-id'));
-    const ratingValue = Number(event.target.getAttribute('rating-value'));
+    const ratingValue = event.target.value;
+
     dispatch(addRatingActionCreator(itemId, ratingValue));
   },
 });
