@@ -44,11 +44,18 @@ const Administration = props => (
       path="/administration/admintable"
       render={() => (
         <React.Suspense fallback={<div>Loading...</div>}>
-          <AdminTable state={props.state.users} deleteUser={props.deleteUser} />
+          <AdminTable
+            state={props.state.users}
+            deleteUser={props.deleteUser}
+            initializationUsers={props.initializationUsers}
+          />
         </React.Suspense>
       )}
     />
-    <Route path="/administration/adminitems" component={ItemsAdmin} />
+    <Route
+      path="/administration/adminitems"
+      render={() => <ItemsAdmin initializationItems={props.initializationItems} />}
+    />
     <Route
       path="/administration/adminitems/additems"
       render={() => <AddItems state={props.state.items} addItems={props.addItems} />}

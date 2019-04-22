@@ -30,7 +30,7 @@ const Item = (props) => {
             onChange={check}
             className="rating-star"
             type="radio"
-            name="health"
+            name={element.id}
             value="1"
             aria-label="Ужасно"
             checked={element.averageRating === 1 && 'checked'}
@@ -40,7 +40,7 @@ const Item = (props) => {
             onChange={check}
             className="rating-star"
             type="radio"
-            name="health"
+            name={element.id}
             value="2"
             aria-label="Сносно"
             checked={element.averageRating === 2 && 'checked'}
@@ -50,7 +50,7 @@ const Item = (props) => {
             onChange={check}
             className="rating-star"
             type="radio"
-            name="health"
+            name={element.id}
             value="3"
             aria-label="Нормально"
             checked={element.averageRating === 3 && 'checked'}
@@ -60,7 +60,7 @@ const Item = (props) => {
             onChange={check}
             className="rating-star"
             type="radio"
-            name="health"
+            name={element.id}
             value="4"
             aria-label="Хорошо"
             checked={element.averageRating === 4 && 'checked'}
@@ -70,7 +70,7 @@ const Item = (props) => {
             onChange={check}
             className="rating-star"
             type="radio"
-            name="health"
+            name={element.id}
             value="5"
             aria-label="Отлично"
             checked={element.averageRating === 5 && 'checked'}

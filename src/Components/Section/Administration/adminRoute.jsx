@@ -13,6 +13,8 @@ const AdminRoute = (props) => {
             addItems={props.addItems}
             deleteItems={props.deleteItems}
             deleteUser={props.deleteUser}
+            initializationUsers={props.initializationUsers}
+            initializationItems={props.initializationItems}
             state={props.state}
           />
         )}

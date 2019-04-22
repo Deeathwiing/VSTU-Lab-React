@@ -3,8 +3,12 @@ import AdminRoute from './adminRoute';
 import {
   addItemsActionCreator,
   deleteItemsActionCreator,
+  initializationItemsActionCreator,
 } from '../../../redux/actionCreators/ItemsActionCreators';
-import { deleteUsersActionCreator } from '../../../redux/actionCreators/usersActionCreator';
+import {
+  deleteUsersActionCreator,
+  initializationUsersActionCreator,
+} from '../../../redux/actionCreators/usersActionCreator';
 
 const mapStateToProps = state => ({
   state: { items: state.items, users: state.users, user: state.user },
@@ -24,6 +28,12 @@ const mapDispatchToProps = dispatch => ({
     const idToDelete = Number(event.target.getAttribute('data-id'));
     dispatch(deleteUsersActionCreator(idToDelete));
     event.preventDefault();
+  },
+  initializationUsers: () => {
+    dispatch(initializationUsersActionCreator());
+  },
+  initializationItems: () => {
+    dispatch(initializationItemsActionCreator());
   },
 });
 

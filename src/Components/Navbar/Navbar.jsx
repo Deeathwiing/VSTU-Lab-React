@@ -100,7 +100,11 @@ const Navbar = props => (
 
         <div className="collapse navbar-collapse col" id="navbarResponsive">
           <ul className="navbar-nav row d-flex justify-content-around">
-            <AuthControl state={props.state.user} navLinks={navLinks.NavLinkPersonalArea} />
+            <AuthControl
+              key="AuthControl"
+              state={props.state.user}
+              navLinks={navLinks.NavLinkPersonalArea}
+            />
 
             <li className="nav-item dropdown">
               <NavLink

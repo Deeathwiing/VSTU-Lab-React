@@ -1,10 +1,17 @@
 import React from 'react';
 import Item from './Item';
 
-const Items = props => (
-  <div className="card-columns">
-    <Item addRating={props.addRating} state={props.state} />
-  </div>
-);
+class Items extends React.Component {
+  componentDidMount() {
+    this.props.initializationItems();
+  }
 
+  render() {
+    return (
+      <div className="card-columns">
+        <Item addRating={this.props.addRating} state={this.props.state} />
+      </div>
+    );
+  }
+}
 export default Items;

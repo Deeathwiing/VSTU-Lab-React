@@ -1,16 +1,31 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const ItemsAdmin = () => (
-  <div className="container-fluid">
-    <h1 className="header"> All items </h1>
-    <NavLink type="button" className="btn btn-primary m-2" to="/administration/adminitems/additems">
-      Add item
-    </NavLink>
-    <NavLink type="button" className="btn btn-primary m-2" to="/administration/adminitems/allitems">
-      All items
-    </NavLink>
-  </div>
-);
+class ItemsAdmin extends React.Component {
+  componentDidMount() {
+    this.props.initializationItems();
+  }
 
+  render() {
+    return (
+      <div className="container-fluid">
+        <h1 className="header"> All items </h1>
+        <NavLink
+          type="button"
+          className="btn btn-primary m-2"
+          to="/administration/adminitems/additems"
+        >
+          Add item
+        </NavLink>
+        <NavLink
+          type="button"
+          className="btn btn-primary m-2"
+          to="/administration/adminitems/allitems"
+        >
+          All items
+        </NavLink>
+      </div>
+    );
+  }
+}
 export default ItemsAdmin;

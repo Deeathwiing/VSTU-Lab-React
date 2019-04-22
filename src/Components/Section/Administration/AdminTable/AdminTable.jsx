@@ -15,7 +15,11 @@ const AdminTable = props => (
         </tr>
       </thead>
       <tbody id="adminTable">
-        <Table state={props.state} deleteUser={props.deleteUser} />
+        <Table
+          state={props.state}
+          deleteUser={props.deleteUser}
+          initializationUsers={props.initializationUsers}
+        />
       </tbody>
     </table>
   </div>

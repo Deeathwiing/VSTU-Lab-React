@@ -8,7 +8,7 @@ const AuthControl = (props) => {
   if (state.user.admin || state.user.checkLogin) {
     return <PersonalArea key="PersonalArea" state={props.state} navLinks={props.navLinks} />;
   }
-  return <LoginRegistration key="LoginRegistration" />;
+  return <LoginRegistration />;
 };
 
 export default AuthControl;

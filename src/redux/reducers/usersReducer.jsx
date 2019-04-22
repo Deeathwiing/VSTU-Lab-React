@@ -3,10 +3,9 @@ const REGISTRATION = 'REGISTRATION';
 const DELETE_USERS = 'DELETE-USERS';
 const REMOVE_REQUEST = 'REMOVE-REQUEST';
 const CHANGE_FIRSTNAMELASTNAME = 'CHANGE_FIRSTNAME';
+const INITIALIZATION_USERS = 'INITIALIZATION_USERS';
 const initialState = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
-const usersReducer = (state = initialState, action) => {
-  // должны придти users & user
-
+const usersReducer = (state = [], action) => {
   switch (action.type) {
     case REGISTRATION:
       class User {
@@ -89,6 +88,8 @@ const usersReducer = (state = initialState, action) => {
 
       return newStateAfterChange;
 
+    case INITIALIZATION_USERS:
+      return localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
     default:
       return state;
   }

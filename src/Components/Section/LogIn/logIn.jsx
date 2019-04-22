@@ -13,13 +13,13 @@ class LogIn extends React.Component {
     return props.state;
   }
 
-  log = (event) => {
+  log = () => {
     const logEmail = $('#logEmail')
       .val()
       .toLowerCase();
     const logPass = $('#logPass').val();
 
-    this.props.login(event, logEmail, logPass);
+    this.props.login(logEmail, logPass);
   };
 
   render() {

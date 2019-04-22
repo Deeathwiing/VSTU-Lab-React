@@ -2,12 +2,9 @@
 const ADD_ITEMS = 'ADD-ITEMS';
 const DELETE_ITEMS = 'DELETE-ITEMS';
 const ADD_RATING = 'ADD-RATING';
+const INITIALIZATION_ITEMS = 'INITIALIZATION_ITEMS';
 
-const initialState = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-// user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : [],
-
-const itemsReducer = (state = initialState, action) => {
-  // Должно придти items,user,
+const itemsReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_ITEMS:
       class Item {
@@ -54,7 +51,7 @@ const itemsReducer = (state = initialState, action) => {
       return newStateAfterDelete;
 
     case ADD_RATING:
-      const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : [];
+      const user = action.user;
       const personalRating = {
         user: user.logEmail,
         ratingValue: action.ratingValue,
@@ -89,6 +86,8 @@ const itemsReducer = (state = initialState, action) => {
       localStorage.setItem('items', JSON.stringify(newStateAfterAddRating));
 
       return newStateAfterAddRating;
+    case INITIALIZATION_ITEMS:
+      return localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
     default:
       return state;
   }

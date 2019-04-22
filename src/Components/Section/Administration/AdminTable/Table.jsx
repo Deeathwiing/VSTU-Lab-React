@@ -12,6 +12,10 @@ class Table extends Component {
     return { users: props.state };
   }
 
+  componentDidMount() {
+    this.props.initializationUsers();
+  }
+
   usersTable = () => this.state.users.map(element => (
     <tr key={element.id} id={`trForDelete-${element.id}`}>
       <th scope="row">{element.id}</th>

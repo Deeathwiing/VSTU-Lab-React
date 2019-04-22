@@ -2,6 +2,7 @@ const REGISTRATION = 'REGISTRATION';
 const DELETE_USERS = 'DELETE-USERS';
 const REMOVE_REQUEST = 'REMOVE-REQUEST';
 const CHANGE_FIRSTNAMELASTNAME = 'CHANGE_FIRSTNAME';
+const INITIALIZATION_USERS = 'INITIALIZATION_USERS';
 
 export const deleteUsersActionCreator = idToDelete => ({
   type: DELETE_USERS,
@@ -26,4 +27,8 @@ export const changeFirstLastNameActionCreator = (firstName, lastName) => ({
   user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : [],
   firstName,
   lastName,
+});
+
+export const initializationUsersActionCreator = () => ({
+  type: INITIALIZATION_USERS,
 });

@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import Items from './Items';
-import { addRatingActionCreator } from '../../../../redux/actionCreators/ItemsActionCreators';
+import {
+  addRatingActionCreator,
+  initializationItemsActionCreator,
+} from '../../../../redux/actionCreators/ItemsActionCreators';
 
 const mapStateToProps = state => ({
   state: { items: state.items, user: state.user },
@@ -12,6 +15,9 @@ const mapDispatchToProps = dispatch => ({
     const ratingValue = event.target.value;
 
     dispatch(addRatingActionCreator(itemId, ratingValue));
+  },
+  initializationItems: () => {
+    dispatch(initializationItemsActionCreator());
   },
 });
 

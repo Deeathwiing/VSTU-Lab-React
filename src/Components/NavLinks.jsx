@@ -18,10 +18,10 @@ export const NavLinksAdministration = (props) => {
 
 export const NavLinkDropDown = (props) => {
   const link = props.state.map(element => (
-    <span key={element.description}>
+    <div key={element.description}>
       <CustomNavLink key={element.description} state={element} />
       <div className="dropdown-divider" />
-    </span>
+    </div>
   ));
   return link;
 };
