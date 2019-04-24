@@ -3,10 +3,13 @@ import Items from './Items';
 import {
   addRatingActionCreator,
   initializationItemsActionCreator,
-} from '../../../../redux/actionCreators/ItemsActionCreators';
+} from '../../../redux/actionCreators/ItemsActionCreators';
 
 const mapStateToProps = state => ({
-  state: { items: state.items, user: state.user },
+  state: {
+    items: state.items,
+    user: state.user,
+  },
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -17,7 +20,10 @@ const mapDispatchToProps = dispatch => ({
     dispatch(addRatingActionCreator(itemId, ratingValue));
   },
   initializationItems: () => {
-    dispatch(initializationItemsActionCreator());
+    const items = localStorage.getItem('items')
+      ? JSON.parse(localStorage.getItem('items'))
+      : [null];
+    dispatch(initializationItemsActionCreator(items));
   },
 });
 

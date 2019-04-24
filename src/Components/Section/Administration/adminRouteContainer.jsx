@@ -17,7 +17,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addItems: (event, picture, title, description, price, tags, rating) => {
     dispatch(addItemsActionCreator(picture, title, description, price, tags, rating));
-    event.preventDefault();
   },
   deleteItems: (event) => {
     const idToDelete = Number(event.target.getAttribute('data-id'));

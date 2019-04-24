@@ -58,7 +58,7 @@ const Administration = props => (
     />
     <Route
       path="/administration/adminitems/additems"
-      render={() => <AddItems state={props.state.items} addItems={props.addItems} />}
+      render={() => <AddItems addItems={props.addItems} />}
     />
     <Route
       path="/administration/adminitems/allitems"

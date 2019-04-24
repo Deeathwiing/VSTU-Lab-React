@@ -8,7 +8,7 @@ import Warranty from './Warranty';
 
 import AboutUs from './aboutUs';
 
-import ItemsContainer from './Administration/Items/ItemsContainer';
+import ItemsContainer from './Items/ItemsContainer';
 import registrationContainer from './Registration/registrationContainer';
 import LoginContainer from './LogIn/loginContainer';
 import AdminRouteContainer from './Administration/adminRouteContainer';

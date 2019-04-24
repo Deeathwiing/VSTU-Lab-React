@@ -86,8 +86,12 @@ const itemsReducer = (state = [], action) => {
       localStorage.setItem('items', JSON.stringify(newStateAfterAddRating));
 
       return newStateAfterAddRating;
+
+    case 'ITEMS_FETCH_DATA_SUCCESS':
+      return action.items;
+
     case INITIALIZATION_ITEMS:
-      return localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+      return action.items;
     default:
       return state;
   }

@@ -24,7 +24,8 @@ const userReducer = (state = initialState, action) => {
           );
         }
       }
-      return newState;
+      return newState || false;
+
     default:
       return state;
   }
