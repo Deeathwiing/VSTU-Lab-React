@@ -20,7 +20,32 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'max-len': ['error', { code: 80 }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'jsx-a11y/label-has-associated-control': [
+      2,
+      { required: { some: ['nesting', 'id'] } },
+    ],
+    'no-use-before-define': ['error', { functions: false }],
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'ignore',
+      },
+    ],
     'linebreak-style': 'off',
+
+    'react/destructuring-assignment': 'off',
+    'jsx-a11y/label-has-for': 'off',
+    'import/prefer-default-export': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'no-plusplus': 'off',
+    'object-curly-newline': 'off',
+
     'func-names': 'off',
     'react/jsx-one-expression-per-line': 'off',
   },

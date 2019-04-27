@@ -65,7 +65,7 @@ aside {
   position: relative;
   width: 5em;
   height: 1em;
-  background-image: url(../images/off.svg);
+  background-image: url(../public/images/off.svg);
   background-size: 1em auto;
   background-repeat: repeat-x;
 }
@@ -97,11 +97,11 @@ aside {
 
 .rating-star:hover,
 .rating-star:checked {
-  background-image: url(../images/on.svg);
+  background-image: url(../public/images/on.svg);
 }
 
 .rating-star:hover ~ .rating-star {
-  background-image: url(../images/off.svg);
+  background-image: url(../public/images/off.svg);
 }
 
 /* Options */

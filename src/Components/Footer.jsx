@@ -1,7 +1,7 @@
 import React from 'react';
-import payments from '../images/payments.PNG';
-import telephone from '../images/telephone.PNG';
-import { NavLinksAdministration } from './NavLinks';
+import payments from '../public/images/payments.PNG';
+import telephone from '../public/images/telephone.PNG';
+import { NavLinksAdministration } from './navLinks';
 
 const navLinks = {
   NavLinkFooter: [
@@ -48,7 +48,7 @@ const navLinks = {
   ],
 };
 
-const Footer = props => (
+const Footer = () => (
   <footer className="container p-0 justify-content-center mt-3">
     <div className="navbar navbar-expand-lg navbar-light bg-light p-1 d-flex justify-content-center">
       <div className="row text-center d-flex justify-content-center">
@@ -58,8 +58,8 @@ const Footer = props => (
           </div>
 
           <div className="row">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae perferendis,
-            reiciendis quas possimus aspernatur.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
+            molestiae perferendis, reiciendis quas possimus aspernatur.
           </div>
         </div>
 

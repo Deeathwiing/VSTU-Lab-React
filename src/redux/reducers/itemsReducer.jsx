@@ -7,51 +7,39 @@ const INITIALIZATION_ITEMS = 'INITIALIZATION_ITEMS';
 const itemsReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_ITEMS:
-      class Item {
-        constructor(id, picture, title, description, price, tags, rating, averageRating) {
-          this.id = id;
-          this.picture = picture;
-          this.title = title;
-          this.description = description;
-          this.price = price;
-          this.tags = tags;
-          this.rating = rating;
-          this.averageRating = averageRating;
-        }
-      }
-
       const stateLength = state.length;
       const lastElement = state[stateLength - 1];
 
       const id = lastElement ? lastElement.id + 1 : 0;
       const averageRating = null;
-      const newItem = new Item(
+      const newItem = {
         id,
-        action.newPicture,
-        action.newTitle,
-        action.newDescription,
-        action.newPrice,
-        action.newTags,
-        action.newRating,
+        picture: action.newPicture || '',
+        title: action.newTitle || '',
+        description: action.newDescription || '',
+        price: action.newPrice || '',
+        tags: action.newTags || [],
+        rating: [],
         averageRating,
-      );
+      };
+      let newStateAfterAddItems;
+      if (lastElement) {
+        newStateAfterAddItems = [...state, newItem];
+      } else {
+        newStateAfterAddItems = [newItem];
+      }
 
-      const newStateAfterAddItems = [...state, newItem];
       localStorage.setItem('items', JSON.stringify(newStateAfterAddItems));
       return newStateAfterAddItems;
     case DELETE_ITEMS:
-      const check = (item) => {
-        if (item.id !== action.idToDelete) {
-          return true;
-        }
-        return false;
-      };
-      const newStateAfterDelete = state.filter(item => check(item));
+      const newStateAfterDelete = state.filter(
+        item => item.id !== action.idToDelete
+      );
       localStorage.setItem('items', JSON.stringify(newStateAfterDelete));
       return newStateAfterDelete;
 
     case ADD_RATING:
-      const user = action.user;
+      const { user } = action;
       const personalRating = {
         user: user.logEmail,
         ratingValue: action.ratingValue,
@@ -75,9 +63,11 @@ const itemsReducer = (state = [], action) => {
 
           item.rating = singleRating;
 
-          const ratingValueArr = item.rating.map(element => Number(element.ratingValue));
+          const ratingValueArr = item.rating.map(element =>
+            Number(element.ratingValue));
 
-          const nextAverageRating = ratingValueArr.reduce((sum, current) => sum + current) / ratingValueArr.length;
+          const nextAverageRating = ratingValueArr.reduce((sum, current) => sum + current)
+            / ratingValueArr.length;
 
           item.averageRating = Math.round(nextAverageRating);
         }
@@ -91,7 +81,7 @@ const itemsReducer = (state = [], action) => {
       return action.items;
 
     case INITIALIZATION_ITEMS:
-      return action.items;
+      return action.items || [];
     default:
       return state;
   }

@@ -4,26 +4,16 @@ const DELETE_USERS = 'DELETE-USERS';
 const REMOVE_REQUEST = 'REMOVE-REQUEST';
 const CHANGE_FIRSTNAMELASTNAME = 'CHANGE_FIRSTNAME';
 const INITIALIZATION_USERS = 'INITIALIZATION_USERS';
-const initialState = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
+
 const usersReducer = (state = [], action) => {
   switch (action.type) {
     case REGISTRATION:
-      class User {
-        constructor(id, email, firstName, lastName, password) {
-          this.id = id;
-          this.firstName = firstName;
-          this.lastName = lastName;
-          this.email = email;
-          this.password = password;
-          this.deleteAccountRequest = false;
-          this.administration = false;
-        }
-      }
-
       const lastElement = state[state.length - 1];
       const id = lastElement ? lastElement.id + 1 : 0;
-
-      const isTaken = state.some(user => user.email === action.email);
+      let isTaken = false;
+      if (lastElement) {
+        isTaken = state.some(user => user.email === action.email);
+      }
       if (isTaken) {
         alert('Данный email занят');
         return state;
@@ -34,15 +24,23 @@ const usersReducer = (state = [], action) => {
         return state;
       }
 
-      const newUser = new User(
+      const newUser = {
         id,
-        action.email,
-        action.firstName,
-        action.lastName,
-        action.password,
-      );
+        email: action.email,
+        firstName: action.firstName,
+        lastName: action.lastName,
+        password: action.password,
+        deleteAccountRequest: false,
+        administration: false,
+      };
 
-      const newStateAfterRegistration = [...state, newUser];
+      let newStateAfterRegistration = [];
+
+      if (lastElement) {
+        newStateAfterRegistration = [...state, newUser];
+      } else {
+        newStateAfterRegistration = [newUser];
+      }
       localStorage.setItem('users', JSON.stringify(newStateAfterRegistration));
       return newStateAfterRegistration;
 
@@ -58,7 +56,7 @@ const usersReducer = (state = [], action) => {
       return newStateAfterDelete;
 
     case REMOVE_REQUEST:
-      const user = action.user;
+      const { user } = action;
       const email = user.logEmail;
       const newStateAfterRemoveRequest = state.map((element) => {
         if (element.email === email) {
@@ -89,7 +87,7 @@ const usersReducer = (state = [], action) => {
       return newStateAfterChange;
 
     case INITIALIZATION_USERS:
-      return localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
+      return action.users;
     default:
       return state;
   }

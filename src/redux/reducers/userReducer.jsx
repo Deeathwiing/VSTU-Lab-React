@@ -1,11 +1,8 @@
 /* eslint-disable no-case-declarations */
 const LOGIN = 'LOGIN';
+const INIT_USER = 'INIT_USER';
 
-const initialState = localStorage.getItem('user')
-  ? JSON.parse(localStorage.getItem('user'))
-  : [null];
-
-const userReducer = (state = initialState, action) => {
+const userReducer = (state = [], action) => {
   switch (action.type) {
     case LOGIN:
       let newState;
@@ -14,17 +11,26 @@ const userReducer = (state = initialState, action) => {
           newState = { logEmail: action.logEmail, admin: action.admin };
           localStorage.setItem(
             'user',
-            JSON.stringify({ logEmail: action.logEmail, admin: action.admin }),
+            JSON.stringify({ logEmail: action.logEmail, admin: action.admin })
           );
         } else {
-          newState = { logEmail: action.logEmail, checkLogin: action.checkLogin };
+          newState = {
+            logEmail: action.logEmail,
+            checkLogin: action.checkLogin,
+          };
           localStorage.setItem(
             'user',
-            JSON.stringify({ logEmail: action.logEmail, checkLogin: action.checkLogin }),
+            JSON.stringify({
+              logEmail: action.logEmail,
+              checkLogin: action.checkLogin,
+            })
           );
         }
       }
       return newState || false;
+
+    case INIT_USER:
+      return action.user;
 
     default:
       return state;
