@@ -67,6 +67,7 @@ const itemsReducer = (state = [], action) => {
           const ratingValueArr = item.rating.map(element =>
             Number(element.ratingValue));
 
+          // eslint-disable-next-line max-len
           const nextAverageRating = ratingValueArr.reduce((sum, current) => sum + current)
             / ratingValueArr.length;
 
