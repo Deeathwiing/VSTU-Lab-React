@@ -36,3 +36,7 @@ export default App;
 App.propTypes = {
   init: PropTypes.func,
 };
+
+App.defaultProps = {
+  init: () => {},
+};

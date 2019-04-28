@@ -27,3 +27,8 @@ AdminTable.propTypes = {
   state: PropTypes.array,
   deleteUser: PropTypes.func,
 };
+
+AdminTable.defaultProps = {
+  state: [],
+  deleteUser: () => {},
+};

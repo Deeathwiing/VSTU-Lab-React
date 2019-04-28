@@ -34,3 +34,7 @@ export const NavLinkDropDown = (props) => {
 CustomNavLink.propTypes = {
   state: PropTypes.object,
 };
+
+CustomNavLink.defaultProps = {
+  state: {},
+};

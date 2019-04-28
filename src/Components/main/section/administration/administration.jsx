@@ -73,3 +73,10 @@ Administration.propTypes = {
   addItems: PropTypes.func,
   deleteItems: PropTypes.func,
 };
+
+Administration.defaultProps = {
+  state: {},
+  deleteUser: () => {},
+  addItems: () => {},
+  deleteItems: () => {},
+};

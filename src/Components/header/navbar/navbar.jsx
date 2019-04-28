@@ -157,5 +157,9 @@ export default Navbar;
 Navbar.propTypes = {
   state: PropTypes.object,
   user: PropTypes.object,
-  navLinks: PropTypes.array,
+};
+
+Navbar.defaultProps = {
+  state: {},
+  user: {},
 };

@@ -25,3 +25,8 @@ BtnDelete.propTypes = {
   state: PropTypes.object,
   deleteUser: PropTypes.func,
 };
+
+BtnDelete.defaultProps = {
+  state: {},
+  deleteUser: () => {},
+};

@@ -46,3 +46,8 @@ PersonalArea.propTypes = {
   navLinks: PropTypes.array,
   state: PropTypes.object,
 };
+
+PersonalArea.defaultProps = {
+  navLinks: [],
+  state: {},
+};

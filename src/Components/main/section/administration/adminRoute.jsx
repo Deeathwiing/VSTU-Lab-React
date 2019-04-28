@@ -31,3 +31,10 @@ AdminRoute.propTypes = {
   deleteItems: PropTypes.func,
   deleteUser: PropTypes.func,
 };
+
+AdminRoute.defaultProps = {
+  state: {},
+  deleteUser: () => {},
+  addItems: () => {},
+  deleteItems: () => {},
+};

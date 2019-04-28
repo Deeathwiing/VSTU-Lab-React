@@ -96,3 +96,8 @@ LogIn.propTypes = {
   login: PropTypes.func,
   state: PropTypes.object,
 };
+
+LogIn.defaultProps = {
+  state: {},
+  login: () => {},
+};

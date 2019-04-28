@@ -68,3 +68,9 @@ EditProfile.propTypes = {
   changeFirstLastName: PropTypes.func,
   removeRequest: PropTypes.func,
 };
+
+EditProfile.defaultProps = {
+  state: {},
+  changeFirstLastName: () => {},
+  removeRequest: () => {},
+};

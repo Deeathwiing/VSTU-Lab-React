@@ -61,3 +61,8 @@ Registration.propTypes = {
   state: PropTypes.object,
   reg: PropTypes.func,
 };
+
+Registration.defaultProps = {
+  state: {},
+  reg: () => {},
+};

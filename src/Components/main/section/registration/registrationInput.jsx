@@ -114,3 +114,7 @@ export default RegistrationInput;
 RegistrationInput.propTypes = {
   reg: PropTypes.func,
 };
+
+RegistrationInput.defaultProps = {
+  reg: () => {},
+};

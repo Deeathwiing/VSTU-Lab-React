@@ -118,3 +118,7 @@ export default AddItems;
 AddItems.propTypes = {
   addItems: PropTypes.func,
 };
+
+AddItems.defaultProps = {
+  addItems: () => {},
+};

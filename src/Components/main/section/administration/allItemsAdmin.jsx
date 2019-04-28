@@ -31,3 +31,8 @@ AllItemsAdmin.propTypes = {
   state: PropTypes.array,
   deleteItems: PropTypes.func,
 };
+
+AllItemsAdmin.defaultProps = {
+  state: [],
+  deleteItems: () => {},
+};

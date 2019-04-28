@@ -25,3 +25,8 @@ AuthControl.propTypes = {
   state: PropTypes.object,
   navLinks: PropTypes.array,
 };
+
+AuthControl.defaultProps = {
+  state: {},
+  navLinks: [],
+};

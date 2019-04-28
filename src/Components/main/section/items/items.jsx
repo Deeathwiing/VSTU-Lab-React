@@ -13,3 +13,8 @@ Items.propTypes = {
   addRating: PropTypes.func,
   state: PropTypes.object,
 };
+
+Items.defaultProps = {
+  state: {},
+  addRating: () => {},
+};
