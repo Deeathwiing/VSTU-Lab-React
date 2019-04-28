@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-case-declarations */
 const ADD_ITEMS = 'ADD-ITEMS';
 const DELETE_ITEMS = 'DELETE-ITEMS';

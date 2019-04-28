@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-case-declarations */
 const REGISTRATION = 'REGISTRATION';
 const DELETE_USERS = 'DELETE-USERS';

@@ -24,6 +24,7 @@ const AdminTable = props => (
 export default AdminTable;
 
 AdminTable.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   state: PropTypes.array,
   deleteUser: PropTypes.func,
 };

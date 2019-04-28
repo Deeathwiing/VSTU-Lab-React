@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RegistrationInput from './registrationInput';
-import RegistrationSuccessfull from './registrationSuccessfull';
+import RegistrationSuccessful from './registrationSuccessful';
 import News from '../news';
 
 class Registration extends React.Component {
@@ -49,7 +49,7 @@ class Registration extends React.Component {
       if (this.state.check) {
         return <RegistrationInput reg={this.regCheck} />;
       }
-      return <RegistrationSuccessfull />;
+      return <RegistrationSuccessful />;
     }
     return <News />;
   }
@@ -58,6 +58,7 @@ class Registration extends React.Component {
 export default Registration;
 
 Registration.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   state: PropTypes.object,
   reg: PropTypes.func,
 };

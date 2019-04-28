@@ -1,9 +1,9 @@
 import React from 'react';
 
-const LoginSuccessfull = () => (
+const LoginSuccessful = () => (
   <div>
     <h3>Добро пожаловать на сайт !</h3>
   </div>
 );
 
-export default LoginSuccessfull;
+export default LoginSuccessful;

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -68,6 +69,7 @@ const Administration = props => (
 export default Administration;
 
 Administration.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   state: PropTypes.object,
   deleteUser: PropTypes.func,
   addItems: PropTypes.func,

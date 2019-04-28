@@ -1,9 +1,9 @@
 import React from 'react';
 
-const RegistrationSuccessfull = () => (
+const RegistrationSuccessful = () => (
   <div>
     <h3>Добро пожаловать,вы зарегистрированы,пожалуйста войдите !</h3>
   </div>
 );
 
-export default RegistrationSuccessfull;
+export default RegistrationSuccessful;

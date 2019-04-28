@@ -4,6 +4,7 @@ import {
   addItemsActionCreator,
   deleteItemsActionCreator,
 } from '../../../../redux/actionCreators/ItemsActionCreators';
+// eslint-disable-next-line max-len
 import { deleteUsersActionCreator } from '../../../../redux/actionCreators/usersActionCreator';
 
 const mapStateToProps = state => ({

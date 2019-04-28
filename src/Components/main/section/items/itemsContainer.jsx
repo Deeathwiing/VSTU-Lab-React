@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Items from './items';
+// eslint-disable-next-line max-len
 import { addRatingActionCreator } from '../../../../redux/actionCreators/ItemsActionCreators';
 
 const mapStateToProps = state => ({

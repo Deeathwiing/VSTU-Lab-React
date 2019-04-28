@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import Registration from './registration';
+// eslint-disable-next-line max-len
 import { registrationActionCreator } from '../../../../redux/actionCreators/usersActionCreator';
 
 const mapStateToProps = state => ({

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import payments from '../public/images/payments.PNG';
 import telephone from '../public/images/telephone.PNG';

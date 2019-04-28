@@ -98,6 +98,7 @@ const Aside = () => (
               aria-label="Search"
             />
             <button
+              // eslint-disable-next-line max-len
               className="btn btn-outline-secondary my-2 my-sm-0 text-dark bg-light"
               type="submit"
               id="aside-search-btn"

@@ -11,6 +11,7 @@ export default Items;
 
 Items.propTypes = {
   addRating: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
   state: PropTypes.object,
 };
 

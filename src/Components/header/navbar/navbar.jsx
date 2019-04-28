@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable react/forbid-prop-types */
 import { NavLink } from 'react-router-dom';
 import React from 'react';
 import PropTypes from 'prop-types';

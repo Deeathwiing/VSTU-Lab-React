@@ -64,6 +64,7 @@ class EditProfile extends React.Component {
 export default EditProfile;
 
 EditProfile.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   state: PropTypes.object,
   changeFirstLastName: PropTypes.func,
   removeRequest: PropTypes.func,

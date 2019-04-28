@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import LoginSuccessfull from './loginSuccessfull';
+import LoginSuccessful from './loginSuccessful';
 
 class LogIn extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class LogIn extends React.Component {
     this.state = this.props.state;
   }
 
-  static getDerivedStateFromProps(props, state) {
+  static getDerivedStateFromProps(props) {
     return props.state;
   }
 
@@ -86,7 +86,7 @@ class LogIn extends React.Component {
         </div>
       );
     }
-    return <LoginSuccessfull />;
+    return <LoginSuccessful />;
   }
 }
 
@@ -94,6 +94,7 @@ export default LogIn;
 
 LogIn.propTypes = {
   login: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
   state: PropTypes.object,
 };
 
