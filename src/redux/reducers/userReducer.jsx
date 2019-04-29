@@ -1,10 +1,9 @@
 /* eslint-disable no-case-declarations */
-const LOGIN = 'LOGIN';
-const INIT_USER = 'INIT_USER';
+import { actionTypes } from '../actionTypes';
 
 const userReducer = (state = [], action) => {
   switch (action.type) {
-    case LOGIN:
+    case actionTypes.LOGIN:
       let newState;
       if (action.checkLogin) {
         if (action.admin) {
@@ -29,7 +28,7 @@ const userReducer = (state = [], action) => {
       }
       return newState || false;
 
-    case INIT_USER:
+    case actionTypes.INIT_USER:
       return action.user;
 
     default:

@@ -1,10 +1,7 @@
-const REGISTRATION = 'REGISTRATION';
-const DELETE_USERS = 'DELETE-USERS';
-const REMOVE_REQUEST = 'REMOVE-REQUEST';
-const CHANGE_FIRSTNAMELASTNAME = 'CHANGE_FIRSTNAME';
+import { actionTypes } from '../actionTypes';
 
 export const deleteUsersActionCreator = idToDelete => ({
-  type: DELETE_USERS,
+  type: actionTypes.DELETE_USERS,
   idToDelete,
 });
 
@@ -14,7 +11,7 @@ export const registrationActionCreator = (
   lastName,
   password
 ) => ({
-  type: REGISTRATION,
+  type: actionTypes.REGISTRATION,
   email,
   firstName,
   lastName,
@@ -22,14 +19,14 @@ export const registrationActionCreator = (
 });
 
 export const removeRequestActionCreator = () => ({
-  type: REMOVE_REQUEST,
+  type: actionTypes.REMOVE_REQUEST,
   user: localStorage.getItem('user')
     ? JSON.parse(localStorage.getItem('user'))
     : [],
 });
 
 export const changeFirstLastNameActionCreator = (firstName, lastName) => ({
-  type: CHANGE_FIRSTNAMELASTNAME,
+  type: actionTypes.CHANGE_FIRSTNAMELASTNAME,
   user: localStorage.getItem('user')
     ? JSON.parse(localStorage.getItem('user'))
     : [],

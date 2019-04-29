@@ -1,42 +1,34 @@
-const INITIALIZATION_ITEMS = 'INITIALIZATION_ITEMS';
-const INIT_USER = 'INIT_USER';
-const INITIALIZATION_USERS = 'INITIALIZATION_USERS';
+import { actionTypes } from '../actionTypes';
 
 export const initializationItemsActionCreator = items => ({
-  type: INITIALIZATION_ITEMS,
+  type: actionTypes.INITIALIZATION_ITEMS,
   items,
 });
 
 export const initializationUserActionCreator = user => ({
-  type: INIT_USER,
+  type: actionTypes.INIT_USER,
   user,
 });
 
 export const initializationUsersActionCreator = users => ({
-  type: INITIALIZATION_USERS,
+  type: actionTypes.INITIALIZATION_USERS,
   users,
 });
 
-export function itemsHasErrored(bool) {
-  return {
-    type: 'ITEMS_HAS_ERRORED',
-    hasErrored: bool,
-  };
-}
+export const itemsHasErrored = bool => ({
+  type: actionTypes.ITEMS_HAS_ERRORED,
+  hasErrored: bool,
+});
 
-export function itemsIsLoading(bool) {
-  return {
-    type: 'ITEMS_IS_LOADING',
-    isLoading: bool,
-  };
-}
+export const itemsIsLoading = bool => ({
+  type: actionTypes.ITEMS_IS_LOADING,
+  isLoading: bool,
+});
 
-export function itemsFetchDataSuccess(items) {
-  return {
-    type: 'ITEMS_FETCH_DATA_SUCCESS',
-    items,
-  };
-}
+export const itemsFetchDataSuccess = items => ({
+  type: actionTypes.ITEMS_FETCH_DATA_SUCCESS,
+  items,
+});
 
 export const itemsFetchData = url => (dispatch) => {
   dispatch(itemsIsLoading(true));

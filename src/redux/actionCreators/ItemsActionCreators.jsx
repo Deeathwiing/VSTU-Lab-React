@@ -1,6 +1,4 @@
-const ADD_ITEMS = 'ADD-ITEMS';
-const DELETE_ITEMS = 'DELETE-ITEMS';
-const ADD_RATING = 'ADD-RATING';
+import { actionTypes } from '../actionTypes';
 
 export const addItemsActionCreator = (
   picture,
@@ -10,7 +8,7 @@ export const addItemsActionCreator = (
   tags,
   rating
 ) => ({
-  type: ADD_ITEMS,
+  type: actionTypes.ADD_ITEMS,
   newPicture: picture,
   newTitle: title,
   newDescription: description,
@@ -19,11 +17,11 @@ export const addItemsActionCreator = (
   newRating: rating,
 });
 export const deleteItemsActionCreator = idToDelete => ({
-  type: DELETE_ITEMS,
+  type: actionTypes.DELETE_ITEMS,
   idToDelete,
 });
 export const addRatingActionCreator = (itemId, ratingValue) => ({
-  type: ADD_RATING,
+  type: actionTypes.ADD_RATING,
   itemId,
   ratingValue,
   user: localStorage.getItem('user')
