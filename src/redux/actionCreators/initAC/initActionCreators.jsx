@@ -76,12 +76,20 @@ export const addItemsAPI = (url, data) => (dispatch) => {
   // async await
   axios
     .post(url, data)
-    .then((response) => {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-
+    .then(() => {
       dispatch(itemsFetchData(url));
+    })
+    .catch(() => dispatch(itemsHasErrored(true)));
+};
+
+export const deleteItemsAPI = url => (dispatch) => {
+  dispatch(itemsIsLoading(true));
+
+  // async await
+  axios
+    .delete(url)
+    .then(() => {
+      dispatch(itemsFetchData('http://localhost:3001/items'));
     })
     .catch(() => dispatch(itemsHasErrored(true)));
 };

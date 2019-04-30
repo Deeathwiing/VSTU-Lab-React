@@ -8,38 +8,36 @@ import {
 } from '../../../../redux/actionCreators/ItemsActionCreators';
 // eslint-disable-next-line max-len
 import { deleteUsersActionCreator } from '../../../../redux/actionCreators/usersActionCreator';
-import { addItemsAPI } from '../../../../redux/actionCreators/initAC/initActionCreators';
+import {
+  addItemsAPI,
+  deleteItemsAPI,
+} from '../../../../redux/actionCreators/initAC/initActionCreators';
 
 const mapStateToProps = state => ({
   state: { items: state.items, users: state.users, user: state.user },
 });
 
 const mapDispatchToProps = dispatch => ({
-  addItems: (picture, title, description, price, tags, rating) => {
-    dispatch(
-      addItemsActionCreator(picture, title, description, price, tags, rating)
-    );
-
+  addItems: (picture, title, description, price, tags) => {
+    dispatch(addItemsActionCreator(picture, title, description, price, tags));
+    const averageRating = null;
     const Item = {
-      id: 100,
-      picture: 'gf',
-      title: 'fgfgfd',
-      description: 'fgfdf',
-      price: 'gffg',
-      tags: 'fdfdfg',
+      picture: picture || '',
+      title: title || '',
+      description: description || '',
+      price: price || '',
+      tags: tags || '',
       rating: [],
-      averageRating: 5,
+      averageRating,
     };
     dispatch(addItemsAPI('http://localhost:3001/items', Item));
   },
   deleteItems: (event) => {
-    event.preventDefault();
-    const idToDelete = Number(event.target.getAttribute('data-id'));
+    const idToDelete = event.target.getAttribute('data-id');
     dispatch(deleteItemsActionCreator(idToDelete));
-    event.preventDefault();
+    dispatch(deleteItemsAPI(`http://localhost:3001/items/${idToDelete}`));
   },
   deleteUser: (event) => {
-    event.preventDefault();
     const idToDelete = Number(event.target.getAttribute('data-id'));
     dispatch(deleteUsersActionCreator(idToDelete));
   },

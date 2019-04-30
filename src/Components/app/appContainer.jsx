@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import {
-  initializationItemsActionCreator,
   initializationUsersActionCreator,
   initializationUserActionCreator,
   itemsFetchData,
@@ -9,8 +8,6 @@ import App from './app';
 
 const mapDispatchToProps = dispatch => ({
   init: (items, users, user) => {
-    dispatch(initializationItemsActionCreator(items));
-
     dispatch(initializationUsersActionCreator(users));
 
     dispatch(initializationUserActionCreator(user));

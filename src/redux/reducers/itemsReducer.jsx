@@ -4,39 +4,15 @@ import { actionTypes } from '../actionTypes';
 
 const itemsReducer = (state = [], action) => {
   switch (action.type) {
-    case actionTypes.ADD_ITEMS:
-      const stateLength = state.length;
-      const lastElement = state[stateLength - 1];
-
-      const id = lastElement ? lastElement.id + 1 : 0;
-      const averageRating = null;
-      const newItem = {
-        id,
-        picture: action.newPicture || '',
-        title: action.newTitle || '',
-        description: action.newDescription || '',
-        price: action.newPrice || '',
-        tags: action.newTags || [],
-        rating: [],
-        averageRating,
-      };
-      let newStateAfterAddItems;
-      if (lastElement) {
-        newStateAfterAddItems = [...state, newItem];
-      } else {
-        newStateAfterAddItems = [newItem];
-      }
-
-      localStorage.setItem('items', JSON.stringify(newStateAfterAddItems));
-      return newStateAfterAddItems;
     case actionTypes.DELETE_ITEMS:
       const newStateAfterDelete = state.filter(
-        item => item.id !== action.idToDelete
+        item => item._id !== action.idToDelete
       );
       localStorage.setItem('items', JSON.stringify(newStateAfterDelete));
       return newStateAfterDelete;
 
     case actionTypes.ADD_RATING:
+      debugger;
       const { user } = action;
       const personalRating = {
         user: user.logEmail,
@@ -44,7 +20,7 @@ const itemsReducer = (state = [], action) => {
       };
 
       const newStateAfterAddRating = state.map((item) => {
-        if (item.id === action.itemId) {
+        if (item._id === action.itemId) {
           const singleRating = item.rating;
           let checkRating = false;
           if (singleRating[0]) {
@@ -72,15 +48,12 @@ const itemsReducer = (state = [], action) => {
         }
         return item;
       });
-      localStorage.setItem('items', JSON.stringify(newStateAfterAddRating));
 
       return newStateAfterAddRating;
 
-    case 'ITEMS_FETCH_DATA_SUCCESS':
+    case actionTypes.ITEMS_FETCH_DATA_SUCCESS:
       return action.items;
 
-    case actionTypes.INITIALIZATION_ITEMS:
-      return action.items || [];
     default:
       return state;
   }

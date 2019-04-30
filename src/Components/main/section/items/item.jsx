@@ -15,7 +15,7 @@ const Item = (props) => {
   const lastElement = props.state.items[props.state.items.length - 1];
   if (lastElement) {
     item = props.state.items.map(element => (
-      <div key={element.id} className={`card dataId${element.id}`}>
+      <div key={element._id} className={`card dataId${element._id}`}>
         <img
           src={element.picture}
           className="card-img-top"
@@ -28,54 +28,54 @@ const Item = (props) => {
           <p className="card-text">{element.tags}</p>
         </div>
 
-        <fieldset className="rating" key={element.id}>
+        <fieldset className="rating" key={element._id}>
           <div className="rating-group">
             <input
-              item-id={element.id}
+              item-id={element._id}
               onChange={check}
               className="rating-star"
               type="radio"
-              name={element.id}
+              name={element._id}
               value="1"
               aria-label="Ужасно"
               checked={element.averageRating === 1 && 'checked'}
             />
             <input
-              item-id={element.id}
+              item-id={element._id}
               onChange={check}
               className="rating-star"
               type="radio"
-              name={element.id}
+              name={element._id}
               value="2"
               aria-label="Сносно"
               checked={element.averageRating === 2 && 'checked'}
             />
             <input
-              item-id={element.id}
+              item-id={element._id}
               onChange={check}
               className="rating-star"
               type="radio"
-              name={element.id}
+              name={element._id}
               value="3"
               aria-label="Нормально"
               checked={element.averageRating === 3 && 'checked'}
             />
             <input
-              item-id={element.id}
+              item-id={element._id}
               onChange={check}
               className="rating-star"
               type="radio"
-              name={element.id}
+              name={element._id}
               value="4"
               aria-label="Хорошо"
               checked={element.averageRating === 4 && 'checked'}
             />
             <input
-              item-id={element.id}
+              item-id={element._id}
               onChange={check}
               className="rating-star"
               type="radio"
-              name={element.id}
+              name={element._id}
               value="5"
               aria-label="Отлично"
               checked={element.averageRating === 5 && 'checked'}
