@@ -1,4 +1,5 @@
-import { actionTypes } from '../actionTypes';
+import axios from 'axios';
+import { actionTypes } from '../../actionTypes';
 
 export const initializationItemsActionCreator = items => ({
   type: actionTypes.INITIALIZATION_ITEMS,
@@ -46,5 +47,41 @@ export const itemsFetchData = url => (dispatch) => {
     })
     .then(response => response.json())
     .then(items => dispatch(itemsFetchDataSuccess(items)))
+    .catch(() => dispatch(itemsHasErrored(true)));
+};
+
+/* export const itemsFetchData = url => (dispatch) => {
+  dispatch(itemsIsLoading(true));
+
+  // async await
+  axios
+    .get(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+
+      dispatch(itemsIsLoading(false));
+
+      return response;
+    })
+    .then(response => response.json())
+    .then(items => dispatch(itemsFetchDataSuccess(items)))
+    .catch(() => dispatch(itemsHasErrored(true)));
+}; */
+
+export const addItemsAPI = (url, data) => (dispatch) => {
+  dispatch(itemsIsLoading(true));
+
+  // async await
+  axios
+    .post(url, data)
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+
+      dispatch(itemsFetchData(url));
+    })
     .catch(() => dispatch(itemsHasErrored(true)));
 };

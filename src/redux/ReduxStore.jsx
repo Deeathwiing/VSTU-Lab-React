@@ -9,6 +9,8 @@ import itemsReducer from './reducers/itemsReducer';
 import {
   itemsHasErroredRed,
   itemsIsLoadingRed,
+  usersHasErroredRed,
+  usersIsLoadingRed,
 } from './reducers/dataReducers/dataItemsRed';
 
 const reducers = combineReducers({
@@ -17,6 +19,8 @@ const reducers = combineReducers({
   items: itemsReducer,
   itemsHasErrored: itemsHasErroredRed,
   itemsIsLoading: itemsIsLoadingRed,
+  usersHasErrored: usersHasErroredRed,
+  usersIsLoading: usersIsLoadingRed,
 });
 
 // eslint-disable-next-line max-len

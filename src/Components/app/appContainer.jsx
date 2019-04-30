@@ -3,7 +3,8 @@ import {
   initializationItemsActionCreator,
   initializationUsersActionCreator,
   initializationUserActionCreator,
-} from '../../redux/actionCreators/initActionCreators';
+  itemsFetchData,
+} from '../../redux/actionCreators/initAC/initActionCreators';
 import App from './app';
 
 const mapDispatchToProps = dispatch => ({
@@ -13,6 +14,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(initializationUsersActionCreator(users));
 
     dispatch(initializationUserActionCreator(user));
+
+    dispatch(itemsFetchData('http://localhost:3001/items'));
   },
 });
 
