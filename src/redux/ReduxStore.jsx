@@ -6,17 +6,11 @@ import userReducer from './reducers/userReducer';
 import usersReducer from './reducers/usersReducer';
 import itemsReducer from './reducers/itemsReducer';
 // eslint-disable-next-line max-len
-import {
-  itemsHasErroredRed,
-  itemsIsLoadingRed,
-} from './reducers/dataReducers/dataItemsRed';
 
 const reducers = combineReducers({
   user: userReducer,
   users: usersReducer,
   items: itemsReducer,
-  itemsHasErrored: itemsHasErroredRed,
-  itemsIsLoading: itemsIsLoadingRed,
 });
 
 // eslint-disable-next-line max-len

@@ -76,9 +76,6 @@ const itemsReducer = (state = [], action) => {
 
       return newStateAfterAddRating;
 
-    case 'ITEMS_FETCH_DATA_SUCCESS':
-      return action.items;
-
     case actionTypes.INITIALIZATION_ITEMS:
       return action.items || [];
     default:
