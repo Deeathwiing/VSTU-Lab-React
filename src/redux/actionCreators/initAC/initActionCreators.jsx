@@ -71,8 +71,6 @@ export const itemsFetchData = url => (dispatch) => {
 }; */
 
 export const addItemsAPI = (url, data) => (dispatch) => {
-  dispatch(itemsIsLoading(true));
-
   // async await
   axios
     .post(url, data)
@@ -83,8 +81,6 @@ export const addItemsAPI = (url, data) => (dispatch) => {
 };
 
 export const deleteItemsAPI = url => (dispatch) => {
-  dispatch(itemsIsLoading(true));
-
   // async await
   axios
     .delete(url)

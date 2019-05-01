@@ -12,7 +12,6 @@ const itemsReducer = (state = [], action) => {
       return newStateAfterDelete;
 
     case actionTypes.ADD_RATING:
-      debugger;
       const { user } = action;
       const personalRating = {
         user: user.logEmail,
