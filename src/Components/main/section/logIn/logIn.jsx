@@ -4,21 +4,14 @@ import PropTypes from 'prop-types';
 import LoginSuccessful from './loginSuccessful';
 
 class LogIn extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = this.props.state;
-  }
+  state = { email: '', password: '' };
 
   static getDerivedStateFromProps(props) {
     return props.state;
   }
 
-  handleEmailChange = (e) => {
-    this.setState({ email: e.target.value });
-  };
-
-  handlePasswordChange = (e) => {
-    this.setState({ password: e.target.value });
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   log = (event) => {
@@ -39,20 +32,22 @@ class LogIn extends React.Component {
               <label htmlFor="logEmail">Email</label>
               <input
                 type="email"
+                name="email"
                 className="form-control"
                 id="logEmail"
                 placeholder="email@example.com"
-                onChange={this.handleEmailChange}
+                onChange={this.handleInput}
               />
             </div>
             <div className="form-group">
               <label htmlFor="logPass">Пароль</label>
               <input
+                name="password"
                 type="current-password"
                 className="form-control"
                 id="logPass"
                 placeholder="Пароль"
-                onChange={this.handlePasswordChange}
+                onChange={this.handleInput}
               />
             </div>
             <div className="form-group">

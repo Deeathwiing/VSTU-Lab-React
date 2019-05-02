@@ -1,21 +1,11 @@
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import LoginRegistration from './loginRegistration';
 import PersonalArea from './personalArea';
 
 const AuthControl = (props) => {
-  // fix
-  const state = { user: props.state };
-
-  if (state.user.admin || state.user.checkLogin) {
-    return (
-      <PersonalArea
-        key="PersonalArea"
-        state={props.state}
-        navLinks={props.navLinks}
-      />
-    );
+  if (props.state.admin || props.state.checkLogin) {
+    return <PersonalArea state={props.state} navLinks={props.navLinks} />;
   }
   return <LoginRegistration />;
 };
