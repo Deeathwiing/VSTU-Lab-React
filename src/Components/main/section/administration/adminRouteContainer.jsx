@@ -28,7 +28,9 @@ const mapDispatchToProps = dispatch => ({
   },
   deleteItems: (event) => {
     const idToDelete = event.target.getAttribute('data-id');
-    dispatch(deleteItemsAPI(`http://localhost:3001/items/${idToDelete}`));
+    dispatch(
+      deleteItemsAPI(`http://localhost:3001/items/${idToDelete}`, idToDelete)
+    );
   },
   deleteUser: (event) => {
     const idToDelete = Number(event.target.getAttribute('data-id'));

@@ -35,13 +35,11 @@ export const addRatingAPI = (url, data) => (dispatch) => {
     .catch(() => dispatch(itemsHasErrored(true)));
 };
 
-export const deleteItemsAPI = url => (dispatch) => {
+export const deleteItemsAPI = (url, idToDelete) => (dispatch) => {
   // async await
   axios
     .delete(url)
     .then(() => {
-      const idToDelete = url.substring(28);
-
       dispatch(deleteItemsActionCreator(idToDelete));
     })
 

@@ -1,10 +1,5 @@
 import { actionTypes } from '../../actionTypes';
 
-export const initializationUsersActionCreator = users => ({
-  type: actionTypes.INITIALIZATION_USERS,
-  users,
-});
-
 export const usersHasErrored = bool => ({
   type: actionTypes.USERS_HAS_ERRORED,
   hasErrored: bool,

@@ -1,4 +1,6 @@
+import axios from 'axios';
 import { actionTypes } from '../actionTypes';
+import { usersFetchData, usersHasErrored } from './initAC/initUsersAC';
 
 export const deleteUsersActionCreator = idToDelete => ({
   type: actionTypes.DELETE_USERS,
@@ -17,6 +19,16 @@ export const registrationActionCreator = (
   lastName,
   password,
 });
+
+export const regACAPI = (url, data) => (dispatch) => {
+  // async await
+  axios
+    .post(url, data)
+    .then(() => {
+      dispatch(usersFetchData(url));
+    })
+    .catch(() => dispatch(usersHasErrored(true)));
+};
 
 export const removeRequestActionCreator = () => ({
   type: actionTypes.REMOVE_REQUEST,
