@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Slides from '../header/slidesInHead';
-import NavbarContainer from '../header/navbar/navbarContainer';
+import NavbarContainer from '../../containers/navbarContainer';
 import AsideSection from '../main/asideSection';
 import Footer from '../footer';
 

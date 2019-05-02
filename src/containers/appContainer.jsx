@@ -3,8 +3,8 @@ import {
   initializationItemsActionCreator,
   initializationUsersActionCreator,
   initializationUserActionCreator,
-} from '../../redux/actionCreators/initActionCreators';
-import App from './app';
+} from '../redux/actionCreators/initActionCreators';
+import App from '../components/app/app';
 
 const mapDispatchToProps = dispatch => ({
   init: (items, users, user) => {

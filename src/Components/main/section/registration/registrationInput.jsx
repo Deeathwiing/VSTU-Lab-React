@@ -2,41 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class RegistrationInput extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      email: false,
-      firstName: false,
-      lastName: false,
-      password: false,
-    };
-  }
+  state = {
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+  };
 
   registrationAttr = (event) => {
     event.preventDefault();
-    this.props.reg(
-      this.state.email || false,
-      this.state.firstName || false,
-      this.state.lastName || false,
-      this.state.password || false
-    );
+    if (
+      this.state.email
+      && this.state.firstName
+      && this.state.lastName
+      && this.state.password
+    ) {
+      return this.props.reg(
+        this.state.email,
+        this.state.firstName,
+        this.state.lastName,
+        this.state.password
+      );
+    }
+    return alert('Заполните все поля');
   };
 
-  handleEmailChange = (e) => {
-    this.setState({ email: e.target.value });
-  };
-
-  handleFirstNameChange = (e) => {
-    this.setState({ firstName: e.target.value });
-  };
-
-  handleLastNameChange = (e) => {
-    this.setState({ lastName: e.target.value });
-  };
-
-  handlePasswordChange = (e) => {
-    this.setState({ password: e.target.value });
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
@@ -47,40 +39,44 @@ class RegistrationInput extends React.Component {
             <label htmlFor="regEmail">Email</label>
             <input
               type="email"
+              name="email"
               className="form-control"
               id="regEmail"
               placeholder="email@example.com"
-              onChange={this.handleEmailChange}
+              onChange={this.handleInput}
             />
           </div>
           <div className="form-group">
             <label htmlFor="regFirstName">Имя</label>
             <input
               type="text"
+              name="firstName"
               className="form-control"
               id="regFirstName"
               placeholder="Иван"
-              onChange={this.handleFirstNameChange}
+              onChange={this.handleInput}
             />
           </div>
           <div className="form-group">
             <label htmlFor="regLastName">Фамилия</label>
             <input
               type="text"
+              name="lastName"
               className="form-control"
               id="regLastName"
               placeholder="Иванов"
-              onChange={this.handleLastNameChange}
+              onChange={this.handleInput}
             />
           </div>
           <div className="form-group">
             <label htmlFor="regPassword">Пароль</label>
             <input
+              name="password"
               type="new-password"
               className="form-control"
               id="regPassword"
               placeholder="Пароль"
-              onChange={this.handlePasswordChange}
+              onChange={this.handleInput}
             />
           </div>
           <div className="form-group">

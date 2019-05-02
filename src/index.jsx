@@ -8,8 +8,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './components/serviceWorker';
 
-import store from './redux/reduxStore';
-import AppContainer from './components/app/appContainer';
+import store from './redux/ReduxStore';
+import AppContainer from './containers/appContainer';
 
 ReactDOM.render(
   <React.StrictMode>

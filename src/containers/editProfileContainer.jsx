@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import EditProfile from './editProfile';
 import {
   removeRequestActionCreator,
   changeFirstLastNameActionCreator,
-} from '../../../../redux/actionCreators/usersActionCreator';
+} from '../redux/actionCreators/usersActionCreator';
+import EditProfile from '../components/main/section/editProfile/editProfile';
 
 const mapStateToProps = state => ({
   state: { user: state.user },
@@ -13,8 +13,8 @@ const mapDispatchToProps = dispatch => ({
   removeRequest: () => {
     dispatch(removeRequestActionCreator());
   },
-  changeFirstLastName: (firstName, lastName) => {
-    dispatch(changeFirstLastNameActionCreator(firstName, lastName));
+  changeFirstLastName: (firstName, lastName, user) => {
+    dispatch(changeFirstLastNameActionCreator(firstName, lastName, user));
   },
 });
 

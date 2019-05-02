@@ -25,11 +25,13 @@ export const removeRequestActionCreator = () => ({
     : [],
 });
 
-export const changeFirstLastNameActionCreator = (firstName, lastName) => ({
+export const changeFirstLastNameActionCreator = (
+  firstName,
+  lastName,
+  user
+) => ({
   type: actionTypes.CHANGE_FIRSTNAMELASTNAME,
-  user: localStorage.getItem('user')
-    ? JSON.parse(localStorage.getItem('user'))
-    : [],
+  user,
   firstName,
   lastName,
 });

@@ -6,24 +6,25 @@ import LoginSuccessful from './loginSuccessful';
 class LogIn extends React.Component {
   state = { email: '', password: '' };
 
-  static getDerivedStateFromProps(props) {
-    return props.state;
-  }
-
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   log = (event) => {
+    if (!this.state.email || !this.state.password) {
+      alert('Заполните все поля');
+      return;
+    }
     event.preventDefault();
     this.props.login(this.state.email, this.state.password);
   };
 
   render() {
     if (
-      !((this.state.user.admin || this.state.user.checkLogin) === undefined
+      !((this.props.state.user.admin || this.props.state.user.checkLogin)
+      === undefined
         ? false
-        : this.state.user.admin || this.state.user.checkLogin)
+        : this.props.state.user.admin || this.props.state.user.checkLogin)
     ) {
       return (
         <div>

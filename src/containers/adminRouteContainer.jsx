@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import AdminRoute from './adminRoute';
+
 import {
   addItemsActionCreator,
   deleteItemsActionCreator,
-} from '../../../../redux/actionCreators/ItemsActionCreators';
-// eslint-disable-next-line max-len
-import { deleteUsersActionCreator } from '../../../../redux/actionCreators/usersActionCreator';
+} from '../redux/actionCreators/ItemsActionCreators';
+import { deleteUsersActionCreator } from '../redux/actionCreators/usersActionCreator';
+import AdminRoute from '../components/main/section/administration/AdminRoute';
 
 const mapStateToProps = state => ({
   state: { items: state.items, users: state.users, user: state.user },

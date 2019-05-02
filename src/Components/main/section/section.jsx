@@ -6,13 +6,13 @@ import Warranty from './warranty';
 
 import AboutUs from './aboutUs';
 
-import ItemsContainer from './items/itemsContainer';
-import EditProfileContainer from './editProfile/editProfileContainer';
+import ItemsContainer from '../../../containers/itemsContainer';
+import EditProfileContainer from '../../../containers/editProfileContainer';
 import News from './news';
 import Order from './order';
-import AdminRouteContainer from './administration/adminRouteContainer';
-import registrationContainer from './registration/registrationContainer';
-import LoginContainer from './logIn/loginContainer';
+import AdminRouteContainer from '../../../containers/adminRouteContainer';
+import registrationContainer from '../../../containers/registrationContainer';
+import LoginContainer from '../../../containers/loginContainer';
 
 const Section = () => (
   <section className="d-flex flex-column ml-1 p-2 bg-light" id="section">

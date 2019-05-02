@@ -3,23 +3,22 @@ import PropTypes from 'prop-types';
 import LoginError from '../loginError';
 
 class EditProfile extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = this.props;
-  }
+  state = { firstName: '', lastName: '' };
 
-  ChangeFirstName = (e) => {
-    this.setState({ firstName: e.target.value });
-  };
-
-  ChangeLastName = (e) => {
-    this.setState({ lastName: e.target.value });
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   changeNames = (event) => {
     event.preventDefault();
-
-    this.props.changeFirstLastName(this.state.firstName, this.state.lastName);
+    const user = localStorage.getItem('user')
+      ? JSON.parse(localStorage.getItem('user'))
+      : [];
+    this.props.changeFirstLastName(
+      this.state.firstName,
+      this.state.lastName,
+      user
+    );
   };
 
   render() {
@@ -36,18 +35,20 @@ class EditProfile extends React.Component {
               Имя:
               <input
                 className="m-2"
+                name="firstName"
                 type="text"
                 id="ChangeFirstName"
-                onChange={this.ChangeFirstName}
+                onChange={this.handleInput}
               />
             </label>
             <label>
               Фамилия:
               <input
+                name="lastName"
                 className="m-2"
                 type="text"
                 id="ChangeLastName"
-                onChange={this.ChangeLastName}
+                onChange={this.handleInput}
               />
             </label>
             <button type="button" onClick={this.changeNames}>
