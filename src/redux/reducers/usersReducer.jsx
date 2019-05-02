@@ -6,7 +6,6 @@ const usersReducer = (state = [], action) => {
   switch (action.type) {
     case actionTypes.REGISTRATION:
       const lastElement = state[state.length - 1];
-      const id = lastElement ? lastElement.id + 1 : 0;
       let isTaken = false;
       if (lastElement) {
         isTaken = state.some(user => user.email === action.email);
@@ -22,7 +21,6 @@ const usersReducer = (state = [], action) => {
       }
 
       const newUser = {
-        id,
         email: action.email,
         firstName: action.firstName,
         lastName: action.lastName,

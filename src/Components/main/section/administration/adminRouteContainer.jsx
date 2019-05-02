@@ -3,15 +3,10 @@ import { connect } from 'react-redux';
 
 import AdminRoute from './adminRoute';
 import {
-  addItemsActionCreator,
-  deleteItemsActionCreator,
-} from '../../../../redux/actionCreators/ItemsActionCreators';
-// eslint-disable-next-line max-len
-import { deleteUsersActionCreator } from '../../../../redux/actionCreators/usersActionCreator';
-import {
   addItemsAPI,
   deleteItemsAPI,
-} from '../../../../redux/actionCreators/initAC/initActionCreators';
+} from '../../../../redux/actionCreators/ItemsActionCreators';
+import { deleteUsersActionCreator } from '../../../../redux/actionCreators/usersActionCreator';
 
 const mapStateToProps = state => ({
   state: { items: state.items, users: state.users, user: state.user },
@@ -19,7 +14,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addItems: (picture, title, description, price, tags) => {
-    dispatch(addItemsActionCreator(picture, title, description, price, tags));
     const averageRating = null;
     const Item = {
       picture: picture || '',
@@ -34,7 +28,6 @@ const mapDispatchToProps = dispatch => ({
   },
   deleteItems: (event) => {
     const idToDelete = event.target.getAttribute('data-id');
-    dispatch(deleteItemsActionCreator(idToDelete));
     dispatch(deleteItemsAPI(`http://localhost:3001/items/${idToDelete}`));
   },
   deleteUser: (event) => {

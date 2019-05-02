@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { actionTypes } from '../../actionTypes';
 
 export const initializationItemsActionCreator = items => ({
@@ -9,11 +8,6 @@ export const initializationItemsActionCreator = items => ({
 export const initializationUserActionCreator = user => ({
   type: actionTypes.INIT_USER,
   user,
-});
-
-export const initializationUsersActionCreator = users => ({
-  type: actionTypes.INITIALIZATION_USERS,
-  users,
 });
 
 export const itemsHasErrored = bool => ({
@@ -69,23 +63,3 @@ export const itemsFetchData = url => (dispatch) => {
     .then(items => dispatch(itemsFetchDataSuccess(items)))
     .catch(() => dispatch(itemsHasErrored(true)));
 }; */
-
-export const addItemsAPI = (url, data) => (dispatch) => {
-  // async await
-  axios
-    .post(url, data)
-    .then(() => {
-      dispatch(itemsFetchData(url));
-    })
-    .catch(() => dispatch(itemsHasErrored(true)));
-};
-
-export const deleteItemsAPI = url => (dispatch) => {
-  // async await
-  axios
-    .delete(url)
-    .then(() => {
-      dispatch(itemsFetchData('http://localhost:3001/items'));
-    })
-    .catch(() => dispatch(itemsHasErrored(true)));
-};

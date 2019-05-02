@@ -7,16 +7,10 @@ import Footer from '../footer';
 
 class App extends React.Component {
   componentDidMount() {
-    const items = localStorage.getItem('items')
-      ? JSON.parse(localStorage.getItem('items'))
-      : [null];
-    const users = localStorage.getItem('users')
-      ? JSON.parse(localStorage.getItem('users'))
-      : [{ id: 0 }];
     const user = localStorage.getItem('user')
       ? JSON.parse(localStorage.getItem('user'))
       : {};
-    this.props.init(items, users, user);
+    this.props.init(user);
   }
 
   render() {
