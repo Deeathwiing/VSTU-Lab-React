@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import {
   removeRequestActionCreator,
   changeFirstLastNameActionCreator,
-} from '../redux/actionCreators/usersActionCreator';
-import EditProfile from '../components/main/section/editProfile/editProfile';
+} from '../redux/actionCreators/UsersActionCreator';
+import EditProfile from '../components/main/section/editProfile/EditProfile';
 
 const mapStateToProps = state => ({
   state: { user: state.user },

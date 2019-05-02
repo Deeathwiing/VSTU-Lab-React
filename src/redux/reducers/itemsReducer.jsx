@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-case-declarations */
-import { actionTypes } from '../actionTypes';
+import { ActionTypes } from '../ActionTypes';
 
-const itemsReducer = (state = [], action) => {
+const ItemsReducer = (state = [], action) => {
   switch (action.type) {
-    case actionTypes.ADD_ITEMS:
+    case ActionTypes.ADD_ITEMS:
       const stateLength = state.length;
       const lastElement = state[stateLength - 1];
 
@@ -29,14 +29,14 @@ const itemsReducer = (state = [], action) => {
 
       localStorage.setItem('items', JSON.stringify(newStateAfterAddItems));
       return newStateAfterAddItems;
-    case actionTypes.DELETE_ITEMS:
+    case ActionTypes.DELETE_ITEMS:
       const newStateAfterDelete = state.filter(
         item => item.id !== action.idToDelete
       );
       localStorage.setItem('items', JSON.stringify(newStateAfterDelete));
       return newStateAfterDelete;
 
-    case actionTypes.ADD_RATING:
+    case ActionTypes.ADD_RATING:
       const { user } = action;
       const personalRating = {
         user: user.logEmail,
@@ -76,11 +76,11 @@ const itemsReducer = (state = [], action) => {
 
       return newStateAfterAddRating;
 
-    case actionTypes.INITIALIZATION_ITEMS:
+    case ActionTypes.INITIALIZATION_ITEMS:
       return action.items || [];
     default:
       return state;
   }
 };
 
-export default itemsReducer;
+export default ItemsReducer;

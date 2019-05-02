@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-case-declarations */
-import { actionTypes } from '../actionTypes';
+import { ActionTypes } from '../ActionTypes';
 
-const usersReducer = (state = [], action) => {
+const UsersReducer = (state = [], action) => {
   switch (action.type) {
-    case actionTypes.REGISTRATION:
+    case ActionTypes.REGISTRATION:
       const lastElement = state[state.length - 1];
       const id = lastElement ? lastElement.id + 1 : 0;
       let isTaken = false;
@@ -41,7 +41,7 @@ const usersReducer = (state = [], action) => {
       localStorage.setItem('users', JSON.stringify(newStateAfterRegistration));
       return newStateAfterRegistration;
 
-    case actionTypes.DELETE_USERS:
+    case ActionTypes.DELETE_USERS:
       const newStateAfterDelete = state.filter((user) => {
         if (user.id === action.idToDelete && user.deleteAccountRequest) {
           return false;
@@ -52,7 +52,7 @@ const usersReducer = (state = [], action) => {
       localStorage.setItem('users', JSON.stringify(newStateAfterDelete));
       return newStateAfterDelete;
 
-    case actionTypes.REMOVE_REQUEST:
+    case ActionTypes.REMOVE_REQUEST:
       const { user } = action;
       const email = user.logEmail;
       const newStateAfterRemoveRequest = state.map((element) => {
@@ -67,7 +67,7 @@ const usersReducer = (state = [], action) => {
 
       return newStateAfterRemoveRequest;
 
-    case actionTypes.CHANGE_FIRSTNAMELASTNAME:
+    case ActionTypes.CHANGE_FIRSTNAMELASTNAME:
       const userChangeName = action.user;
       const emailChangeName = userChangeName.logEmail;
       const newStateAfterChange = state.map((element) => {
@@ -83,11 +83,11 @@ const usersReducer = (state = [], action) => {
 
       return newStateAfterChange;
 
-    case actionTypes.INITIALIZATION_USERS:
+    case ActionTypes.INITIALIZATION_USERS:
       return action.users;
     default:
       return state;
   }
 };
 
-export default usersReducer;
+export default UsersReducer;

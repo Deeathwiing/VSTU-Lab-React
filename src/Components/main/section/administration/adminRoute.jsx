@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ErrorAdmin from './errorAdmin';
-import Administration from './administration';
+import ErrorAdmin from './ErrorAdmin';
+import Administration from './Administration';
 
 const AdminRoute = (props) => {
   if (props.state.user.admin) {

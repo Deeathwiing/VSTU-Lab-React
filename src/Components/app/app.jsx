@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Slides from '../header/slidesInHead';
-import NavbarContainer from '../../containers/navbarContainer';
-import AsideSection from '../main/asideSection';
-import Footer from '../footer';
+import Slides from '../header/SlidesInHead';
+import NavbarContainer from '../../containers/NavbarContainer';
+import AsideSection from '../main/AsideSection';
+import Footer from '../Footer';
 
 class App extends React.Component {
   componentDidMount() {

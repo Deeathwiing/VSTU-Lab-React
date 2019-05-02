@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RegistrationInput from './registrationInput';
-import RegistrationSuccessful from './registrationSuccessful';
-import News from '../news';
+import RegistrationInput from './RegistrationInput';
+import RegistrationSuccessful from './RegistrationSuccessful';
+import News from '../News';
 
 class Registration extends React.Component {
   constructor(props) {

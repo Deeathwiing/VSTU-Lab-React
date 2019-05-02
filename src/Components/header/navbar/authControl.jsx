@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LoginRegistration from './loginRegistration';
-import PersonalArea from './personalArea';
+import LoginRegistration from './LoginRegistration';
+import PersonalArea from './PersonalArea';
 
 const AuthControl = (props) => {
   if (props.state.admin || props.state.checkLogin) {

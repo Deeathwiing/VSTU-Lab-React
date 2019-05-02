@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Items from '../components/main/section/items/items';
+import Items from '../components/main/section/items/Items';
 import { addRatingActionCreator } from '../redux/actionCreators/ItemsActionCreators';
 
 const mapStateToProps = state => ({

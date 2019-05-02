@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 import React from 'react';
 import PropTypes from 'prop-types';
 import logo from '../../../public/images/icon.png';
-import AuthControl from './authControl';
-import { NavLinkDropDown, NavLinksAdministration } from '../../navLinks';
+import AuthControl from './AuthControl';
+import { NavLinkDropDown, NavLinksAdministration } from '../../NavLinks';
 
 const navLinks = {
   NavLinkNavbar: [

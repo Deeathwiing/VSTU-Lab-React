@@ -2,12 +2,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ItemsAdmin from './itemsManagerMenu';
-import AddItems from './addItems';
-import { NavLinksAdministration } from '../../../navLinks';
+import ItemsAdmin from './ItemsManagerMenu';
+import AddItems from './AddItems';
+import { NavLinksAdministration } from '../../../NavLinks';
 
-const AllItemsAdmin = React.lazy(() => import('./allItemsAdmin'));
-const AdminTable = React.lazy(() => import('./adminTable/adminTable'));
+const AllItemsAdmin = React.lazy(() => import('./AllItemsAdmin'));
+const AdminTable = React.lazy(() => import('./adminTable/AdminTable'));
 
 const navlinks = {
   NavLinkAdministration: [

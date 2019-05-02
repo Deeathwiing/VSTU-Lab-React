@@ -1,16 +1,16 @@
-import { actionTypes } from '../actionTypes';
+import { ActionTypes } from '../ActionTypes';
 
 export const initializationItemsActionCreator = items => ({
-  type: actionTypes.INITIALIZATION_ITEMS,
+  type: ActionTypes.INITIALIZATION_ITEMS,
   items,
 });
 
 export const initializationUserActionCreator = user => ({
-  type: actionTypes.INIT_USER,
+  type: ActionTypes.INIT_USER,
   user,
 });
 
 export const initializationUsersActionCreator = users => ({
-  type: actionTypes.INITIALIZATION_USERS,
+  type: ActionTypes.INITIALIZATION_USERS,
   users,
 });

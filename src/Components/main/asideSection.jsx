@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Aside from './aside';
-import Section from './section/section';
+import Aside from './Aside';
+import Section from './section/Section';
 
 const AsideSection = () => (
   <div className="aside-section container p-0 d-flex flex-row">

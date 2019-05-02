@@ -4,7 +4,7 @@ import {
   addItemsActionCreator,
   deleteItemsActionCreator,
 } from '../redux/actionCreators/ItemsActionCreators';
-import { deleteUsersActionCreator } from '../redux/actionCreators/usersActionCreator';
+import { deleteUsersActionCreator } from '../redux/actionCreators/UsersActionCreator';
 import AdminRoute from '../components/main/section/administration/AdminRoute';
 
 const mapStateToProps = state => ({

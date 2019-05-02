@@ -1,5 +1,5 @@
 import React from 'react';
-import BtnDelete from './btnDelete';
+import BtnDelete from './BtnDelete';
 
 const Table = props =>
   props.state.map(element => (

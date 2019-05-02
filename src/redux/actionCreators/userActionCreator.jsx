@@ -1,7 +1,7 @@
-import { actionTypes } from '../actionTypes';
+import { ActionTypes } from '../ActionTypes';
 
 export const loginActionCreator = (admin, checkLogin, logEmail) => ({
-  type: actionTypes.LOGIN,
+  type: ActionTypes.LOGIN,
   checkLogin,
   admin,
   logEmail,

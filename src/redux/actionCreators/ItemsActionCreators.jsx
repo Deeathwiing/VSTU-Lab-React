@@ -1,4 +1,4 @@
-import { actionTypes } from '../actionTypes';
+import { ActionTypes } from '../ActionTypes';
 
 export const addItemsActionCreator = (
   picture,
@@ -8,7 +8,7 @@ export const addItemsActionCreator = (
   tags,
   rating
 ) => ({
-  type: actionTypes.ADD_ITEMS,
+  type: ActionTypes.ADD_ITEMS,
   newPicture: picture,
   newTitle: title,
   newDescription: description,
@@ -17,11 +17,11 @@ export const addItemsActionCreator = (
   newRating: rating,
 });
 export const deleteItemsActionCreator = idToDelete => ({
-  type: actionTypes.DELETE_ITEMS,
+  type: ActionTypes.DELETE_ITEMS,
   idToDelete,
 });
 export const addRatingActionCreator = (itemId, ratingValue) => ({
-  type: actionTypes.ADD_RATING,
+  type: ActionTypes.ADD_RATING,
   itemId,
   ratingValue,
   user: localStorage.getItem('user')

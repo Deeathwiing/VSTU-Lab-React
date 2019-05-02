@@ -2,7 +2,7 @@
 import React from 'react';
 import payments from '../public/images/payments.PNG';
 import telephone from '../public/images/telephone.PNG';
-import { NavLinksAdministration } from './navLinks';
+import { NavLinksAdministration } from './NavLinks';
 
 const navLinks = {
   NavLinkFooter: [

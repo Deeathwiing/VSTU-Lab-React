@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Table from './table';
+import Table from './Table';
 
 const AdminTable = props => (
   <div className="container-fluid">

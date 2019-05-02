@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { NavLinkDropDown } from '../../navLinks';
+import { NavLinkDropDown } from '../../NavLinks';
 
 const PersonalArea = props => (
   <>

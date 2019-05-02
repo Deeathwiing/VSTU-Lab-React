@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './components/serviceWorker';
 
 import store from './redux/ReduxStore';
-import AppContainer from './containers/appContainer';
+import AppContainer from './containers/AppContainer';
 
 ReactDOM.render(
   <React.StrictMode>

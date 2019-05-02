@@ -1,18 +1,18 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import NewsAndPromotions from './newsAndPromotions';
-import Warranty from './warranty';
+import NewsAndPromotions from './NewsAndPromotions';
+import Warranty from './Warranty';
 
-import AboutUs from './aboutUs';
+import AboutUs from './AboutUs';
 
-import ItemsContainer from '../../../containers/itemsContainer';
-import EditProfileContainer from '../../../containers/editProfileContainer';
-import News from './news';
-import Order from './order';
-import AdminRouteContainer from '../../../containers/adminRouteContainer';
-import registrationContainer from '../../../containers/registrationContainer';
-import LoginContainer from '../../../containers/loginContainer';
+import ItemsContainer from '../../../containers/ItemsContainer';
+import EditProfileContainer from '../../../containers/EditProfileContainer';
+import News from './News';
+import Order from './Order';
+import AdminRouteContainer from '../../../containers/AdminRouteContainer';
+import registrationContainer from '../../../containers/RegistrationContainer';
+import LoginContainer from '../../../containers/LoginContainer';
 
 const Section = () => (
   <section className="d-flex flex-column ml-1 p-2 bg-light" id="section">

@@ -1,7 +1,7 @@
-import { actionTypes } from '../actionTypes';
+import { ActionTypes } from '../ActionTypes';
 
 export const deleteUsersActionCreator = idToDelete => ({
-  type: actionTypes.DELETE_USERS,
+  type: ActionTypes.DELETE_USERS,
   idToDelete,
 });
 
@@ -11,7 +11,7 @@ export const registrationActionCreator = (
   lastName,
   password
 ) => ({
-  type: actionTypes.REGISTRATION,
+  type: ActionTypes.REGISTRATION,
   email,
   firstName,
   lastName,
@@ -19,7 +19,7 @@ export const registrationActionCreator = (
 });
 
 export const removeRequestActionCreator = () => ({
-  type: actionTypes.REMOVE_REQUEST,
+  type: ActionTypes.REMOVE_REQUEST,
   user: localStorage.getItem('user')
     ? JSON.parse(localStorage.getItem('user'))
     : [],
@@ -30,7 +30,7 @@ export const changeFirstLastNameActionCreator = (
   lastName,
   user
 ) => ({
-  type: actionTypes.CHANGE_FIRSTNAMELASTNAME,
+  type: ActionTypes.CHANGE_FIRSTNAMELASTNAME,
   user,
   firstName,
   lastName,

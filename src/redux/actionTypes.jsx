@@ -1,4 +1,4 @@
-export const actionTypes = {
+export const ActionTypes = {
   INITIALIZATION_ITEMS: 'INITIALIZATION_ITEMS',
   INIT_USER: 'INIT_USER',
   INITIALIZATION_USERS: 'INITIALIZATION_USERS',

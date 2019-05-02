@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Item from './item';
+import Item from './Item';
 
 const Items = props => (
   <div className="card-columns">

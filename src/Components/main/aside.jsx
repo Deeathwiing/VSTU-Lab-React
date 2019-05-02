@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { NavLinkDropDown, NavLinksAdministration } from '../navLinks';
+import { NavLinkDropDown, NavLinksAdministration } from '../NavLinks';
 
 const navLinks = {
   NavLinkAside: [
