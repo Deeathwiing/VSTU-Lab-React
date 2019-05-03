@@ -2,7 +2,7 @@
 /* eslint-disable no-case-declarations */
 import { ActionTypes } from '../ActionTypes';
 
-const UsersReducer = (state = [], action) => {
+const UsersReducer = (state = [{}], action) => {
   switch (action.type) {
     case ActionTypes.REGISTRATION:
       const lastElement = state[state.length - 1];

@@ -3,10 +3,11 @@ import {
   removeRequestActionCreator,
   changeFirstLastNameActionCreator,
 } from '../redux/actionCreators/UsersActionCreator';
-import EditProfile from '../components/main/section/editProfile/EditProfile';
+import EditProfile from '../components/main/section/EditProfile';
+import { getUser } from '../takes/Takes';
 
 const mapStateToProps = state => ({
-  state: { user: state.user },
+  state: { user: getUser(state) },
 });
 
 const mapDispatchToProps = dispatch => ({

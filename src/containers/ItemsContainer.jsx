@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import Items from '../components/main/section/items/Items';
+// eslint-disable-next-line max-len
 import { addRatingActionCreator } from '../redux/actionCreators/ItemsActionCreators';
+import { getItems, getUser } from '../takes/Takes';
 
 const mapStateToProps = state => ({
   state: {
-    items: state.items,
-    user: state.user,
+    items: getItems(state),
+    user: getUser(state),
   },
 });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LoginError from '../LoginError';
+import LoginError from './LoginError';
 
 class EditProfile extends React.Component {
   state = { firstName: '', lastName: '' };

@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Slides from '../header/SlidesInHead';
-import NavbarContainer from '../../containers/NavbarContainer';
-import AsideSection from '../main/AsideSection';
-import Footer from '../Footer';
+import Slides from './header/SlidesInHead';
+import NavbarContainer from '../containers/NavbarContainer';
+import AsideSection from './main/AsideSection';
+import Footer from './Footer';
 
 class App extends React.Component {
   componentDidMount() {
     const items = localStorage.getItem('items')
       ? JSON.parse(localStorage.getItem('items'))
-      : [null];
+      : [];
     const users = localStorage.getItem('users')
       ? JSON.parse(localStorage.getItem('users'))
       : [{ id: 0 }];

@@ -4,11 +4,17 @@ import {
   addItemsActionCreator,
   deleteItemsActionCreator,
 } from '../redux/actionCreators/ItemsActionCreators';
+// eslint-disable-next-line max-len
 import { deleteUsersActionCreator } from '../redux/actionCreators/UsersActionCreator';
 import AdminRoute from '../components/main/section/administration/AdminRoute';
+import { getItems, getUsers, getUser } from '../takes/Takes';
 
 const mapStateToProps = state => ({
-  state: { items: state.items, users: state.users, user: state.user },
+  state: {
+    items: getItems(state),
+    users: getUsers(state),
+    user: getUser(state),
+  },
 });
 
 const mapDispatchToProps = dispatch => ({
