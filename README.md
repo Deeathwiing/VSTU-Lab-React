@@ -2,7 +2,7 @@
 
 rep for lab
 
-Open site: clone this rep,use npm i to instal node modules,use npm start in my-app folder,for more information check readme in my-app folder.
+Open site: clone this rep,use "npm i" to instal node modules,use "npm start" in my-app folder,for more information check readme in my-app folder.
 
 Need use index.html?# only. (?#).
 
