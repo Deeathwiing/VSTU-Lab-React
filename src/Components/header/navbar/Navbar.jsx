@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-/* eslint-disable react/forbid-prop-types */
+
 import { NavLink } from 'react-router-dom';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -157,11 +157,11 @@ const Navbar = props => (
 export default Navbar;
 
 Navbar.propTypes = {
-  state: PropTypes.object,
-  user: PropTypes.object,
+  state: PropTypes.shape({
+    user: PropTypes.object,
+  }),
 };
 
 Navbar.defaultProps = {
   state: {},
-  user: {},
 };

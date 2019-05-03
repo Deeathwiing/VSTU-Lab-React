@@ -8,24 +8,8 @@ class AddItems extends React.Component {
     this.state = {};
   }
 
-  handleTitleChange = (e) => {
-    this.setState({ title: e.target.value });
-  };
-
-  handlePictureChange = (e) => {
-    this.setState({ picture: e.target.value });
-  };
-
-  handlePriceChange = (e) => {
-    this.setState({ price: e.target.value });
-  };
-
-  handleTagsChange = (e) => {
-    this.setState({ tags: e.target.value });
-  };
-
-  handledescriptionChange = (e) => {
-    this.setState({ description: e.target.value });
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   addItem = (event) => {
@@ -48,9 +32,10 @@ class AddItems extends React.Component {
             <span className="input-group-text">Title</span>
           </div>
           <input
+            name="title"
             type="text"
             className="form-control addItemTitle"
-            onChange={this.handleTitleChange}
+            onChange={this.handleInput}
           />
         </div>
         <div className="input-group mb-3">
@@ -58,9 +43,10 @@ class AddItems extends React.Component {
             <span className="input-group-text">Picture (url)</span>
           </div>
           <input
+            name="picture"
             type="text"
             className="form-control addItemPicture"
-            onChange={this.handlePictureChange}
+            onChange={this.handleInput}
           />
         </div>
 
@@ -69,9 +55,10 @@ class AddItems extends React.Component {
             <span className="input-group-text">Price</span>
           </div>
           <input
+            name="price"
             type="text"
             className="form-control addItemPrice"
-            onChange={this.handlePriceChange}
+            onChange={this.handleInput}
           />
           <div className="input-group-append">
             <span className="input-group-text">$</span>
@@ -83,9 +70,10 @@ class AddItems extends React.Component {
             <span className="input-group-text">Tags</span>
           </div>
           <input
+            name="tags"
             type="text"
             className="form-control addItemTag-0"
-            onChange={this.handleTagsChange}
+            onChange={this.handleInput}
           />
         </div>
 
@@ -94,8 +82,9 @@ class AddItems extends React.Component {
             <span className="input-group-text">Description</span>
           </div>
           <textarea
+            name="description"
             className="form-control addItemDescription"
-            onChange={this.handledescriptionChange}
+            onChange={this.handleInput}
           />
         </div>
 

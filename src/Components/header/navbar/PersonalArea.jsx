@@ -1,4 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -44,8 +43,12 @@ const PersonalArea = props => (
 export default PersonalArea;
 
 PersonalArea.propTypes = {
-  navLinks: PropTypes.array,
-  state: PropTypes.object,
+  navLinks: PropTypes.arrayOf(PropTypes.object),
+
+  state: PropTypes.shape({
+    checkLogin: PropTypes.bool,
+    logEmail: PropTypes.string,
+  }),
 };
 
 PersonalArea.defaultProps = {

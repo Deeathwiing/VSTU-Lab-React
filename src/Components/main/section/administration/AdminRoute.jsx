@@ -26,8 +26,11 @@ const AdminRoute = (props) => {
 export default AdminRoute;
 
 AdminRoute.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.object,
+  state: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object),
+    users: PropTypes.arrayOf(PropTypes.object),
+    user: PropTypes.object,
+  }),
   addItems: PropTypes.func,
   deleteItems: PropTypes.func,
   deleteUser: PropTypes.func,

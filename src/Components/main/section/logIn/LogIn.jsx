@@ -90,8 +90,7 @@ export default LogIn;
 
 LogIn.propTypes = {
   login: PropTypes.func,
-  // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.object,
+  state: PropTypes.shape({ user: PropTypes.object }),
 };
 
 LogIn.defaultProps = {

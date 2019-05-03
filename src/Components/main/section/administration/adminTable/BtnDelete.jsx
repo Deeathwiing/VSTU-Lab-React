@@ -22,8 +22,18 @@ const BtnDelete = (props) => {
 export default BtnDelete;
 
 BtnDelete.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.object,
+  state: PropTypes.shape({
+    administration: PropTypes.bool,
+
+    deleteAccountRequest: PropTypes.bool,
+
+    email: PropTypes.string,
+
+    firstName: PropTypes.string,
+    id: PropTypes.number,
+    lastName: PropTypes.string,
+    password: PropTypes.string,
+  }),
   deleteUser: PropTypes.func,
 };
 

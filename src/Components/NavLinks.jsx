@@ -32,8 +32,11 @@ export const NavLinkDropDown = (props) => {
 };
 
 CustomNavLink.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.object,
+  state: PropTypes.shape({
+    description: PropTypes.string,
+    classNames: PropTypes.string,
+    to: PropTypes.string,
+  }),
 };
 
 CustomNavLink.defaultProps = {

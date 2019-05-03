@@ -27,14 +27,14 @@ const AllItemsAdmin = (props) => {
         ))}
       </div>
     );
-  } return null;
+  }
+  return null;
 };
 
 export default AllItemsAdmin;
 
 AllItemsAdmin.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.array,
+  state: PropTypes.arrayOf(PropTypes.object),
   deleteItems: PropTypes.func,
 };
 

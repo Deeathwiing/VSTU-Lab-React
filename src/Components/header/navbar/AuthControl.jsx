@@ -13,8 +13,11 @@ const AuthControl = (props) => {
 export default AuthControl;
 
 AuthControl.propTypes = {
-  state: PropTypes.object,
-  navLinks: PropTypes.array,
+  state: PropTypes.shape({
+    admin: PropTypes.bool,
+    checkLogin: PropTypes.bool,
+  }),
+  navLinks: PropTypes.arrayOf(PropTypes.object),
 };
 
 AuthControl.defaultProps = {

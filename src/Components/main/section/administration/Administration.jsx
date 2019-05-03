@@ -9,8 +9,8 @@ import { NavLinksAdministration } from '../../../NavLinks';
 const AllItemsAdmin = React.lazy(() => import('./AllItemsAdmin'));
 const AdminTable = React.lazy(() => import('./adminTable/AdminTable'));
 
-const navlinks = {
-  NavLinkAdministration: [
+const navLinks = {
+  navLinkAdministration: [
     {
       to: '/administration/admintable',
       classNames: 'nav-link mx-2',
@@ -35,7 +35,7 @@ const Administration = props => (
     <nav className="navbarAdmin row navbar-light bg-light w-100 p-3 justify-content-center">
       <ul className="navbar-nav">
         <div className="row">
-          <NavLinksAdministration state={navlinks.NavLinkAdministration} />
+          <NavLinksAdministration state={navLinks.navLinkAdministration} />
         </div>
       </ul>
     </nav>
@@ -69,8 +69,11 @@ const Administration = props => (
 export default Administration;
 
 Administration.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.object,
+  state: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object),
+    users: PropTypes.arrayOf(PropTypes.object),
+    user: PropTypes.object,
+  }),
   deleteUser: PropTypes.func,
   addItems: PropTypes.func,
   deleteItems: PropTypes.func,

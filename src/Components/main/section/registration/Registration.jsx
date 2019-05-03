@@ -58,8 +58,10 @@ class Registration extends React.Component {
 export default Registration;
 
 Registration.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.object,
+  state: PropTypes.shape({
+    user: PropTypes.object,
+    usersLength: PropTypes.number,
+  }),
   reg: PropTypes.func,
 };
 
