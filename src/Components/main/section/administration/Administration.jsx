@@ -29,7 +29,6 @@ const navLinks = {
   ],
 };
 
-// console.log(props);
 const Administration = props => (
   <div>
     <nav className="navbarAdmin row navbar-light bg-light w-100 p-3 justify-content-center">

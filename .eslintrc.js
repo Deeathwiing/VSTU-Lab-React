@@ -20,6 +20,8 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'max-len': ['error', { code: 80 }],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'jsx-a11y/label-has-associated-control': [
