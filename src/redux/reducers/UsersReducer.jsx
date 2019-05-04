@@ -2,7 +2,7 @@
 /* eslint-disable no-case-declarations */
 import { ActionTypes } from '../ActionTypes';
 
-const UsersReducer = (state = [{}], action) => {
+const UsersReducer = (state = [], action) => {
   switch (action.type) {
     case ActionTypes.REGISTRATION:
       const lastElement = state[state.length - 1];
@@ -33,12 +33,8 @@ const UsersReducer = (state = [{}], action) => {
 
       let newStateAfterRegistration = [];
 
-      if (lastElement) {
-        newStateAfterRegistration = [...state, newUser];
-      } else {
-        newStateAfterRegistration = [newUser];
-      }
-      localStorage.setItem('users', JSON.stringify(newStateAfterRegistration));
+      newStateAfterRegistration = [...state, newUser];
+
       return newStateAfterRegistration;
 
     case ActionTypes.DELETE_USERS:
@@ -49,7 +45,6 @@ const UsersReducer = (state = [{}], action) => {
         return true;
       });
 
-      localStorage.setItem('users', JSON.stringify(newStateAfterDelete));
       return newStateAfterDelete;
 
     case ActionTypes.REMOVE_REQUEST:
@@ -62,8 +57,6 @@ const UsersReducer = (state = [{}], action) => {
         }
         return element;
       });
-
-      localStorage.setItem('users', JSON.stringify(newStateAfterRemoveRequest));
 
       return newStateAfterRemoveRequest;
 
@@ -78,8 +71,6 @@ const UsersReducer = (state = [{}], action) => {
         }
         return element;
       });
-
-      localStorage.setItem('users', JSON.stringify(newStateAfterChange));
 
       return newStateAfterChange;
 

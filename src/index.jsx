@@ -9,13 +9,17 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './components/serviceWorker';
 
 import store from './redux/ReduxStore';
-import AppContainer from './containers/AppContainer';
+import App from './components/App';
+
+const { whyDidYouUpdate } = require('why-did-you-update');
+
+whyDidYouUpdate(React);
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <AppContainer />
+        <App />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,

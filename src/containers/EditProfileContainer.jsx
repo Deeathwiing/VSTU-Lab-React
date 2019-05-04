@@ -4,15 +4,15 @@ import {
   changeFirstLastNameActionCreator,
 } from '../redux/actionCreators/UsersActionCreator';
 import EditProfile from '../components/main/section/EditProfile';
-import { getUser } from '../takes/Takes';
+import { userSelector } from '../selectors/Selectors';
 
 const mapStateToProps = state => ({
-  state: { user: getUser(state) },
+  state: { user: userSelector(state) },
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeRequest: () => {
-    dispatch(removeRequestActionCreator());
+  removeRequest: (user) => {
+    dispatch(removeRequestActionCreator(user));
   },
   changeFirstLastName: (firstName, lastName, user) => {
     dispatch(changeFirstLastNameActionCreator(firstName, lastName, user));

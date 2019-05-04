@@ -20,11 +20,9 @@ export const deleteItemsActionCreator = idToDelete => ({
   type: ActionTypes.DELETE_ITEMS,
   idToDelete,
 });
-export const addRatingActionCreator = (itemId, ratingValue) => ({
+export const addRatingActionCreator = (itemId, ratingValue, user) => ({
   type: ActionTypes.ADD_RATING,
   itemId,
   ratingValue,
-  user: localStorage.getItem('user')
-    ? JSON.parse(localStorage.getItem('user'))
-    : [],
+  user,
 });

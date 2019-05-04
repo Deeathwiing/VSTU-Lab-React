@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Navbar from '../components/header/navbar/Navbar';
-import { getUser } from '../takes/Takes';
+import { userSelector } from '../selectors/Selectors';
 
 const mapStateToProps = state => ({
-  state: { user: getUser(state) },
+  state: { user: userSelector(state) },
 });
 
 const NavbarContainer = connect(

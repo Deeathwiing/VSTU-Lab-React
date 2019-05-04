@@ -18,11 +18,9 @@ export const registrationActionCreator = (
   password,
 });
 
-export const removeRequestActionCreator = () => ({
+export const removeRequestActionCreator = user => ({
   type: ActionTypes.REMOVE_REQUEST,
-  user: localStorage.getItem('user')
-    ? JSON.parse(localStorage.getItem('user'))
-    : [],
+  user,
 });
 
 export const changeFirstLastNameActionCreator = (

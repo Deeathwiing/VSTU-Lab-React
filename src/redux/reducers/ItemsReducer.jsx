@@ -27,13 +27,12 @@ const ItemsReducer = (state = [], action) => {
         newStateAfterAddItems = [newItem];
       }
 
-      localStorage.setItem('items', JSON.stringify(newStateAfterAddItems));
       return newStateAfterAddItems;
     case ActionTypes.DELETE_ITEMS:
       const newStateAfterDelete = state.filter(
         item => item.id !== action.idToDelete
       );
-      localStorage.setItem('items', JSON.stringify(newStateAfterDelete));
+
       return newStateAfterDelete;
 
     case ActionTypes.ADD_RATING:
@@ -72,7 +71,6 @@ const ItemsReducer = (state = [], action) => {
         }
         return item;
       });
-      localStorage.setItem('items', JSON.stringify(newStateAfterAddRating));
 
       return newStateAfterAddRating;
 
