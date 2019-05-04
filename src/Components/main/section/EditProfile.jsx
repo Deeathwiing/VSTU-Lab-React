@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LoginError from './LoginError';
-import { getUser } from '../../../selectors/Selectors';
 
 class EditProfile extends React.Component {
-  state = { firstName: '', lastName: '' };
+  state = { user: this.props.state.user, firstName: '', lastName: '' };
 
   removeReq = () => {
-    const state = localStorage.getItem('state')
-      ? JSON.parse(localStorage.getItem('state'))
-      : undefined;
-    this.props.removeRequest(getUser(state));
+    this.props.removeRequest(this.state.user);
   };
 
   handleInput = (e) => {
@@ -19,13 +15,11 @@ class EditProfile extends React.Component {
 
   changeNames = (event) => {
     event.preventDefault();
-    const state = localStorage.getItem('state')
-      ? JSON.parse(localStorage.getItem('state'))
-      : undefined;
+
     this.props.changeFirstLastName(
       this.state.firstName,
       this.state.lastName,
-      getUser(state)
+      this.state.user
     );
   };
 

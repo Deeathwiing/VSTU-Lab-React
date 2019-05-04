@@ -1,18 +1,15 @@
 import React from 'react';
-import { getUser } from '../../../../selectors/Selectors';
 
 const Item = (props) => {
   const check = (event) => {
     event.preventDefault();
-    const state = localStorage.getItem('state')
-      ? JSON.parse(localStorage.getItem('state'))
-      : undefined;
+
     if (
       (props.state.user.admin || props.state.user.checkLogin) === undefined
         ? false
         : props.state.user.admin || props.state.user.checkLogin
     ) {
-      props.addRating(event, getUser(state));
+      props.addRating(event, props.state.user);
     }
   };
   let item;

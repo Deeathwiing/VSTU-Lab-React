@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { loginActionCreator } from '../redux/actionCreators/UserActionCreator';
 import LogIn from '../components/main/section/logIn/LogIn';
-import { userSelector } from '../selectors/Selectors';
+import { userSelector, usersSelector } from '../selectors/Selectors';
 
 const mapStateToProps = state => ({
   state: { user: userSelector(state) },
@@ -14,10 +14,11 @@ const mapDispatchToProps = dispatch => ({
     const state = localStorage.getItem('state')
       ? JSON.parse(localStorage.getItem('state'))
       : undefined;
-    checkLogin = state.users.some(
+    const users = usersSelector(state);
+    checkLogin = users.some(
       user => logEmail === user.email && logPass === user.password
     );
-    admin = state.users.some(
+    admin = users.some(
       user =>
         logEmail === user.email
         && logPass === user.password

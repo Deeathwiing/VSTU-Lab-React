@@ -11,11 +11,12 @@ class LogIn extends React.Component {
   };
 
   log = (event) => {
+    event.preventDefault();
     if (!this.state.email || !this.state.password) {
       alert('Заполните все поля');
       return;
     }
-    event.preventDefault();
+
     this.props.login(this.state.email, this.state.password);
   };
 
