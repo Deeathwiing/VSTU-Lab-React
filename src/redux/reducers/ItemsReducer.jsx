@@ -1,36 +1,13 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-case-declarations */
 import { ActionTypes } from '../ActionTypes';
 
 const ItemsReducer = (state = [], action) => {
   switch (action.type) {
-    case ActionTypes.ADD_ITEMS:
-      const stateLength = state.length;
-      const lastElement = state[stateLength - 1];
-
-      const id = lastElement ? lastElement.id + 1 : 0;
-      const averageRating = null;
-      const newItem = {
-        id,
-        picture: action.newPicture || '',
-        title: action.newTitle || '',
-        description: action.newDescription || '',
-        price: action.newPrice || '',
-        tags: action.newTags || [],
-        rating: [],
-        averageRating,
-      };
-      let newStateAfterAddItems;
-      if (lastElement) {
-        newStateAfterAddItems = [...state, newItem];
-      } else {
-        newStateAfterAddItems = [newItem];
-      }
-
-      return newStateAfterAddItems;
     case ActionTypes.DELETE_ITEMS:
       const newStateAfterDelete = state.filter(
-        item => item.id !== action.idToDelete
+        item => item._id !== action.idToDelete
       );
 
       return newStateAfterDelete;
@@ -43,7 +20,7 @@ const ItemsReducer = (state = [], action) => {
       };
 
       const newStateAfterAddRating = state.map((item) => {
-        if (item.id === action.itemId) {
+        if (item._id === action.itemId) {
           const singleRating = item.rating;
           let checkRating = false;
           if (singleRating[0]) {
@@ -74,8 +51,8 @@ const ItemsReducer = (state = [], action) => {
 
       return newStateAfterAddRating;
 
-    case ActionTypes.INITIALIZATION_ITEMS:
-      return action.items || [];
+    case ActionTypes.ITEMS_FETCH_DATA_SUCCESS:
+      return action.items;
     default:
       return state;
   }

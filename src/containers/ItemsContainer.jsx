@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import Items from '../components/main/section/items/Items';
 // eslint-disable-next-line max-len
-import { addRatingActionCreator } from '../redux/actionCreators/ItemsActionCreators';
 import { itemsSelector, userSelector } from '../selectors/Selectors';
+import { addRatingAPI } from '../redux/apiActionCreators/itemsAC';
 
 const mapStateToProps = state => ({
   state: {
@@ -15,7 +15,12 @@ const mapDispatchToProps = dispatch => ({
   addRating: (event, user) => {
     const itemId = Number(event.target.getAttribute('item-id'));
     const ratingValue = event.target.value;
-    dispatch(addRatingActionCreator(itemId, ratingValue, user));
+    const data = {
+      itemId,
+      ratingValue,
+      user,
+    };
+    dispatch(addRatingAPI('http://localhost:3001/rating', data));
   },
 });
 

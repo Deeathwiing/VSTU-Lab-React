@@ -6,6 +6,14 @@ import userReducer from './reducers/UserReducer';
 import usersReducer from './reducers/UsersReducer';
 import itemsReducer from './reducers/ItemsReducer';
 import { loadState, saveState } from './localStorage';
+import {
+  itemsHasErroredRed,
+  itemsIsLoadingRed,
+} from './reducers/dataReducers/dataItemsRed';
+import {
+  usersHasErroredRed,
+  usersIsLoadingRed,
+} from './reducers/dataReducers/dataUsersRed';
 
 const persistedState = loadState();
 
@@ -13,9 +21,12 @@ const reducers = combineReducers({
   user: userReducer,
   users: usersReducer,
   items: itemsReducer,
+  itemsHasErrored: itemsHasErroredRed,
+  itemsIsLoading: itemsIsLoadingRed,
+  usersHasErrored: usersHasErroredRed,
+  usersIsLoading: usersIsLoadingRed,
 });
 
-// eslint-disable-next-line max-len
 const store = createStore(
   reducers,
   persistedState,
