@@ -47,6 +47,7 @@ PersonalArea.propTypes = {
 
   state: PropTypes.shape({
     checkLogin: PropTypes.bool,
+    admin: PropTypes.bool,
     logEmail: PropTypes.string,
   }),
 };

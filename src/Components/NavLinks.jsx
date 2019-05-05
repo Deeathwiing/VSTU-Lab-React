@@ -14,6 +14,7 @@ export const CustomNavLink = React.memo(props => (
 ));
 
 export const NavLinksAdministration = React.memo((props) => {
+  // eslint-disable-next-line react/prop-types
   const link = props.state.map(element => (
     <li key={element.description} className={`nav-tem ${element.liClass}`}>
       <CustomNavLink key={element.description} state={element} />
@@ -23,6 +24,7 @@ export const NavLinksAdministration = React.memo((props) => {
 });
 
 export const NavLinkDropDown = React.memo((props) => {
+  // eslint-disable-next-line react/prop-types
   const link = props.state.map(element => (
     <div key={element.description}>
       <CustomNavLink key={element.description} state={element} />
@@ -40,6 +42,28 @@ CustomNavLink.propTypes = {
   }),
 };
 
+NavLinksAdministration.propTypes = {
+  state: PropTypes.shape({
+    description: PropTypes.string,
+    classNames: PropTypes.string,
+    to: PropTypes.string,
+  }),
+};
+
+NavLinkDropDown.propTypes = {
+  state: PropTypes.shape({
+    description: PropTypes.string,
+    classNames: PropTypes.string,
+    to: PropTypes.string,
+  }),
+};
+
 CustomNavLink.defaultProps = {
+  state: {},
+};
+NavLinksAdministration.defaultProps = {
+  state: {},
+};
+NavLinkDropDown.defaultProps = {
   state: {},
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Item extends React.Component {
   constructor(props) {
@@ -110,3 +111,16 @@ class Item extends React.Component {
 }
 
 export default Item;
+
+Item.propTypes = {
+  addRating: PropTypes.func,
+  state: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object),
+    user: PropTypes.object,
+  }),
+};
+
+Item.defaultProps = {
+  addRating: () => {},
+  state: {},
+};
