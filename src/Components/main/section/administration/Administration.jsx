@@ -29,7 +29,7 @@ const navLinks = {
   ],
 };
 
-const Administration = props => (
+const Administration = React.memo(props => (
   <div>
     <nav className="navbarAdmin row navbar-light bg-light w-100 p-3 justify-content-center">
       <ul className="navbar-nav">
@@ -64,7 +64,7 @@ const Administration = props => (
       )}
     />
   </div>
-);
+));
 export default Administration;
 
 Administration.propTypes = {

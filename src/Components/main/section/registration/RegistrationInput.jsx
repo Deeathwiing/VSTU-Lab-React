@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class RegistrationInput extends React.Component {
+class RegistrationInput extends React.PureComponent {
   state = {
     email: '',
     firstName: '',

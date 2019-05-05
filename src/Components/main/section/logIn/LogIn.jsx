@@ -4,7 +4,17 @@ import PropTypes from 'prop-types';
 import LoginSuccessful from './LoginSuccessful';
 
 class LogIn extends React.Component {
-  state = { email: '', password: '' };
+  constructor(props) {
+    super(props);
+    this.state = { user: this.props.state.user, email: '', password: '' };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.state.user !== nextState.user) {
+      return true;
+    }
+    return false;
+  }
 
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });

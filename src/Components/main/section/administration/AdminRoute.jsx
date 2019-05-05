@@ -4,24 +4,42 @@ import PropTypes from 'prop-types';
 import ErrorAdmin from './ErrorAdmin';
 import Administration from './Administration';
 
-const AdminRoute = (props) => {
-  if (props.state.user.admin) {
-    return (
-      <Route
-        path="/administration"
-        render={() => (
-          <Administration
-            addItems={props.addItems}
-            deleteItems={props.deleteItems}
-            deleteUser={props.deleteUser}
-            state={props.state}
-          />
-        )}
-      />
-    );
+class AdminRoute extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = this.props.state;
   }
-  return <Route path="/administration" component={ErrorAdmin} />;
-};
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (
+      nextProps.state.user !== nextState.user
+      || nextProps.state.users !== nextState.users
+      || nextProps.state.items !== nextState.items
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  render() {
+    if (this.props.state.user.admin) {
+      return (
+        <Route
+          path="/administration"
+          render={() => (
+            <Administration
+              addItems={this.props.addItems}
+              deleteItems={this.props.deleteItems}
+              deleteUser={this.props.deleteUser}
+              state={this.props.state}
+            />
+          )}
+        />
+      );
+    }
+    return <Route path="/administration" component={ErrorAdmin} />;
+  }
+}
 
 export default AdminRoute;
 

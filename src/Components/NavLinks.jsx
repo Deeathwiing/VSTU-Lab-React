@@ -1,8 +1,9 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export const CustomNavLink = props => (
+export const CustomNavLink = React.memo(props => (
   <NavLink
     to={props.state.to}
     className={props.state.classNames}
@@ -10,18 +11,18 @@ export const CustomNavLink = props => (
   >
     {props.state.description}
   </NavLink>
-);
+));
 
-export const NavLinksAdministration = (props) => {
+export const NavLinksAdministration = React.memo((props) => {
   const link = props.state.map(element => (
     <li key={element.description} className={`nav-tem ${element.liClass}`}>
       <CustomNavLink key={element.description} state={element} />
     </li>
   ));
   return link;
-};
+});
 
-export const NavLinkDropDown = (props) => {
+export const NavLinkDropDown = React.memo((props) => {
   const link = props.state.map(element => (
     <div key={element.description}>
       <CustomNavLink key={element.description} state={element} />
@@ -29,7 +30,7 @@ export const NavLinkDropDown = (props) => {
     </div>
   ));
   return link;
-};
+});
 
 CustomNavLink.propTypes = {
   state: PropTypes.shape({

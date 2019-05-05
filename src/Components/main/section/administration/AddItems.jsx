@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,6 +5,10 @@ class AddItems extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  shouldComponentUpdate() {
+    return false;
   }
 
   handleInput = (e) => {

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import LoginRegistration from './LoginRegistration';
 import PersonalArea from './PersonalArea';
 
-const AuthControl = (props) => {
+const AuthControl = React.memo((props) => {
   if (props.state.admin || props.state.checkLogin) {
     return <PersonalArea state={props.state} navLinks={props.navLinks} />;
   }
   return <LoginRegistration />;
-};
+});
 
 export default AuthControl;
 

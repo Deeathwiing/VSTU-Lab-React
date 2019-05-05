@@ -5,6 +5,13 @@ import LoginError from './LoginError';
 class EditProfile extends React.Component {
   state = { user: this.props.state.user, firstName: '', lastName: '' };
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.state.user !== nextState.user) {
+      return true;
+    }
+    return false;
+  }
+
   removeReq = () => {
     this.props.removeRequest(this.state.user);
   };

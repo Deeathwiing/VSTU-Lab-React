@@ -4,7 +4,7 @@ import RegistrationInput from './RegistrationInput';
 import RegistrationSuccessful from './RegistrationSuccessful';
 import News from '../News';
 
-class Registration extends React.Component {
+class Registration extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
