@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { loginActionCreator } from '../redux/actionCreators/UserActionCreator';
 import LogIn from '../components/main/section/logIn/LogIn';
-import { userSelector, usersSelector } from '../selectors/Selectors';
+import { userSelector } from '../selectors/Selectors';
+import { authorization } from '../redux/apiActionCreators/authorizationAC';
 
 const mapStateToProps = state => ({
   state: { user: userSelector(state) },
@@ -9,25 +9,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   login: (logEmail, logPass) => {
-    let checkLogin = false;
-    let admin = false;
-    const state = localStorage.getItem('state')
-      ? JSON.parse(localStorage.getItem('state'))
-      : undefined;
-    const users = usersSelector(state);
-    checkLogin = users.some(
-      user => logEmail === user.email && logPass === user.password
-    );
-    admin = users.some(
-      user =>
-        logEmail === user.email
-        && logPass === user.password
-        && user.administration
-    );
-    if (!checkLogin && !admin) {
-      alert('Введите правильный email и пароль');
-    }
-    dispatch(loginActionCreator(admin, checkLogin, logEmail));
+    const data = {
+      logEmail,
+      logPass,
+    };
+    dispatch(authorization('http://localhost:3001/authUser', data));
   },
 });
 

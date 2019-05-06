@@ -14,6 +14,10 @@ import {
   usersHasErroredRed,
   usersIsLoadingRed,
 } from './reducers/dataReducers/dataUsersRed';
+import {
+  authorizationHasErroredRed,
+  authorizationInProgressRed,
+} from './reducers/dataReducers/dataUserRed';
 
 const persistedState = loadState();
 
@@ -25,6 +29,8 @@ const reducers = combineReducers({
   itemsIsLoading: itemsIsLoadingRed,
   usersHasErrored: usersHasErroredRed,
   usersIsLoading: usersIsLoadingRed,
+  authorizationHasErrored: authorizationHasErroredRed,
+  authorizationInProgress: authorizationInProgressRed,
 });
 
 const store = createStore(
