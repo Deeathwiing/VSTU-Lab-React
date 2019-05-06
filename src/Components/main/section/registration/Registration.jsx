@@ -5,40 +5,8 @@ import RegistrationSuccessful from './RegistrationSuccessful';
 import News from '../News';
 
 class Registration extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      check: true,
-      usersLength: this.props.state.usersLength,
-      regAction: false,
-    };
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    if (state.regAction) {
-      if (state.usersLength !== props.state.usersLength) {
-        return {
-          check: false,
-          regAction: false,
-          usersLength: props.state.usersLength,
-        };
-      }
-      return {
-        check: true,
-        regAction: false,
-        usersLength: props.state.usersLength,
-      };
-    }
-    return {
-      check: true,
-      regAction: false,
-      usersLength: props.state.usersLength,
-    };
-  }
-
   regCheck = (email, firstName, lastName, password) => {
     this.props.reg(email, firstName, lastName, password);
-    this.setState({ regAction: true });
   };
 
   render() {
@@ -46,7 +14,7 @@ class Registration extends React.PureComponent {
       (this.props.state.user.admin || this.props.state.user.checkLogin)
       === undefined
     ) {
-      if (this.state.check) {
+      if (1) {
         return <RegistrationInput reg={this.regCheck} />;
       }
       return <RegistrationSuccessful />;

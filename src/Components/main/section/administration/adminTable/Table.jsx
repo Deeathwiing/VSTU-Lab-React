@@ -1,17 +1,18 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import BtnDelete from './BtnDelete';
 
 const Table = props =>
   props.state.map(element => (
-    <tr key={element.id} id={`trForDelete-${element.id}`}>
-      <th scope="row">{element.id}</th>
+    <tr key={element._id} id={`trForDelete-${element._id}`}>
+      <th scope="row">{element._id}</th>
       <td>{element.firstName}</td>
       <td>{element.lastName}</td>
       <td>{element.email}</td>
       <td>{element.deleteAccountRequest}</td>
       <td>
         <BtnDelete
-          key={element.id}
+          key={element._id}
           state={element}
           deleteUser={props.deleteUser}
         />

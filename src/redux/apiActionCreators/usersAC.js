@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { ActionTypes } from '../ActionTypes';
+import { deleteUsersActionCreator } from '../actionCreators/UsersActionCreator';
 
 export const usersHasErrored = bool => ({
   type: ActionTypes.USERS_HAS_ERRORED,
@@ -40,5 +41,15 @@ export const regActionCreatorAPI = (url, data) => (dispatch) => {
     .then(() => {
       dispatch(usersFetchData(url));
     })
+    .catch(() => dispatch(usersHasErrored(true)));
+};
+
+export const deleteUsersAPI = (url, idToDelete) => (dispatch) => {
+  axios
+    .delete(url)
+    .then(() => {
+      dispatch(deleteUsersActionCreator(idToDelete));
+    })
+
     .catch(() => dispatch(usersHasErrored(true)));
 };

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -34,7 +35,7 @@ class Item extends React.Component {
     ];
     if (lastElement) {
       item = this.props.state.items.map(element => (
-        <div key={element.id} className={`card dataId${element.id}`}>
+        <div key={element._id} className={`card dataId${element._id}`}>
           <img
             src={element.picture}
             className="card-img-top"
@@ -50,7 +51,7 @@ class Item extends React.Component {
           <fieldset className="rating" key={element.id}>
             <div className="rating-group">
               <input
-                item-id={element.id}
+                item-id={element._id}
                 onChange={this.check}
                 className="rating-star"
                 type="radio"
@@ -60,17 +61,17 @@ class Item extends React.Component {
                 checked={element.averageRating === 1 && 'checked'}
               />
               <input
-                item-id={element.id}
+                item-id={element._id}
                 onChange={this.check}
                 className="rating-star"
                 type="radio"
-                name={element.id}
+                name={element._id}
                 value="2"
                 aria-label="Сносно"
                 checked={element.averageRating === 2 && 'checked'}
               />
               <input
-                item-id={element.id}
+                item-id={element._id}
                 onChange={this.check}
                 className="rating-star"
                 type="radio"
@@ -80,7 +81,7 @@ class Item extends React.Component {
                 checked={element.averageRating === 3 && 'checked'}
               />
               <input
-                item-id={element.id}
+                item-id={element._id}
                 onChange={this.check}
                 className="rating-star"
                 type="radio"
@@ -90,7 +91,7 @@ class Item extends React.Component {
                 checked={element.averageRating === 4 && 'checked'}
               />
               <input
-                item-id={element.id}
+                item-id={element._id}
                 onChange={this.check}
                 className="rating-star"
                 type="radio"

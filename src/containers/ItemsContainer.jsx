@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addRating: (event, user) => {
-    const itemId = Number(event.target.getAttribute('item-id'));
+    const itemId = event.target.getAttribute('item-id');
     const ratingValue = event.target.value;
     const data = {
       itemId,

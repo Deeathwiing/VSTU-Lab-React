@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 
 import PropTypes from 'prop-types';
@@ -8,8 +9,8 @@ const BtnDelete = (props) => {
       <button
         type="button"
         className="btnForDelete btn-danger btn-block"
-        data-id={props.state.id}
-        key={props.state.id}
+        data-id={props.state._id}
+        key={props.state._id}
         onClick={props.deleteUser}
       >
         Delete
@@ -30,7 +31,7 @@ BtnDelete.propTypes = {
     email: PropTypes.string,
 
     firstName: PropTypes.string,
-    id: PropTypes.number,
+    _id: PropTypes.string,
     lastName: PropTypes.string,
     password: PropTypes.string,
   }),
