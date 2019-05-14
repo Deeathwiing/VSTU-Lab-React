@@ -1,11 +1,16 @@
 import { connect } from 'react-redux';
 // eslint-disable-next-line max-len
 import Registration from '../components/main/section/registration/Registration';
-import { userSelector, usersLengthSelector } from '../selectors/Selectors';
+import {
+  userSelector,
+  usersLengthSelector,
+  usersHasErrored,
+} from '../selectors/Selectors';
 import { regActionCreatorAPI } from '../redux/apiActionCreators/usersAC';
 
 const mapStateToProps = state => ({
   state: { user: userSelector(state), usersLength: usersLengthSelector(state) },
+  usersHasErrored: usersHasErrored(state),
 });
 const mapDispatchToProps = dispatch => ({
   reg: (email, firstName, lastName, password) => {

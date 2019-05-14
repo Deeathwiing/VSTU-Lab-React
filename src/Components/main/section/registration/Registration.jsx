@@ -4,7 +4,9 @@ import RegistrationInput from './RegistrationInput';
 import RegistrationSuccessful from './RegistrationSuccessful';
 import News from '../News';
 
-class Registration extends React.PureComponent {
+class Registration extends React.Component {
+  state = { regSuc: false, usersLength: this.props.state.usersLength };
+
   regCheck = (email, firstName, lastName, password) => {
     this.props.reg(email, firstName, lastName, password);
   };
@@ -14,10 +16,18 @@ class Registration extends React.PureComponent {
       (this.props.state.user.admin || this.props.state.user.checkLogin)
       === undefined
     ) {
-      if (1) {
-        return <RegistrationInput reg={this.regCheck} />;
+      if (this.state.regSuc) {
+        return <RegistrationSuccessful />;
       }
-      return <RegistrationSuccessful />;
+      if (this.props.usersHasErrored) {
+        return (
+          <>
+            <h6>Данный email занят</h6>
+            <RegistrationInput reg={this.regCheck} />
+          </>
+        );
+      }
+      return <RegistrationInput reg={this.regCheck} />;
     }
     return <News />;
   }
@@ -31,9 +41,11 @@ Registration.propTypes = {
     usersLength: PropTypes.number,
   }),
   reg: PropTypes.func,
+  usersHasErrored: PropTypes.bool,
 };
 
 Registration.defaultProps = {
   state: {},
   reg: () => {},
+  usersHasErrored: false,
 };
