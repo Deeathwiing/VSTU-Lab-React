@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import Items from '../components/main/section/items/Items';
 // eslint-disable-next-line max-len
-import { itemsSelector, userSelector } from '../selectors/Selectors';
+import {
+  itemsSelector,
+  userSelector,
+  hightRating,
+} from '../selectors/Selectors';
 import { addRatingAPI } from '../redux/apiActionCreators/itemsAC';
 
 const mapStateToProps = state => ({

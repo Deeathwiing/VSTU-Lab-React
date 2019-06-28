@@ -23,19 +23,15 @@ export const itemsFetchDataSuccess = items => ({
 export const itemsFetchData = url => async (dispatch) => {
   dispatch(itemsIsLoading(true));
 
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
+  try {
+    const response = await axios.get(url);
 
-      dispatch(itemsIsLoading(false));
+    dispatch(itemsIsLoading(false));
 
-      return response;
-    })
-    .then(response => response.json())
-    .then(items => dispatch(itemsFetchDataSuccess(items)))
-    .catch(() => dispatch(itemsHasErrored(true)));
+    dispatch(itemsFetchDataSuccess(response.data));
+  } catch (err) {
+    dispatch(itemsHasErrored(true));
+  }
 };
 
 export const addItemsAPI = (url, data) => (dispatch) => {
