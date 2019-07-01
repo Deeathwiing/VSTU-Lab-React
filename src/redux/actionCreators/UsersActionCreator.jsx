@@ -23,13 +23,9 @@ export const removeRequestActionCreator = user => ({
   user,
 });
 
-export const changeFirstLastNameActionCreator = (
-  firstName,
-  lastName,
-  user
-) => ({
+export const changeFirstLastNameActionCreator = data => ({
   type: ActionTypes.CHANGE_FIRSTNAMELASTNAME,
-  user,
-  firstName,
-  lastName,
+  user: data.user,
+  firstName: data.firstName,
+  lastName: data.lastName,
 });

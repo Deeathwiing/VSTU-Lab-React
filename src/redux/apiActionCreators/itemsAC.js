@@ -30,6 +30,7 @@ export const itemsFetchData = url => async (dispatch) => {
 
     dispatch(itemsFetchDataSuccess(response.data));
   } catch (err) {
+    dispatch(itemsIsLoading(false));
     dispatch(itemsHasErrored(true));
   }
 };

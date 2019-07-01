@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { ActionTypes } from '../ActionTypes';
-import { deleteUsersActionCreator } from '../actionCreators/UsersActionCreator';
+import {
+  deleteUsersActionCreator,
+  removeRequestActionCreator,
+  changeFirstLastNameActionCreator,
+} from '../actionCreators/UsersActionCreator';
 
 export const usersHasErrored = bool => ({
   type: ActionTypes.USERS_HAS_ERRORED,
@@ -52,4 +56,33 @@ export const deleteUsersAPI = (url, idToDelete) => (dispatch) => {
     })
 
     .catch(() => dispatch(usersHasErrored(true)));
+};
+
+export const removeRequestAPI = (url, data) => (dispatch) => {
+  dispatch(usersIsLoading(true));
+  axios
+    .post(url, data)
+    .then(() => {
+      dispatch(usersIsLoading(false));
+      removeRequestActionCreator(data);
+    })
+    .catch(() => {
+      dispatch(usersIsLoading(false));
+      dispatch(usersHasErrored(true));
+    });
+};
+
+export const editNamesAPI = (url, data) => (dispatch) => {
+  dispatch(usersIsLoading(true));
+  axios
+    .post(url, data)
+    .then(() => {
+      dispatch(usersIsLoading(false));
+      console.log(data);
+      changeFirstLastNameActionCreator(data);
+    })
+    .catch(() => {
+      dispatch(usersIsLoading(false));
+      dispatch(usersHasErrored(true));
+    });
 };

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import {
-  removeRequestActionCreator,
-  changeFirstLastNameActionCreator,
-} from '../redux/actionCreators/UsersActionCreator';
 import EditProfile from '../components/main/section/EditProfile';
 import { userSelector } from '../selectors/Selectors';
+import {
+  removeRequestAPI,
+  editNamesAPI,
+} from '../redux/apiActionCreators/usersAC';
 
 const mapStateToProps = state => ({
   state: { user: userSelector(state) },
@@ -12,10 +12,16 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   removeRequest: (user) => {
-    dispatch(removeRequestActionCreator(user));
+    dispatch(removeRequestAPI('http://localhost:3001/removeRequest', user));
   },
   changeFirstLastName: (firstName, lastName, user) => {
-    dispatch(changeFirstLastNameActionCreator(firstName, lastName, user));
+    const data = {
+      firstName,
+      lastName,
+      user,
+    };
+
+    dispatch(editNamesAPI('http://localhost:3001/editNames', data));
   },
 });
 
