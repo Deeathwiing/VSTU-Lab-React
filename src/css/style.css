@@ -131,9 +131,16 @@ aside {
   width: 5em;
 }
 
+.card {
+  width: 32%;
+}
 .card-column div {
   margin: 0.2em;
   transition: ease-out 3s;
+}
+
+.card-img-top {
+  width: 10em;
 }
 
 .card-animation {
