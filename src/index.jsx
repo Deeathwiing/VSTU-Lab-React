@@ -11,9 +11,9 @@ import * as serviceWorker from './components/serviceWorker';
 import store from './redux/ReduxStore';
 import AppContainer from './containers/AppContainer';
 
-const { whyDidYouUpdate } = require('why-did-you-update');
+// const { whyDidYouUpdate } = require('why-did-you-update');
 
-whyDidYouUpdate(React);
+// whyDidYouUpdate(React);
 
 ReactDOM.render(
   <React.StrictMode>

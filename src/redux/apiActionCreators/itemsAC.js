@@ -36,12 +36,7 @@ export const itemsFetchData = url => async (dispatch) => {
 };
 
 export const addItemsAPI = (url, data) => (dispatch) => {
-  axios
-    .post(url, data)
-    .then(() => {
-      dispatch(itemsFetchData(url));
-    })
-    .catch(() => dispatch(itemsHasErrored(true)));
+  axios.post(url, data).catch(() => dispatch(itemsHasErrored(true)));
 };
 
 export const addRatingAPI = (url, data) => (dispatch) => {

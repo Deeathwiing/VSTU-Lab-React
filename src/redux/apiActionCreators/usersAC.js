@@ -78,8 +78,7 @@ export const editNamesAPI = (url, data) => (dispatch) => {
     .post(url, data)
     .then(() => {
       dispatch(usersIsLoading(false));
-      console.log(data);
-      changeFirstLastNameActionCreator(data);
+      dispatch(changeFirstLastNameActionCreator(data));
     })
     .catch(() => {
       dispatch(usersIsLoading(false));
