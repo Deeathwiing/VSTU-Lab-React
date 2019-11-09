@@ -22,8 +22,7 @@ class AddItems extends React.Component {
       this.state.title,
       this.state.description,
       this.state.price,
-      this.state.tags,
-      this.state.rating
+      this.state.tags
     );
   };
 

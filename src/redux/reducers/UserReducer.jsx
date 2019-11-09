@@ -3,19 +3,8 @@ import { ActionTypes } from '../ActionTypes';
 
 const UserReducer = (state = {}, action) => {
   switch (action.type) {
-    case ActionTypes.LOGIN:
-      let newState;
-      if (action.checkLogin) {
-        if (action.admin) {
-          newState = { logEmail: action.logEmail, admin: action.admin };
-        } else {
-          newState = {
-            logEmail: action.logEmail,
-            checkLogin: action.checkLogin,
-          };
-        }
-      }
-      return newState || false;
+    case ActionTypes.AUTHORIZATION_SUCCESS:
+      return action.user;
 
     default:
       return state;

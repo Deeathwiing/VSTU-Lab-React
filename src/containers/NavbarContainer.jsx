@@ -6,8 +6,13 @@ const mapStateToProps = state => ({
   state: { user: userSelector(state) },
 });
 
+const mapDispatchToProps = dispatch => ({
+  search: (event) => {},
+});
+
 const NavbarContainer = connect(
   mapStateToProps,
+  mapDispatchToProps,
   null
 )(Navbar);
 

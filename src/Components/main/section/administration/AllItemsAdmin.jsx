@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,7 +8,7 @@ const AllItemsAdmin = (props) => {
     return (
       <div className="card-columns">
         {props.state.map(item => (
-          <div key={item.id} className="card" data-id={item.id}>
+          <div key={item._id} className="card" data-id={item._id}>
             <img src={item.picture} className="card-img-top" alt={item.title} />
             <div className="card-body">
               <h2 className="card-title">{item.title}</h2>
@@ -17,7 +18,7 @@ const AllItemsAdmin = (props) => {
               <button
                 type="button"
                 className="btn-danger btn-block btnForDelete"
-                data-id={item.id}
+                data-id={item._id}
                 onClick={props.deleteItems}
               >
                 Delete item

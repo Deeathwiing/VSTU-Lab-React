@@ -87,12 +87,18 @@ class Navbar extends React.Component {
     this.state = this.props.state;
   }
 
+  state = { labelSearch: '' };
+
   shouldComponentUpdate(nextProps, nextState) {
     if (nextProps.state.user !== nextState.user) {
       return true;
     }
     return false;
   }
+
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   render() {
     return (
@@ -152,10 +158,12 @@ class Navbar extends React.Component {
                       type="search"
                       placeholder="Поиск"
                       aria-label="Search"
+                      onChange={this.handleInput}
+                      name="labelSearch"
                     />
                     <button
                       className="btn btn-outline-secondary my-2 my-sm-0 text-dark bg-light"
-                      type="submit"
+                      type="button"
                     >
                       Поиск
                     </button>

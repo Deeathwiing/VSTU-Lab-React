@@ -59,11 +59,11 @@ NavLinkDropDown.propTypes = {
 };
 
 CustomNavLink.defaultProps = {
-  state: {},
+  state: [],
 };
 NavLinksAdministration.defaultProps = {
-  state: {},
+  state: [],
 };
 NavLinkDropDown.defaultProps = {
-  state: {},
+  state: [],
 };

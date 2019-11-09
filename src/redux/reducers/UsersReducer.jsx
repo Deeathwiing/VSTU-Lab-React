@@ -1,45 +1,15 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-case-declarations */
 import { ActionTypes } from '../ActionTypes';
 
 const UsersReducer = (state = [], action) => {
   switch (action.type) {
-    case ActionTypes.REGISTRATION:
-      const lastElement = state[state.length - 1];
-      const id = lastElement ? lastElement.id + 1 : 0;
-      let isTaken = false;
-      if (lastElement) {
-        isTaken = state.some(user => user.email === action.email);
-      }
-      if (isTaken) {
-        alert('Данный email занят');
-        return state;
-      }
-
-      if (!action.firstName || !action.lastName || !action.password) {
-        alert('Заполните все поля');
-        return state;
-      }
-
-      const newUser = {
-        id,
-        email: action.email,
-        firstName: action.firstName,
-        lastName: action.lastName,
-        password: action.password,
-        deleteAccountRequest: false,
-        administration: false,
-      };
-
-      let newStateAfterRegistration = [];
-
-      newStateAfterRegistration = [...state, newUser];
-
-      return newStateAfterRegistration;
-
+    case ActionTypes.USERS_FETCH_DATA_SUCCESS:
+      return action.users;
     case ActionTypes.DELETE_USERS:
       const newStateAfterDelete = state.filter((user) => {
-        if (user.id === action.idToDelete && user.deleteAccountRequest) {
+        if (user._id === action.idToDelete && user.deleteAccountRequest) {
           return false;
         }
         return true;
