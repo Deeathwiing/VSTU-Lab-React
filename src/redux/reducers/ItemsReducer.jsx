@@ -44,7 +44,7 @@ const ItemsReducer = (state = [], action) => {
           const nextAverageRating = ratingValueArr.reduce((sum, current) => sum + current)
             / ratingValueArr.length;
 
-          item.averageRating = Math.round(nextAverageRating);
+          item.averageRating = nextAverageRating;
         }
         return item;
       });

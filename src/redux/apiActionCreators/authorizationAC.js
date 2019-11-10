@@ -16,29 +16,14 @@ export const authorizationSuccess = user => ({
   user,
 });
 
-export const userFetchData = url => async (dispatch) => {
-  dispatch(authorizationInProgress(true));
-
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-
-      dispatch(authorizationInProgress(false));
-
-      return response;
-    })
-    .then(response => response.json())
-    .then(user => dispatch(authorizationSuccess(user)))
-    .catch(() => dispatch(authorizationHasErrored(true)));
-};
-
 export const authorization = (url, data) => (dispatch) => {
   axios
     .post(url, data)
-    .then(() => {
-      dispatch(userFetchData(url));
+    .then((response) => {
+      if (response.statusText !== 'OK') {
+        throw Error(response.statusText);
+      }
+      dispatch(authorizationSuccess(response.data));
     })
     .catch(() => dispatch(authorizationHasErrored(true)));
 };

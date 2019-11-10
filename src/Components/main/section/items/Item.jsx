@@ -66,7 +66,7 @@ class Item extends React.Component {
                   name={element.id}
                   value="1"
                   aria-label="Ужасно"
-                  checked={element.averageRating === 1 && 'checked'}
+                  checked={Math.round(element.averageRating) === 1 && 'checked'}
                 />
                 <input
                   item-id={element._id}
@@ -76,7 +76,7 @@ class Item extends React.Component {
                   name={element._id}
                   value="2"
                   aria-label="Сносно"
-                  checked={element.averageRating === 2 && 'checked'}
+                  checked={Math.round(element.averageRating) === 2 && 'checked'}
                 />
                 <input
                   item-id={element._id}
@@ -86,7 +86,7 @@ class Item extends React.Component {
                   name={element.id}
                   value="3"
                   aria-label="Нормально"
-                  checked={element.averageRating === 3 && 'checked'}
+                  checked={Math.round(element.averageRating) === 3 && 'checked'}
                 />
                 <input
                   item-id={element._id}
@@ -96,7 +96,7 @@ class Item extends React.Component {
                   name={element.id}
                   value="4"
                   aria-label="Хорошо"
-                  checked={element.averageRating === 4 && 'checked'}
+                  checked={Math.round(element.averageRating) === 4 && 'checked'}
                 />
                 <input
                   item-id={element._id}
@@ -106,7 +106,7 @@ class Item extends React.Component {
                   name={element.id}
                   value="5"
                   aria-label="Отлично"
-                  checked={element.averageRating === 5 && 'checked'}
+                  checked={Math.round(element.averageRating) === 5 && 'checked'}
                 />
               </div>
             </fieldset>
