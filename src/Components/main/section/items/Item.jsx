@@ -46,9 +46,10 @@ class Item extends React.Component {
           >
             <img
               src={element.picture}
-              className="card-img-top"
+              className="card-img-top p-3"
               alt={element.title}
             />
+
             <div className="card-body">
               <h2 className="card-title">{element.title}</h2>
               <p className="card-text">{element.description}</p>

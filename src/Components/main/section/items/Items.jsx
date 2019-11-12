@@ -33,7 +33,6 @@ class Items extends React.Component {
       >= document.body.offsetHeight - 100
     ) {
       if (this.state.scrollTo < document.body.offsetHeight) {
-        console.log(322);
         this.setState((state, props) => ({
           scrollTo: Number(document.body.offsetHeight),
           itemsAmount: Number(state.itemsAmount + 15),

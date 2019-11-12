@@ -15,10 +15,39 @@ class AddItems extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  addItem = (event) => {
+  getBase64 = (file, onLoadCallback) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = function () {
+        resolve(reader.result);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+  convertFileToBase64viaFileReader = async () => {
+    const file = this.state.picture;
+    const promise = this.getBase64(file);
+    const result = await promise;
+    // console.log(result);
+    return result;
+    // const fileId = `${file.name}${file.size}${+file.lastModifiedDate}`;
+    /* const pictureBlob = new Blob([file], {
+      type: `${file.type}`,
+    }); */
+  };
+
+  handleInputImage = (e) => {
+    this.setState({
+      [e.target.name]: e.target.files[0],
+    });
+  };
+
+  addItem = async (event) => {
     event.preventDefault();
+    const picture = await this.convertFileToBase64viaFileReader();
     this.props.addItems(
-      this.state.picture,
+      picture,
       this.state.title,
       this.state.description,
       this.state.price,
@@ -42,13 +71,14 @@ class AddItems extends React.Component {
         </div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
-            <span className="input-group-text">Picture (url)</span>
+            <span className="input-group-text">Picture</span>
           </div>
           <input
+            accept="image/jpeg,image/png,image/gif"
             name="picture"
-            type="text"
+            type="file"
             className="form-control addItemPicture"
-            onChange={this.handleInput}
+            onChange={this.handleInputImage}
           />
         </div>
 
