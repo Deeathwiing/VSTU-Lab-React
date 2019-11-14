@@ -183,6 +183,7 @@ export default Navbar;
 Navbar.propTypes = {
   state: PropTypes.shape({
     user: PropTypes.object,
+    navLinks: PropTypes.arrayOf(PropTypes.object),
   }),
 };
 

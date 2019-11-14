@@ -4,7 +4,7 @@ import { usersFetchData } from '../redux/apiActionCreators/usersAC';
 
 const mapDispatchToProps = dispatch => ({
   init: () => {
-    dispatch(usersFetchData('http://localhost:3001/users'));
+    dispatch(usersFetchData('http://localhost:3001/users/getusers'));
   },
 });
 

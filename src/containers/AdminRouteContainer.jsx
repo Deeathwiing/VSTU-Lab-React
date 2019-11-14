@@ -33,13 +33,16 @@ const mapDispatchToProps = dispatch => ({
       rating: [],
       averageRating,
     };
-    dispatch(addItemsAPI('http://localhost:3001/items', data));
+    dispatch(addItemsAPI('http://localhost:3001/items/create', data));
   },
   deleteItems: (event) => {
     event.preventDefault();
     const idToDelete = event.target.getAttribute('data-id');
     dispatch(
-      deleteItemsAPI(`http://localhost:3001/items/${idToDelete}`, idToDelete)
+      deleteItemsAPI(
+        `http://localhost:3001/items/delete/${idToDelete}`,
+        idToDelete
+      )
     );
     event.preventDefault();
   },
@@ -47,7 +50,10 @@ const mapDispatchToProps = dispatch => ({
     event.preventDefault();
     const idToDelete = event.target.getAttribute('data-id');
     dispatch(
-      deleteUsersAPI(`http://localhost:3001/users/${idToDelete}`, idToDelete)
+      deleteUsersAPI(
+        `http://localhost:3001/users/delete/${idToDelete}`,
+        idToDelete
+      )
     );
   },
 });

@@ -12,7 +12,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   removeRequest: (user) => {
-    dispatch(removeRequestAPI('http://localhost:3001/removeRequest', user));
+    dispatch(
+      removeRequestAPI('http://localhost:3001/users/removeRequest', user)
+    );
   },
   changeFirstLastName: (firstName, lastName, user) => {
     const data = {
@@ -21,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
       user,
     };
 
-    dispatch(editNamesAPI('http://localhost:3001/editNames', data));
+    dispatch(editNamesAPI('http://localhost:3001/users/editprofile', data));
   },
 });
 

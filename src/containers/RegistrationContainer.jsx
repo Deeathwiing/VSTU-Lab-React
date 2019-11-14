@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
       administration: false,
       deleteAccountRequest: false,
     };
-    dispatch(regActionCreatorAPI('http://localhost:3001/users', data));
+    dispatch(regActionCreatorAPI('http://localhost:3001/users/create', data));
   },
 });
 
