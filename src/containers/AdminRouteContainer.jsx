@@ -10,6 +10,7 @@ import {
 import {
   deleteItemsAPI,
   addItemsAPI,
+  itemsFetchData,
 } from '../redux/apiActionCreators/itemsAC';
 import { deleteUsersAPI } from '../redux/apiActionCreators/usersAC';
 
@@ -22,6 +23,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  init: (amount) => {
+    console.log('Tut');
+    dispatch(itemsFetchData(`http://localhost:3001/items/getitems/${amount}`));
+  },
   addItems: (picture, title, description, price, tags) => {
     const averageRating = null;
     const data = {

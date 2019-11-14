@@ -59,6 +59,7 @@ const Administration = React.memo(props => (
           <AllItemsAdmin
             state={props.state.items}
             deleteItems={props.deleteItems}
+            init={props.init}
           />
         </React.Suspense>
       )}

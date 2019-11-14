@@ -45,7 +45,10 @@ class AddItems extends React.Component {
 
   addItem = async (event) => {
     event.preventDefault();
-    const picture = await this.convertFileToBase64viaFileReader();
+    let picture;
+    if (this.state.picture) {
+      picture = await this.convertFileToBase64viaFileReader();
+    }
     this.props.addItems(
       picture,
       this.state.title,
