@@ -11,7 +11,12 @@ class Items extends React.Component {
   }
 
   componentDidMount() {
-    this.props.init(0);
+    if (this.state.items.length < 15) {
+      this.props.init(0);
+    } else {
+      this.setState(state => ({ itemsAmount: state.items.length - 15 }));
+    }
+
     window.addEventListener('scroll', this.handleScroll);
   }
 

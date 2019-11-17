@@ -54,7 +54,8 @@ class AddItems extends React.Component {
       this.state.title,
       this.state.description,
       this.state.price,
-      this.state.tags
+      this.state.tags,
+      this.state.amount
     );
   };
 
@@ -119,6 +120,18 @@ class AddItems extends React.Component {
           <textarea
             name="description"
             className="form-control addItemDescription"
+            onChange={this.handleInput}
+          />
+        </div>
+
+        <div className="input-group">
+          <div className="input-group-prepend">
+            <span className="input-group-text">Amount</span>
+          </div>
+          <input
+            type="text"
+            name="amount"
+            className="form-control addItemAmount"
             onChange={this.handleInput}
           />
         </div>

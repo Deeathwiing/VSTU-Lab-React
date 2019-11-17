@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => ({
       logEmail,
       logPass,
     };
-    dispatch(authorization('http://localhost:3001/users/authUser', data));
+    dispatch(authorization('http://localhost:3002/users/authUser', data));
   },
 });
 

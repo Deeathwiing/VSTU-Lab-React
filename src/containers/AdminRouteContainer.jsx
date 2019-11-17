@@ -11,6 +11,7 @@ import {
   deleteItemsAPI,
   addItemsAPI,
   itemsFetchData,
+  updateItemAPI,
 } from '../redux/apiActionCreators/itemsAC';
 import { deleteUsersAPI } from '../redux/apiActionCreators/usersAC';
 
@@ -24,10 +25,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   init: (amount) => {
-    console.log('Tut');
-    dispatch(itemsFetchData(`http://localhost:3001/items/getitems/${amount}`));
+    dispatch(itemsFetchData(`http://localhost:3002/items/getitems/${amount}`));
   },
-  addItems: (picture, title, description, price, tags) => {
+  addItems: (picture, title, description, price, tags, amount) => {
     const averageRating = null;
     const data = {
       picture: picture || '',
@@ -37,15 +37,28 @@ const mapDispatchToProps = dispatch => ({
       tags: tags || '',
       rating: [],
       averageRating,
+      amount: amount || '',
     };
-    dispatch(addItemsAPI('http://localhost:3001/items/create', data));
+    dispatch(addItemsAPI('http://localhost:3002/items/create', data));
+  },
+  updateItem: (id, picture, title, description, price, tags, amount) => {
+    const data = {
+      id,
+      picture: picture || null,
+      title: title || '',
+      description: description || '',
+      price: price || '',
+      tags: tags || '',
+      amount: amount || '',
+    };
+    dispatch(updateItemAPI('http://localhost:3002/items/update', data));
   },
   deleteItems: (event) => {
     event.preventDefault();
     const idToDelete = event.target.getAttribute('data-id');
     dispatch(
       deleteItemsAPI(
-        `http://localhost:3001/items/delete/${idToDelete}`,
+        `http://localhost:3002/items/delete/${idToDelete}`,
         idToDelete
       )
     );
@@ -56,7 +69,7 @@ const mapDispatchToProps = dispatch => ({
     const idToDelete = event.target.getAttribute('data-id');
     dispatch(
       deleteUsersAPI(
-        `http://localhost:3001/users/delete/${idToDelete}`,
+        `http://localhost:3002/users/delete/${idToDelete}`,
         idToDelete
       )
     );

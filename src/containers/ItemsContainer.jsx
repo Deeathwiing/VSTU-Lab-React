@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   init: amount =>
-    dispatch(itemsFetchData(`http://localhost:3001/items/getitems/${amount}`)),
+    dispatch(itemsFetchData(`http://localhost:3002/items/getitems/${amount}`)),
   addRating: (event, user) => {
     const itemId = event.target.getAttribute('item-id');
     const ratingValue = event.target.value;
@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
       ratingValue,
       user,
     };
-    dispatch(addRatingAPI('http://localhost:3001/items/rating', data));
+    dispatch(addRatingAPI('http://localhost:3002/items/rating', data));
   },
 });
 

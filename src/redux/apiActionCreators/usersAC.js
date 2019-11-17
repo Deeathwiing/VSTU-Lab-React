@@ -43,7 +43,7 @@ export const regActionCreatorAPI = (url, data) => (dispatch) => {
   axios
     .post(url, data)
     .then(() => {
-      dispatch(usersFetchData('http://localhost:3001/users/getusers'));
+      dispatch(usersFetchData('http://localhost:3002/users/getusers'));
     })
     .catch(() => dispatch(usersHasErrored(true)));
 };

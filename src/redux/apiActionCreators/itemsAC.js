@@ -39,6 +39,10 @@ export const addItemsAPI = (url, data) => (dispatch) => {
   axios.post(url, data).catch(() => dispatch(itemsHasErrored(true)));
 };
 
+export const updateItemAPI = (url, data) => (dispatch) => {
+  axios.post(url, data).catch(() => dispatch(itemsHasErrored(true)));
+};
+
 export const addRatingAPI = (url, data) => (dispatch) => {
   axios
     .post(url, data)

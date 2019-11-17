@@ -52,11 +52,13 @@ const Administration = React.memo(props => (
       path="/administration/adminitems/additems"
       render={() => <AddItems addItems={props.addItems} />}
     />
+
     <Route
       path="/administration/adminitems/allitems"
       render={() => (
         <React.Suspense fallback={<div>Loading...</div>}>
           <AllItemsAdmin
+            updateItem={props.updateItem}
             state={props.state.items}
             deleteItems={props.deleteItems}
             init={props.init}
