@@ -9,7 +9,11 @@ class AllItemsAdmin extends React.Component {
   }
 
   componentDidMount() {
-    this.props.init(0);
+    if (this.state.items.length < 15) {
+      this.props.init(0);
+    } else {
+      this.setState(state => ({ itemsAmount: state.items.length - 15 }));
+    }
     window.addEventListener('scroll', this.handleScroll);
   }
 
@@ -213,6 +217,9 @@ class AllItemsAdmin extends React.Component {
                 <p className="card-text">{item.amount}</p>
                 <p className="card-text">{item.tags}</p>
                 <p className="card-text">{item.lastUpdate}</p>
+                <p className="card-text">
+                  Rating amount: {Number(item.ratingAmount)}
+                </p>
                 <button
                   type="button"
                   className="btn-danger btn-block btnForDelete"

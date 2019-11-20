@@ -60,6 +60,9 @@ class Item extends React.Component {
                 Last Update(hours):
                 {Math.round((Date.now() - element.lastUpdate) / 1000 / 60 / 60)}
               </p>
+              <p className="card-text">
+                Rating amount: {Number(element.ratingAmount)}
+              </p>
             </div>
 
             <fieldset className="rating" key={element.id}>
