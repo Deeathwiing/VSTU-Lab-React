@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Item from './Item';
 import { hightRating } from '../../../../selectors/Selectors';
+import imgLoading from '../../../../public/images/gearLoading.svg';
+
+const Item = React.lazy(() => import('./Item'));
 
 class Items extends React.Component {
   constructor(props) {
@@ -68,7 +70,9 @@ class Items extends React.Component {
         />
 
         <div className="card-column">
-          <Item addRating={this.props.addRating} state={this.state} />
+          <React.Suspense fallback={<img alt="Loading..." src={imgLoading} />}>
+            <Item addRating={this.props.addRating} state={this.state} />
+          </React.Suspense>
         </div>
       </>
     );

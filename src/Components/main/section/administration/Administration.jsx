@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ItemsAdmin from './ItemsManagerMenu';
 import AddItems from './AddItems';
 import { NavLinksAdministration } from '../../../NavLinks';
+import imgLoading from '../../../../public/images/gearLoading.svg';
 
 const AllItemsAdmin = React.lazy(() => import('./AllItemsAdmin'));
 const AdminTable = React.lazy(() => import('./adminTable/AdminTable'));
@@ -42,7 +43,7 @@ const Administration = React.memo(props => (
     <Route
       path="/administration/admintable"
       render={() => (
-        <React.Suspense fallback={<div>Loading...</div>}>
+        <React.Suspense fallback={<img alt="Loading..." src={imgLoading} />}>
           <AdminTable state={props.state.users} deleteUser={props.deleteUser} />
         </React.Suspense>
       )}
@@ -56,7 +57,7 @@ const Administration = React.memo(props => (
     <Route
       path="/administration/adminitems/allitems"
       render={() => (
-        <React.Suspense fallback={<div>Loading...</div>}>
+        <React.Suspense fallback={<img alt="Loading..." src={imgLoading} />}>
           <AllItemsAdmin
             updateItem={props.updateItem}
             state={props.state.items}
