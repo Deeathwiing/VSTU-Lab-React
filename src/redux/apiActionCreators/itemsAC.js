@@ -36,16 +36,20 @@ export const itemsFetchData = url => async (dispatch) => {
 };
 
 export const addItemsAPI = (url, data) => (dispatch) => {
-  axios.post(url, data).catch(() => dispatch(itemsHasErrored(true)));
+  axios
+    .post(url, data, { withCredentials: true })
+    .catch(() => dispatch(itemsHasErrored(true)));
 };
 
 export const updateItemAPI = (url, data) => (dispatch) => {
-  axios.post(url, data).catch(() => dispatch(itemsHasErrored(true)));
+  axios
+    .post(url, data, { withCredentials: true })
+    .catch(() => dispatch(itemsHasErrored(true)));
 };
 
 export const addRatingAPI = (url, data) => (dispatch) => {
   axios
-    .post(url, data)
+    .post(url, data, { withCredentials: true })
     .then(() => {
       dispatch(addRatingActionCreator(data));
     })
@@ -55,7 +59,7 @@ export const addRatingAPI = (url, data) => (dispatch) => {
 
 export const deleteItemsAPI = (url, idToDelete) => (dispatch) => {
   axios
-    .delete(url)
+    .delete(url, { withCredentials: true })
     .then(() => {
       dispatch(deleteItemsActionCreator(idToDelete));
     })

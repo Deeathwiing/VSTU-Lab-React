@@ -24,7 +24,9 @@ export const usersFetchDataSuccess = users => ({
 export const usersFetchData = url => async (dispatch) => {
   dispatch(usersIsLoading(true));
 
-  fetch(url)
+  fetch(url, {
+    credentials: 'include',
+  })
     .then((response) => {
       if (!response.ok) {
         throw Error(response.statusText);
@@ -50,7 +52,7 @@ export const regActionCreatorAPI = (url, data) => (dispatch) => {
 
 export const deleteUsersAPI = (url, idToDelete) => (dispatch) => {
   axios
-    .delete(url)
+    .delete(url, { withCredentials: true })
     .then(() => {
       dispatch(deleteUsersActionCreator(idToDelete));
     })
@@ -61,7 +63,7 @@ export const deleteUsersAPI = (url, idToDelete) => (dispatch) => {
 export const removeRequestAPI = (url, data) => (dispatch) => {
   dispatch(usersIsLoading(true));
   axios
-    .post(url, data)
+    .post(url, data, { withCredentials: true })
     .then(() => {
       dispatch(usersIsLoading(false));
       removeRequestActionCreator(data);
@@ -75,7 +77,7 @@ export const removeRequestAPI = (url, data) => (dispatch) => {
 export const editNamesAPI = (url, data) => (dispatch) => {
   dispatch(usersIsLoading(true));
   axios
-    .post(url, data)
+    .post(url, data, { withCredentials: true })
     .then(() => {
       dispatch(usersIsLoading(false));
       dispatch(changeFirstLastNameActionCreator(data));
