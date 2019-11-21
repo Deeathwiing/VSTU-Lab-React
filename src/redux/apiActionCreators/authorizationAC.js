@@ -18,7 +18,7 @@ export const authorizationSuccess = user => ({
 
 export const authorization = (url, data) => (dispatch) => {
   axios
-    .post(url, data)
+    .post(url, data, { withCredentials: true })
     .then((response) => {
       if (response.statusText !== 'OK') {
         throw Error(response.statusText);

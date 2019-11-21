@@ -10,9 +10,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   login: (logEmail, logPass) => {
     const data = {
-      logEmail,
-      logPass,
+      email: logEmail,
+      password: logPass,
     };
+
     dispatch(authorization('http://localhost:3002/users/authUser', data));
   },
 });

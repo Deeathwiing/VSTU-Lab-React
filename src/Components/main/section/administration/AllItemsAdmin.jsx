@@ -68,9 +68,21 @@ class AllItemsAdmin extends React.Component {
 
   editItem = async (e) => {
     e.persist();
+    const editId = e.target.getAttribute('data-id');
+    const editItem = this.state.items.find((item) => {
+      if (item._id === editId) {
+        return true;
+      }
+      return false;
+    });
 
     this.setState(() => ({
-      editId: e.target.getAttribute('data-id'),
+      editId,
+      amount: editItem.amount,
+      title: editItem.title,
+      description: editItem.description,
+      price: editItem.amount,
+      tags: editItem.amount,
     }));
   };
 
