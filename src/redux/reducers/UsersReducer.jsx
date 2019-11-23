@@ -17,33 +17,6 @@ const UsersReducer = (state = [], action) => {
 
       return newStateAfterDelete;
 
-    case ActionTypes.REMOVE_REQUEST:
-      const { user } = action;
-      const email = user.logEmail;
-      const newStateAfterRemoveRequest = state.map((element) => {
-        if (element.email === email) {
-          element.deleteAccountRequest = true;
-          return element;
-        }
-        return element;
-      });
-
-      return newStateAfterRemoveRequest;
-
-    case ActionTypes.CHANGE_FIRSTNAMELASTNAME:
-      const userChangeName = action.user;
-      const emailChangeName = userChangeName.logEmail;
-      const newStateAfterChange = state.map((element) => {
-        if (element.email === emailChangeName) {
-          element.firstName = action.firstName;
-          element.lastName = action.lastName;
-          return element;
-        }
-        return element;
-      });
-
-      return newStateAfterChange;
-
     case ActionTypes.INITIALIZATION_USERS:
       return action.users;
     default:

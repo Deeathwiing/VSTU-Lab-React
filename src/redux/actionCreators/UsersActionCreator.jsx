@@ -17,15 +17,3 @@ export const registrationActionCreator = (
   lastName,
   password,
 });
-
-export const removeRequestActionCreator = user => ({
-  type: ActionTypes.REMOVE_REQUEST,
-  user,
-});
-
-export const changeFirstLastNameActionCreator = data => ({
-  type: ActionTypes.CHANGE_FIRSTNAMELASTNAME,
-  user: data.user,
-  firstName: data.firstName,
-  lastName: data.lastName,
-});

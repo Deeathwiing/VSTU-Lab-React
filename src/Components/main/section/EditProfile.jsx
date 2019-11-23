@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import LoginError from './LoginError';
 
 class EditProfile extends React.Component {
-  state = { user: this.props.state.user, firstName: '', lastName: '' };
+  state = { firstName: '', lastName: '' };
 
   shouldComponentUpdate(nextProps, nextState) {
     if (nextProps.state.user !== nextState.user) {
@@ -13,7 +13,7 @@ class EditProfile extends React.Component {
   }
 
   removeReq = () => {
-    this.props.removeRequest(this.state.user);
+    this.props.removeRequest();
   };
 
   handleInput = (e) => {
@@ -26,7 +26,7 @@ class EditProfile extends React.Component {
     this.props.changeFirstLastName(
       this.state.firstName,
       this.state.lastName,
-      this.state.user
+  
     );
   };
 

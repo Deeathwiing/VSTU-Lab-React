@@ -1,10 +1,6 @@
 import axios from 'axios';
 import { ActionTypes } from '../ActionTypes';
-import {
-  deleteUsersActionCreator,
-  removeRequestActionCreator,
-  changeFirstLastNameActionCreator,
-} from '../actionCreators/UsersActionCreator';
+import { deleteUsersActionCreator } from '../actionCreators/UsersActionCreator';
 
 export const usersHasErrored = bool => ({
   type: ActionTypes.USERS_HAS_ERRORED,
@@ -24,7 +20,7 @@ export const usersFetchDataSuccess = users => ({
 export const usersFetchData = url => async (dispatch) => {
   dispatch(usersIsLoading(true));
 
-  fetch(url, {
+  fetch('http://localhost:3002/users/removeRequest', {
     credentials: 'include',
   })
     .then((response) => {
@@ -60,13 +56,12 @@ export const deleteUsersAPI = (url, idToDelete) => (dispatch) => {
     .catch(() => dispatch(usersHasErrored(true)));
 };
 
-export const removeRequestAPI = (url, data) => (dispatch) => {
+export const removeRequestAPI = url => (dispatch) => {
   dispatch(usersIsLoading(true));
   axios
-    .post(url, data, { withCredentials: true })
+    .post(url, null, { withCredentials: true })
     .then(() => {
       dispatch(usersIsLoading(false));
-      removeRequestActionCreator(data);
     })
     .catch(() => {
       dispatch(usersIsLoading(false));
@@ -80,7 +75,6 @@ export const editNamesAPI = (url, data) => (dispatch) => {
     .post(url, data, { withCredentials: true })
     .then(() => {
       dispatch(usersIsLoading(false));
-      dispatch(changeFirstLastNameActionCreator(data));
     })
     .catch(() => {
       dispatch(usersIsLoading(false));

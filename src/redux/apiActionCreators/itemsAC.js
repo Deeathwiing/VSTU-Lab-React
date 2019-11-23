@@ -49,7 +49,11 @@ export const updateItemAPI = (url, data) => (dispatch) => {
 
 export const addRatingAPI = (url, data) => (dispatch) => {
   axios
-    .post(url, data, { withCredentials: true })
+    .post(
+      url,
+      { itemId: data.itemId, ratingValue: data.ratingValue },
+      { withCredentials: true }
+    )
     .then(() => {
       dispatch(addRatingActionCreator(data));
     })
