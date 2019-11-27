@@ -25,6 +25,7 @@ const mapDispatchToProps = dispatch => ({
       ratingValue,
       user,
     };
+    console.log(data);
     dispatch(addRatingAPI('http://localhost:3002/items/rating', data));
   },
 });

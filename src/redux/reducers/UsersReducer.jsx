@@ -9,7 +9,7 @@ const UsersReducer = (state = [], action) => {
       return action.users;
     case ActionTypes.DELETE_USERS:
       const newStateAfterDelete = state.filter((user) => {
-        if (user._id === action.idToDelete && user.deleteAccountRequest) {
+        if (user.id === action.idToDelete && user.deleteAccountRequest) {
           return false;
         }
         return true;

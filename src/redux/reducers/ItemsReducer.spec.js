@@ -3,16 +3,16 @@ import ItemsReducer from './ItemsReducer';
 
 describe('>>>R E D U C E R --- Test itemsReducer', () => {
   it('+++ reducer for DELETE_ITEMS', () => {
-    let state = [{ _id: 1 }, { _id: 2 }, { _id: 3 }];
+    let state = [{ id: 1 }, { id: 2 }, { id: 3 }];
     state = ItemsReducer(state, { type: 'DELETE_ITEMS', idToDelete: 1 });
-    expect(state).toEqual([{ _id: 2 }, { _id: 3 }]);
+    expect(state).toEqual([{ id: 2 }, { id: 3 }]);
   });
 
   it('+++ reducer for ADD_RATING', () => {
     let state = [
       {
         rating: [{ user: 'andreykorotkins@gmail.com', ratingValue: '3' }],
-        _id: '5cd993f092679234f8a46c06',
+        id: '5cd993f092679234f8a46c06',
         averageRating: 3,
         __v: 0,
       },
@@ -26,7 +26,7 @@ describe('>>>R E D U C E R --- Test itemsReducer', () => {
     expect(state).toEqual([
       {
         rating: [{ user: 'andreykorotkins@gmail.com', ratingValue: '4' }],
-        _id: '5cd993f092679234f8a46c06',
+        id: '5cd993f092679234f8a46c06',
         averageRating: 4,
         __v: 0,
       },
@@ -37,8 +37,8 @@ describe('>>>R E D U C E R --- Test itemsReducer', () => {
     let state = [];
     state = ItemsReducer(state, {
       type: 'ITEMS_FETCH_DATA_SUCCESS',
-      items: [{ _id: '322' }],
+      items: [{ id: '322' }],
     });
-    expect(state).toEqual([{ _id: '322' }]);
+    expect(state).toEqual([{ id: '322' }]);
   });
 });

@@ -4,15 +4,15 @@ import BtnDelete from './BtnDelete';
 
 const Table = props =>
   props.state.map(element => (
-    <tr key={element._id} id={`trForDelete-${element._id}`}>
-      <th scope="row">{element._id}</th>
+    <tr key={element.id} id={`trForDelete-${element.id}`}>
+      <th scope="row">{element.id}</th>
       <td>{element.firstName}</td>
       <td>{element.lastName}</td>
       <td>{element.email}</td>
       <td>{element.deleteAccountRequest}</td>
       <td>
         <BtnDelete
-          key={element._id}
+          key={element.id}
           state={element}
           deleteUser={props.deleteUser}
         />

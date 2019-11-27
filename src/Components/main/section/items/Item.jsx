@@ -29,6 +29,20 @@ class Item extends React.Component {
     }
   };
 
+  checkAverageRating = (data) => {
+    if (data.length) {
+      return Math.round(data[0].averageRating);
+    }
+    return null;
+  };
+
+  amountOfRatings = (data) => {
+    if (data.length) {
+      return data[0].amountOfRatings;
+    }
+    return null;
+  };
+
   render() {
     let item;
     const lastElement = this.props.state.items[
@@ -36,7 +50,7 @@ class Item extends React.Component {
     ];
     if (lastElement) {
       item = this.props.state.items.map(element => (
-        <div key={element._id} className={`card dataId${element._id}`}>
+        <div key={element.id} className={`card dataId${element.id}`}>
           <CSSTransitionGroup
             transitionName="example"
             transitionAppear
@@ -58,64 +72,79 @@ class Item extends React.Component {
               <p className="card-text">{element.amount}</p>
               <p className="card-text">
                 Last Update(hours):
-                {Math.round((Date.now() - element.lastUpdate) / 1000 / 60 / 60)}
+                {element.updatedAt}
               </p>
               <p className="card-text">
-                Rating amount: {Number(element.ratingAmount)}
+                Rating amount: {this.amountOfRatings(element.ratings)}
               </p>
             </div>
 
             <fieldset className="rating" key={element.id}>
               <div className="rating-group">
                 <input
-                  item-id={element._id}
+                  item-id={element.id}
                   onChange={this.check}
                   className="rating-star"
                   type="radio"
                   name={element.id}
                   value="1"
                   aria-label="Ужасно"
-                  checked={Math.round(element.averageRating) === 1 && 'checked'}
+                  checked={
+                    Math.round(this.checkAverageRating(element.ratings))
+                      === 1 && 'checked'
+                  }
                 />
                 <input
-                  item-id={element._id}
+                  item-id={element.id}
                   onChange={this.check}
                   className="rating-star"
                   type="radio"
-                  name={element._id}
+                  name={element.id}
                   value="2"
                   aria-label="Сносно"
-                  checked={Math.round(element.averageRating) === 2 && 'checked'}
+                  checked={
+                    Math.round(this.checkAverageRating(element.ratings))
+                      === 2 && 'checked'
+                  }
                 />
                 <input
-                  item-id={element._id}
+                  item-id={element.id}
                   onChange={this.check}
                   className="rating-star"
                   type="radio"
                   name={element.id}
                   value="3"
                   aria-label="Нормально"
-                  checked={Math.round(element.averageRating) === 3 && 'checked'}
+                  checked={
+                    Math.round(this.checkAverageRating(element.ratings))
+                      === 3 && 'checked'
+                  }
                 />
                 <input
-                  item-id={element._id}
+                  item-id={element.id}
                   onChange={this.check}
                   className="rating-star"
                   type="radio"
                   name={element.id}
                   value="4"
                   aria-label="Хорошо"
-                  checked={Math.round(element.averageRating) === 4 && 'checked'}
+                  checked={
+                    Math.round(this.checkAverageRating(element.ratings))
+                      === 4 && 'checked'
+                  }
                 />
                 <input
-                  item-id={element._id}
+                  item-id={element.id}
                   onChange={this.check}
                   className="rating-star"
                   type="radio"
                   name={element.id}
                   value="5"
                   aria-label="Отлично"
-                  checked={Math.round(element.averageRating) === 5 && 'checked'}
+                  checked={
+                    Math.round(this.checkAverageRating(element.ratings))
+                      === 5 && 'checked'
+                  }
                 />
               </div>
             </fieldset>

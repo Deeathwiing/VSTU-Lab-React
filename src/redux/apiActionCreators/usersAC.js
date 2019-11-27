@@ -20,7 +20,7 @@ export const usersFetchDataSuccess = users => ({
 export const usersFetchData = url => async (dispatch) => {
   dispatch(usersIsLoading(true));
 
-  fetch('http://localhost:3002/users/removeRequest', {
+  fetch(url, {
     credentials: 'include',
   })
     .then((response) => {

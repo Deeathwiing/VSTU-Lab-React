@@ -7,7 +7,7 @@ const ItemsReducer = (state = [], action) => {
   switch (action.type) {
     case ActionTypes.DELETE_ITEMS:
       const newStateAfterDelete = state.filter(
-        item => item._id !== action.idToDelete
+        item => item.id !== action.idToDelete
       );
 
       return newStateAfterDelete;
@@ -20,7 +20,7 @@ const ItemsReducer = (state = [], action) => {
       };
 
       const newStateAfterAddRating = state.map((item) => {
-        if (item._id === action.itemId) {
+        if (item.id === action.itemId) {
           const singleRating = item.rating;
           let checkRating = false;
           if (singleRating[0]) {

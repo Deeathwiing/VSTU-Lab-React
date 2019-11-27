@@ -69,8 +69,10 @@ class AllItemsAdmin extends React.Component {
   editItem = async (e) => {
     e.persist();
     const editId = e.target.getAttribute('data-id');
+
     const editItem = this.state.items.find((item) => {
-      if (item._id === editId) {
+      if (Number(item.id) === Number(editId)) {
+        console.log(editId);
         return true;
       }
       return false;
@@ -125,9 +127,9 @@ class AllItemsAdmin extends React.Component {
     return (
       <div className="card-columns">
         {this.state.items.map((item) => {
-          if (item._id === this.state.editId) {
+          if (Number(item.id) === Number(this.state.editId)) {
             return (
-              <div key={item._id} className="card" data-id={item._id}>
+              <div key={item.id} className="card" data-id={item.id}>
                 <div className="input-group mb-3">
                   <div className="input-group-prepend">
                     <span className="input-group-text">Picture</span>
@@ -206,7 +208,7 @@ class AllItemsAdmin extends React.Component {
                   <button
                     type="button"
                     className="btn-danger btn-block btnForSave"
-                    data-id={item._id}
+                    data-id={item.id}
                     onClick={this.saveItem}
                   >
                     Save
@@ -216,7 +218,7 @@ class AllItemsAdmin extends React.Component {
             );
           }
           return (
-            <div key={item._id} className="card" data-id={item._id}>
+            <div key={item.id} className="card" data-id={item.id}>
               <img
                 src={item.picture}
                 className="card-img-top"
@@ -235,7 +237,7 @@ class AllItemsAdmin extends React.Component {
                 <button
                   type="button"
                   className="btn-danger btn-block btnForDelete"
-                  data-id={item._id}
+                  data-id={item.id}
                   onClick={this.props.deleteItems}
                 >
                   Delete item
@@ -243,7 +245,7 @@ class AllItemsAdmin extends React.Component {
                 <button
                   type="button"
                   className="btn-danger btn-block btnForUpdate"
-                  data-id={item._id}
+                  data-id={item.id}
                   onClick={this.editItem}
                 >
                   Edit item

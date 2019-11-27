@@ -9,8 +9,8 @@ const BtnDelete = (props) => {
       <button
         type="button"
         className="btnForDelete btn-danger btn-block"
-        data-id={props.state._id}
-        key={props.state._id}
+        data-id={props.state.id}
+        key={props.state.id}
         onClick={props.deleteUser}
       >
         Delete
@@ -31,7 +31,7 @@ BtnDelete.propTypes = {
     email: PropTypes.string,
 
     firstName: PropTypes.string,
-    _id: PropTypes.string,
+    id: PropTypes.number,
     lastName: PropTypes.string,
     password: PropTypes.string,
   }),
