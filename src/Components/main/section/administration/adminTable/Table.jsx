@@ -1,6 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import BtnDelete from './BtnDelete';
+import BtnAddAdmin from './BtnAddAdmin';
+import BtnDeleteAdmin from './BtnDeleteAdmin';
 
 const Table = props =>
   props.state.map(element => (
@@ -15,6 +17,16 @@ const Table = props =>
           key={element.id}
           state={element}
           deleteUser={props.deleteUser}
+        />
+        <BtnAddAdmin
+          key={element.id}
+          state={element}
+          addAdmin={props.addAdmin}
+        />
+        <BtnDeleteAdmin
+          key={element.id}
+          state={element}
+          deleteAdmin={props.deleteAdmin}
         />
       </td>
     </tr>

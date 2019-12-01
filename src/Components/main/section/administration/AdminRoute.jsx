@@ -34,6 +34,8 @@ class AdminRoute extends React.Component {
               deleteItems={this.props.deleteItems}
               deleteUser={this.props.deleteUser}
               state={this.props.state}
+              addAdmin={this.props.addAdmin}
+              deleteAdmin={this.props.deleteAdmin}
             />
           )}
         />

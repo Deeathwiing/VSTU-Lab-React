@@ -44,7 +44,12 @@ const Administration = React.memo(props => (
       path="/administration/admintable"
       render={() => (
         <React.Suspense fallback={<img alt="Loading..." src={imgLoading} />}>
-          <AdminTable state={props.state.users} deleteUser={props.deleteUser} />
+          <AdminTable
+            state={props.state.users}
+            deleteUser={props.deleteUser}
+            addAdmin={props.addAdmin}
+            deleteAdmin={props.deleteAdmin}
+          />
         </React.Suspense>
       )}
     />

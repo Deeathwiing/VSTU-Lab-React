@@ -13,7 +13,10 @@ import {
   itemsFetchData,
   updateItemAPI,
 } from '../redux/apiActionCreators/itemsAC';
-import { deleteUsersAPI } from '../redux/apiActionCreators/usersAC';
+import {
+  deleteUsersAPI,
+  addAdminAPI,
+} from '../redux/apiActionCreators/usersAC';
 
 const mapStateToProps = state => ({
   state: {
@@ -73,6 +76,16 @@ const mapDispatchToProps = dispatch => ({
         idToDelete
       )
     );
+  },
+  addAdmin: (event) => {
+    event.preventDefault();
+    const id = event.target.getAttribute('data-id');
+    dispatch(addAdminAPI(`http://localhost:3002/users/addadmin/${id}`));
+  },
+  deleteAdmin: (event) => {
+    event.preventDefault();
+    const id = event.target.getAttribute('data-id');
+    dispatch(addAdminAPI(`http://localhost:3002/users/deleteadmin/${id}`));
   },
 });
 

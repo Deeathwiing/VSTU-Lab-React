@@ -14,18 +14,19 @@ const ItemsReducer = (state = [], action) => {
 
     case ActionTypes.ADD_RATING:
       const { user } = action;
+
       const personalRating = {
         user: user.logEmail,
         ratingValue: action.ratingValue,
       };
-
+      console.log(action);
       const newStateAfterAddRating = state.map((item) => {
         if (item.id === action.itemId) {
           const singleRating = item.rating;
           let checkRating = false;
           if (singleRating[0]) {
             singleRating.forEach((element, i, rating) => {
-              if (element.user === user.logEmail) {
+              if (element.user.logEmail === user.logEmail) {
                 rating[i] = personalRating;
                 checkRating = true;
               }

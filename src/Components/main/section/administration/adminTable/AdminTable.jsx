@@ -16,7 +16,12 @@ const AdminTable = props => (
         </tr>
       </thead>
       <tbody id="adminTable">
-        <Table state={props.state} deleteUser={props.deleteUser} />
+        <Table
+          state={props.state}
+          deleteUser={props.deleteUser}
+          addAdmin={props.addAdmin}
+          deleteAdmin={props.deleteAdmin}
+        />
       </tbody>
     </table>
   </div>

@@ -56,6 +56,13 @@ export const deleteUsersAPI = (url, idToDelete) => (dispatch) => {
     .catch(() => dispatch(usersHasErrored(true)));
 };
 
+export const addAdminAPI = (url, id) => (dispatch) => {
+  axios
+    .delete(url, { withCredentials: true })
+
+    .catch(() => dispatch(usersHasErrored(true)));
+};
+
 export const removeRequestAPI = url => (dispatch) => {
   dispatch(usersIsLoading(true));
   axios
