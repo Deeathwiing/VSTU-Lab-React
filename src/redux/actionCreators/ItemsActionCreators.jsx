@@ -11,3 +11,7 @@ export const addRatingActionCreator = data => ({
   ratingValue: data.ratingValue,
   user: data.user,
 });
+
+export const deleteItemsStateActionCreator = () => ({
+  type: ActionTypes.DELETE_STATE_ITEMS,
+});

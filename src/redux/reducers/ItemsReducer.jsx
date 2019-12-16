@@ -12,6 +12,9 @@ const ItemsReducer = (state = [], action) => {
 
       return newStateAfterDelete;
 
+    case ActionTypes.DELETE_STATE_ITEMS:
+      return [];
+
     case ActionTypes.ADD_RATING:
       const { user } = action;
 

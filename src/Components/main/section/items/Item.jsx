@@ -29,20 +29,6 @@ class Item extends React.Component {
     }
   };
 
-  checkAverageRating = (data) => {
-    if (data.length) {
-      return Math.round(data[0].averageRating);
-    }
-    return null;
-  };
-
-  amountOfRatings = (data) => {
-    if (data.length) {
-      return data[0].amountOfRatings;
-    }
-    return null;
-  };
-
   render() {
     let item;
     const lastElement = this.props.state.items[
@@ -68,14 +54,14 @@ class Item extends React.Component {
               <h2 className="card-title">{element.title}</h2>
               <p className="card-text">{element.description}</p>
               <p className="card-text">{element.price}</p>
-              <p className="card-text">{element.tags}</p>
+              <p className="card-text">{element.tags[0].text}</p>
               <p className="card-text">{element.amount}</p>
               <p className="card-text">
                 Last Update(hours):
                 {element.updatedAt}
               </p>
               <p className="card-text">
-                Rating amount: {this.amountOfRatings(element.ratings)}
+                Rating amount: {element.amountOfRatings}
               </p>
             </div>
 
@@ -89,10 +75,7 @@ class Item extends React.Component {
                   name={element.id}
                   value="1"
                   aria-label="Ужасно"
-                  checked={
-                    Math.round(this.checkAverageRating(element.ratings))
-                      === 1 && 'checked'
-                  }
+                  checked={Math.round(element.averageRating) === 1 && 'checked'}
                 />
                 <input
                   item-id={element.id}
@@ -102,10 +85,7 @@ class Item extends React.Component {
                   name={element.id}
                   value="2"
                   aria-label="Сносно"
-                  checked={
-                    Math.round(this.checkAverageRating(element.ratings))
-                      === 2 && 'checked'
-                  }
+                  checked={Math.round(element.averageRating) === 2 && 'checked'}
                 />
                 <input
                   item-id={element.id}
@@ -115,10 +95,7 @@ class Item extends React.Component {
                   name={element.id}
                   value="3"
                   aria-label="Нормально"
-                  checked={
-                    Math.round(this.checkAverageRating(element.ratings))
-                      === 3 && 'checked'
-                  }
+                  checked={Math.round(element.averageRating) === 3 && 'checked'}
                 />
                 <input
                   item-id={element.id}
@@ -128,10 +105,7 @@ class Item extends React.Component {
                   name={element.id}
                   value="4"
                   aria-label="Хорошо"
-                  checked={
-                    Math.round(this.checkAverageRating(element.ratings))
-                      === 4 && 'checked'
-                  }
+                  checked={Math.round(element.averageRating) === 4 && 'checked'}
                 />
                 <input
                   item-id={element.id}
@@ -141,10 +115,7 @@ class Item extends React.Component {
                   name={element.id}
                   value="5"
                   aria-label="Отлично"
-                  checked={
-                    Math.round(this.checkAverageRating(element.ratings))
-                      === 5 && 'checked'
-                  }
+                  checked={Math.round(element.averageRating) === 5 && 'checked'}
                 />
               </div>
             </fieldset>

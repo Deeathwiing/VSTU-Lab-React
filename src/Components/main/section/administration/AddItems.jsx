@@ -27,14 +27,11 @@ class AddItems extends React.Component {
 
   convertFileToBase64viaFileReader = async () => {
     const file = this.state.picture;
+    console.log(file);
     const promise = this.getBase64(file);
     const result = await promise;
     // console.log(result);
     return result;
-    // const fileId = `${file.name}${file.size}${+file.lastModifiedDate}`;
-    /* const pictureBlob = new Blob([file], {
-      type: `${file.type}`,
-    }); */
   };
 
   handleInputImage = (e) => {

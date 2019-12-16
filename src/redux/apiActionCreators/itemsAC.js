@@ -20,14 +20,14 @@ export const itemsFetchDataSuccess = items => ({
   items,
 });
 
-export const itemsFetchData = url => async (dispatch) => {
+export const itemsFetchData = (url, options) => async (dispatch) => {
   dispatch(itemsIsLoading(true));
 
   try {
-    const response = await axios.get(url);
+    const response = await axios.post(url, options);
 
     dispatch(itemsIsLoading(false));
-
+    console.log(response.data);
     dispatch(itemsFetchDataSuccess(response.data));
   } catch (err) {
     dispatch(itemsIsLoading(false));

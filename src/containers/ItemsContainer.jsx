@@ -6,6 +6,7 @@ import {
   addRatingAPI,
   itemsFetchData,
 } from '../redux/apiActionCreators/itemsAC';
+import { deleteItemsStateActionCreator } from '../redux/actionCreators/ItemsActionCreators';
 
 const mapStateToProps = state => ({
   state: {
@@ -15,8 +16,16 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  init: amount =>
-    dispatch(itemsFetchData(`http://localhost:3002/items/getitems/${amount}`)),
+  init: (amount, options) => {
+    console.log(options);
+
+    dispatch(
+      itemsFetchData(`http://localhost:3002/items/getitems/${amount}`, options)
+    );
+  },
+  deleteStateItems: () => {
+    dispatch(deleteItemsStateActionCreator());
+  },
   addRating: (event, user) => {
     const itemId = event.target.getAttribute('item-id');
     const ratingValue = event.target.value;
