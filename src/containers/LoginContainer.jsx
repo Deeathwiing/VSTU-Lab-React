@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => ({
       password: logPass,
     };
 
-    dispatch(authorization('http://localhost:3002/users/authUser', data));
+    dispatch(authorization('http://localhost:3002/auth/authUser', data));
   },
 });
 

@@ -15,26 +15,37 @@ class Items extends React.Component {
       sortByName: false,
       sortByDate: false,
       scrollTo: 0,
-      itemsAmount: 0,
+      itemsAmount: 3,
     };
   }
 
   async componentDidMount() {
-    await this.setState(state => ({ itemsAmount: state.items.length }));
+    await this.setState(state => ({
+      page: state.items.length / state.itemsAmount || 1,
+    }));
+    console.log(`page number 2: ${this.state.page}`);
     if (this.state.items.length < 1) {
-      await this.props.init(this.state.itemsAmount, {
-        withImg: this.state.withImg,
-        sortByName: this.state.sortByName,
-        sortByDate: this.state.sortByDate,
-      });
-      await this.setState(state => ({ itemsAmount: state.items.length }));
+      await this.props.init(
+        this.state.itemsAmount,
+        this.state.withImg,
+        this.state.sortByName,
+        this.state.sortByDate,
+        this.state.page
+      );
+      await this.setState(state => ({
+        page: state.items.length / state.itemsAmount,
+      }));
     } else {
-      await this.props.init(this.state.itemsAmount, {
-        withImg: this.state.withImg,
-        sortByName: this.state.sortByName,
-        sortByDate: this.state.sortByDate,
-      });
-      await this.setState(state => ({ itemsAmount: state.items.length }));
+      await this.props.init(
+        this.state.itemsAmount,
+        this.state.withImg,
+        this.state.sortByName,
+        this.state.sortByDate,
+        this.state.page
+      );
+      await this.setState(state => ({
+        page: state.items.length / state.itemsAmount,
+      }));
     }
 
     await window.addEventListener('scroll', this.handleScroll);
@@ -46,10 +57,12 @@ class Items extends React.Component {
 
   static getDerivedStateFromProps(props, state) {
     if (!state.maxRating) {
+      // console.log(props);
+      // console.log(state);
       return {
         items: props.state.items,
         user: props.state.user,
-        itemsAmount: props.state.items.length,
+        page: props.state.items.length / state.itemsAmount || 1,
       };
     }
 
@@ -57,22 +70,28 @@ class Items extends React.Component {
   }
 
   handleScroll = async () => {
+    console.log(`первая${this.state.page}`);
     if (
       window.innerHeight + window.scrollY
       >= document.body.offsetHeight - 100
     ) {
       if (this.state.scrollTo < document.body.offsetHeight) {
-        await this.setState((state, props) => ({
+        console.log(`вторая${this.state.page}`);
+        const newPage = this.state.page++;
+        this.setState((state, props) => ({
           scrollTo: Number(document.body.offsetHeight),
-          itemsAmount: Number(state.itemsAmount),
+          page: newPage,
         }));
-        console.log(this.state.itemsAmount);
+        await console.log(`page сейчас:${newPage}`);
+        await console.log(this.state.itemsAmount);
 
-        await this.props.init(this.state.itemsAmount, {
-          withImg: this.state.withImg,
-          sortByName: this.state.sortByName,
-          sortByDate: this.state.sortByDate,
-        });
+        await this.props.init(
+          this.state.itemsAmount,
+          this.state.withImg,
+          this.state.sortByName,
+          this.state.sortByDate,
+          newPage
+        );
       }
     }
   };
@@ -94,11 +113,12 @@ class Items extends React.Component {
     await this.setState({
       itemsAmount: 0,
     });
-    this.props.init(this.state.itemsAmount, {
-      withImg: this.state.withImg,
-      sortByName: this.state.sortByName,
-      sortByDate: this.state.sortByDate,
-    });
+    this.props.init(
+      this.state.itemsAmount,
+      this.state.withImg,
+      this.state.sortByName,
+      this.state.sortByDate
+    );
   };
 
   sortByName = async () => {
@@ -111,11 +131,12 @@ class Items extends React.Component {
     await this.setState({
       itemsAmount: 0,
     });
-    this.props.init(this.state.itemsAmount, {
-      withImg: this.state.withImg,
-      sortByName: this.state.sortByName,
-      sortByDate: this.state.sortByDate,
-    });
+    this.props.init(
+      this.state.itemsAmount,
+      this.state.withImg,
+      this.state.sortByName,
+      this.state.sortByDate
+    );
   };
 
   sortByDate = async () => {
@@ -128,11 +149,12 @@ class Items extends React.Component {
     await this.setState({
       itemsAmount: 0,
     });
-    this.props.init(this.state.itemsAmount, {
-      withImg: this.state.withImg,
-      sortByName: this.state.sortByName,
-      sortByDate: this.state.sortByDate,
-    });
+    this.props.init(
+      this.state.itemsAmount,
+      this.state.withImg,
+      this.state.sortByName,
+      this.state.sortByDate
+    );
   };
 
   render() {

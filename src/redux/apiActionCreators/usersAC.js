@@ -58,15 +58,14 @@ export const deleteUsersAPI = (url, idToDelete) => (dispatch) => {
 
 export const addAdminAPI = (url, id) => (dispatch) => {
   axios
-    .delete(url, { withCredentials: true })
-
+    .put(url, { withCredentials: true })
     .catch(() => dispatch(usersHasErrored(true)));
 };
 
 export const removeRequestAPI = url => (dispatch) => {
   dispatch(usersIsLoading(true));
   axios
-    .post(url, null, { withCredentials: true })
+    .put(url, null, { withCredentials: true })
     .then(() => {
       dispatch(usersIsLoading(false));
     })
@@ -79,7 +78,7 @@ export const removeRequestAPI = url => (dispatch) => {
 export const editNamesAPI = (url, data) => (dispatch) => {
   dispatch(usersIsLoading(true));
   axios
-    .post(url, data, { withCredentials: true })
+    .put(url, data, { withCredentials: true })
     .then(() => {
       dispatch(usersIsLoading(false));
     })

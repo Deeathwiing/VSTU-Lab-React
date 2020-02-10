@@ -27,41 +27,58 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  init: (amount) => {
-    dispatch(itemsFetchData(`http://localhost:3002/items/getitems/${amount}`));
+  init: (amount, page) => {
+    dispatch(
+      itemsFetchData(
+        `http://localhost:3002/items/getProducts?amount=${amount}&page=${page}`
+      )
+    );
   },
   addItems: (picture, title, description, price, tags, amount) => {
-    const averageRating = null;
     const data = {
       picture: picture || '',
       title: title || '',
       description: description || '',
       price: price || '',
       tags: tags || '',
-      rating: [],
-      averageRating,
       amount: amount || '',
     };
-    dispatch(addItemsAPI('http://localhost:3002/items/create', data));
+    const formData = new FormData();
+
+    // eslint-disable-next-line guard-for-in
+    // eslint-disable-next-line no-restricted-syntax
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    dispatch(addItemsAPI('http://localhost:3002/items/create', formData));
   },
   updateItem: (id, picture, title, description, price, tags, amount) => {
     const data = {
       id,
       picture: picture || null,
-      title: title || '',
-      description: description || '',
-      price: price || '',
-      tags: tags || '',
-      amount: amount || '',
+      title: title || 'none',
+      description: description || 'none',
+      price: price || 'none',
+      tags: tags || 'none',
+      amount: amount || 'none',
     };
-    dispatch(updateItemAPI('http://localhost:3002/items/update', data));
+
+    const formData = new FormData();
+
+    // eslint-disable-next-line guard-for-in
+    // eslint-disable-next-line no-restricted-syntax
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    console.log(formData);
+    dispatch(updateItemAPI('http://localhost:3002/items/update', formData));
   },
   deleteItems: (event) => {
     event.preventDefault();
     const idToDelete = event.target.getAttribute('data-id');
     dispatch(
       deleteItemsAPI(
-        `http://localhost:3002/items/delete/${idToDelete}`,
+        `http://localhost:3002/items/delete?id=${idToDelete}`,
         idToDelete
       )
     );
@@ -72,7 +89,7 @@ const mapDispatchToProps = dispatch => ({
     const idToDelete = event.target.getAttribute('data-id');
     dispatch(
       deleteUsersAPI(
-        `http://localhost:3002/users/delete/${idToDelete}`,
+        `http://localhost:3002/users/delete?id=${idToDelete}`,
         idToDelete
       )
     );
@@ -80,12 +97,12 @@ const mapDispatchToProps = dispatch => ({
   addAdmin: (event) => {
     event.preventDefault();
     const id = event.target.getAttribute('data-id');
-    dispatch(addAdminAPI(`http://localhost:3002/users/addadmin/${id}`));
+    dispatch(addAdminAPI(`http://localhost:3002/users/addadmin?id=${id}`));
   },
   deleteAdmin: (event) => {
     event.preventDefault();
     const id = event.target.getAttribute('data-id');
-    dispatch(addAdminAPI(`http://localhost:3002/users/deleteadmin/${id}`));
+    dispatch(addAdminAPI(`http://localhost:3002/users/deleteadmin?id=${id}`));
   },
 });
 

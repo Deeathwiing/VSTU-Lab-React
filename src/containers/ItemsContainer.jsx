@@ -16,23 +16,24 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  init: (amount, options) => {
-    console.log(options);
+  init: (amount, withImg, sortByName, sortByDate, page) => {
+    console.log(`page ${page}`);
 
     dispatch(
-      itemsFetchData(`http://localhost:3002/items/getitems/${amount}`, options)
+      itemsFetchData(
+        `http://localhost:3002/items/getProducts?amount=${amount}&withImg=${withImg}&sortByName=${sortByName}&sortByDate=${sortByDate}&page=${page}`
+      )
     );
   },
   deleteStateItems: () => {
     dispatch(deleteItemsStateActionCreator());
   },
-  addRating: (event, user) => {
+  addRating: (event) => {
     const itemId = event.target.getAttribute('item-id');
     const ratingValue = event.target.value;
     const data = {
       itemId,
       ratingValue,
-      user,
     };
     console.log(data);
     dispatch(addRatingAPI('http://localhost:3002/items/rating', data));

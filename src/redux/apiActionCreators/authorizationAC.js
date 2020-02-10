@@ -25,5 +25,8 @@ export const authorization = (url, data) => (dispatch) => {
       }
       dispatch(authorizationSuccess(response.data));
     })
-    .catch(() => dispatch(authorizationHasErrored(true)));
+    .catch((err) => {
+      console.log(err.response);
+      dispatch(authorizationHasErrored(true));
+    });
 };

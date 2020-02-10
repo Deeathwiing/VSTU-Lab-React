@@ -20,30 +20,49 @@ export const itemsFetchDataSuccess = items => ({
   items,
 });
 
-export const itemsFetchData = (url, options) => async (dispatch) => {
+export const itemsFetchData = url => async (dispatch) => {
   dispatch(itemsIsLoading(true));
 
   try {
-    const response = await axios.post(url, options);
+    const response = await axios.get(url);
 
     dispatch(itemsIsLoading(false));
+
     console.log(response.data);
+
     dispatch(itemsFetchDataSuccess(response.data));
   } catch (err) {
     dispatch(itemsIsLoading(false));
+
     dispatch(itemsHasErrored(true));
   }
 };
 
 export const addItemsAPI = (url, data) => (dispatch) => {
   axios
-    .post(url, data, { withCredentials: true })
+    .post(url, data, {
+      withCredentials: true,
+      headers: {
+        //   // 'content-type': 'multipart/form-data; boundary=1',
+        //   // 'content-type': 'undefined',
+        enctype: 'multipart/form-data',
+        // 'content-type': 'multipart/form-data; boundary=322',
+      },
+    })
     .catch(() => dispatch(itemsHasErrored(true)));
 };
 
 export const updateItemAPI = (url, data) => (dispatch) => {
   axios
-    .post(url, data, { withCredentials: true })
+    .patch(url, data, {
+      withCredentials: true,
+      headers: {
+        //   // 'content-type': 'multipart/form-data; boundary=1',
+        //   // 'content-type': 'undefined',
+        enctype: 'multipart/form-data',
+        // 'content-type': 'multipart/form-data; boundary=322',
+      },
+    })
     .catch(() => dispatch(itemsHasErrored(true)));
 };
 

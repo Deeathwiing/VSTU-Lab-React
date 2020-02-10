@@ -19,10 +19,8 @@ const mapDispatchToProps = dispatch => ({
       firstName,
       lastName,
       password,
-      administration: false,
-      deleteAccountRequest: false,
     };
-    dispatch(regActionCreatorAPI('http://localhost:3002/users/create', data));
+    dispatch(regActionCreatorAPI('http://localhost:3002/auth/create', data));
   },
 });
 
