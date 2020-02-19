@@ -45,6 +45,7 @@ const Administration = React.memo(props => (
       render={() => (
         <React.Suspense fallback={<img alt="Loading..." src={imgLoading} />}>
           <AdminTable
+            getUsers={props.getUsers}
             state={props.state.users}
             deleteUser={props.deleteUser}
             addAdmin={props.addAdmin}
@@ -67,7 +68,7 @@ const Administration = React.memo(props => (
             updateItem={props.updateItem}
             state={props.state.items}
             deleteItems={props.deleteItems}
-            init={props.init}
+            getProducts={props.getProducts}
           />
         </React.Suspense>
       )}

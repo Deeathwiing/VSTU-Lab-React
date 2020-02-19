@@ -14,6 +14,7 @@ import {
   updateItemAPI,
 } from '../redux/apiActionCreators/itemsAC';
 import {
+  usersFetchData,
   deleteUsersAPI,
   addAdminAPI,
 } from '../redux/apiActionCreators/usersAC';
@@ -27,10 +28,17 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  init: (amount, page) => {
+  getProducts: (amount, page) => {
     dispatch(
       itemsFetchData(
-        `http://localhost:3002/items/getProducts?amount=${amount}&page=${page}`
+        `http://localhost:3002/items/getProducts?amount=${amount}&withImg=false&sortByName=false&sortByDate=false&page=${page}`
+      )
+    );
+  },
+  getUsers: (amount, page) => {
+    dispatch(
+      usersFetchData(
+        `http://localhost:3002/users/getusers?amount=${amount}&page=${page}`
       )
     );
   },
@@ -55,7 +63,7 @@ const mapDispatchToProps = dispatch => ({
   updateItem: (id, picture, title, description, price, tags, amount) => {
     const data = {
       id,
-      picture: picture || null,
+      picture: picture || 'null',
       title: title || 'none',
       description: description || 'none',
       price: price || 'none',
@@ -70,7 +78,7 @@ const mapDispatchToProps = dispatch => ({
     for (const key in data) {
       formData.append(key, data[key]);
     }
-    console.log(formData);
+
     dispatch(updateItemAPI('http://localhost:3002/items/update', formData));
   },
   deleteItems: (event) => {

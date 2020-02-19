@@ -5,16 +5,36 @@ import PropTypes from 'prop-types';
 class AllItemsAdmin extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: props.state, scrollTo: 0, itemsAmount: 0 };
+    this.state = {
+      scrollTo: 0,
+      itemsAmount: 3,
+      page: 1,
+      items: props.state.items,
+    };
   }
 
-  componentDidMount() {
-    if (this.state.items.length < 15) {
-      this.props.init(0);
+  async componentDidMount() {
+    await this.setState(state => ({
+      page: state.items.length / state.itemsAmount || 1,
+    }));
+
+    if (this.state.items.length < 1) {
+      await this.props.getProducts(this.state.itemsAmount, this.state.page);
+      await this.setState(state => ({
+        page: state.items.length / state.itemsAmount,
+      }));
     } else {
-      this.setState(state => ({ itemsAmount: state.items.length - 15 }));
+      await this.props.getProducts(
+        this.state.itemsAmount,
+
+        this.state.page
+      );
+      await this.setState(state => ({
+        page: state.items.length / state.itemsAmount,
+      }));
     }
-    window.addEventListener('scroll', this.handleScroll);
+
+    await window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
@@ -22,33 +42,34 @@ class AllItemsAdmin extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    return { items: props.state };
+    console.log(props);
+    return {
+      items: props.state,
+      page: props.state.length / state.itemsAmount || 1,
+    };
   }
 
-  handleScroll = () => {
+  handleScroll = async () => {
     if (
       window.innerHeight + window.scrollY
       >= document.body.offsetHeight - 100
     ) {
       if (this.state.scrollTo < document.body.offsetHeight) {
+        const newPage = this.state.page + 1;
         this.setState((state, props) => ({
           scrollTo: Number(document.body.offsetHeight),
-          itemsAmount: Number(state.itemsAmount + 15),
+          page: newPage,
         }));
 
-        return this.props.init(this.state.itemsAmount);
+        await this.props.getProducts(this.state.itemsAmount, newPage);
       }
     }
   };
 
   saveItem = async () => {
-    let picture = null;
-    if (this.state.picture) {
-      picture = await this.convertFileToBase64viaFileReader();
-    }
     this.props.updateItem(
       this.state.editId,
-      picture,
+      this.state.picture,
       this.state.title,
       this.state.description,
       this.state.price,
@@ -90,28 +111,6 @@ class AllItemsAdmin extends React.Component {
 
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-  };
-
-  getBase64 = (file, onLoadCallback) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = function () {
-        resolve(reader.result);
-      };
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
-
-  convertFileToBase64viaFileReader = async () => {
-    const file = this.state.picture;
-    const promise = this.getBase64(file);
-    const result = await promise;
-    // console.log(result);
-    return result;
-    // const fileId = `${file.name}${file.size}${+file.lastModifiedDate}`;
-    /* const pictureBlob = new Blob([file], {
-      type: `${file.type}`,
-    }); */
   };
 
   handleInputImage = (e) => {
@@ -229,10 +228,10 @@ class AllItemsAdmin extends React.Component {
                 <p className="card-text">{item.description}</p>
                 <p className="card-text">{item.price}</p>
                 <p className="card-text">{item.amount}</p>
-                <p className="card-text">{item.tags}</p>
+                <p className="card-text">{item.tags[0].text}</p>
                 <p className="card-text">{item.lastUpdate}</p>
                 <p className="card-text">
-                  Rating amount: {Number(item.ratingAmount)}
+                  Rating amount: {Number(item.amountOfRatings)}
                 </p>
                 <button
                   type="button"

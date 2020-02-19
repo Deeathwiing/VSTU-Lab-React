@@ -54,7 +54,7 @@ export const addItemsAPI = (url, data) => (dispatch) => {
 
 export const updateItemAPI = (url, data) => (dispatch) => {
   axios
-    .patch(url, data, {
+    .put(url, data, {
       withCredentials: true,
       headers: {
         //   // 'content-type': 'multipart/form-data; boundary=1',
@@ -68,7 +68,7 @@ export const updateItemAPI = (url, data) => (dispatch) => {
 
 export const addRatingAPI = (url, data) => (dispatch) => {
   axios
-    .post(
+    .put(
       url,
       { itemId: data.itemId, ratingValue: data.ratingValue },
       { withCredentials: true }

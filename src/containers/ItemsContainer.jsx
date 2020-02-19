@@ -16,9 +16,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  init: (amount, withImg, sortByName, sortByDate, page) => {
-    console.log(`page ${page}`);
-
+  getProducts: (amount, withImg, sortByName, sortByDate, page) => {
     dispatch(
       itemsFetchData(
         `http://localhost:3002/items/getProducts?amount=${amount}&withImg=${withImg}&sortByName=${sortByName}&sortByDate=${sortByDate}&page=${page}`

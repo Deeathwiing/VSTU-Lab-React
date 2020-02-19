@@ -10,6 +10,7 @@ class Items extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      page: 1,
       maxRating: false,
       withImg: false,
       sortByName: false,
@@ -23,9 +24,9 @@ class Items extends React.Component {
     await this.setState(state => ({
       page: state.items.length / state.itemsAmount || 1,
     }));
-    console.log(`page number 2: ${this.state.page}`);
+
     if (this.state.items.length < 1) {
-      await this.props.init(
+      await this.props.getProducts(
         this.state.itemsAmount,
         this.state.withImg,
         this.state.sortByName,
@@ -36,7 +37,7 @@ class Items extends React.Component {
         page: state.items.length / state.itemsAmount,
       }));
     } else {
-      await this.props.init(
+      await this.props.getProducts(
         this.state.itemsAmount,
         this.state.withImg,
         this.state.sortByName,
@@ -70,22 +71,18 @@ class Items extends React.Component {
   }
 
   handleScroll = async () => {
-    console.log(`первая${this.state.page}`);
     if (
       window.innerHeight + window.scrollY
       >= document.body.offsetHeight - 100
     ) {
       if (this.state.scrollTo < document.body.offsetHeight) {
-        console.log(`вторая${this.state.page}`);
-        const newPage = this.state.page++;
-        this.setState((state, props) => ({
+        const newPage = Math.floor(this.state.page + 1);
+        await this.setState((state, props) => ({
           scrollTo: Number(document.body.offsetHeight),
           page: newPage,
         }));
-        await console.log(`page сейчас:${newPage}`);
-        await console.log(this.state.itemsAmount);
 
-        await this.props.init(
+        await this.props.getProducts(
           this.state.itemsAmount,
           this.state.withImg,
           this.state.sortByName,
@@ -113,7 +110,7 @@ class Items extends React.Component {
     await this.setState({
       itemsAmount: 0,
     });
-    this.props.init(
+    this.props.getProducts(
       this.state.itemsAmount,
       this.state.withImg,
       this.state.sortByName,
@@ -131,7 +128,7 @@ class Items extends React.Component {
     await this.setState({
       itemsAmount: 0,
     });
-    this.props.init(
+    this.props.getProducts(
       this.state.itemsAmount,
       this.state.withImg,
       this.state.sortByName,
@@ -149,7 +146,7 @@ class Items extends React.Component {
     await this.setState({
       itemsAmount: 0,
     });
-    this.props.init(
+    this.props.getProducts(
       this.state.itemsAmount,
       this.state.withImg,
       this.state.sortByName,
@@ -224,7 +221,7 @@ export default Items;
 Items.propTypes = {
   addRating: PropTypes.func,
   deleteStateItems: PropTypes.func,
-  init: PropTypes.func,
+  getProducts: PropTypes.func,
   state: PropTypes.shape({
     item: PropTypes.arrayOf(PropTypes.object),
     user: PropTypes.object,
@@ -234,6 +231,6 @@ Items.propTypes = {
 Items.defaultProps = {
   state: {},
   addRating: () => {},
-  init: () => {},
+  getProducts: () => {},
   deleteStateItems: () => {},
 };

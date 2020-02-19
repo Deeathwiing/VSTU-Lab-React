@@ -20,21 +20,16 @@ export const usersFetchDataSuccess = users => ({
 export const usersFetchData = url => async (dispatch) => {
   dispatch(usersIsLoading(true));
 
-  fetch(url, {
-    credentials: 'include',
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
+  try {
+    const response = await axios.get(url, { withCredentials: true });
 
-      dispatch(usersIsLoading(false));
+    dispatch(usersIsLoading(false));
 
-      return response;
-    })
-    .then(response => response.json())
-    .then(users => dispatch(usersFetchDataSuccess(users)))
-    .catch(() => dispatch(usersHasErrored(true)));
+    dispatch(usersFetchDataSuccess(response.data));
+  } catch (e) {
+    dispatch(usersIsLoading(false));
+    dispatch(usersHasErrored(true));
+  }
 };
 
 export const regActionCreatorAPI = (url, data) => (dispatch) => {

@@ -29,7 +29,8 @@ class AdminRoute extends React.Component {
           render={() => (
             <Administration
               updateItem={this.props.updateItem}
-              init={this.props.init}
+              getUsers={this.props.getUsers}
+              getProducts={this.props.getProducts}
               addItems={this.props.addItems}
               deleteItems={this.props.deleteItems}
               deleteUser={this.props.deleteUser}
