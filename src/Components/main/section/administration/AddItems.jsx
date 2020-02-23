@@ -15,37 +15,6 @@ class AddItems extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // getBase64 = (file, onLoadCallback) =>
-  //   new Promise((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.onload = function () {
-  //       resolve(reader.result);
-  //     };
-  //     reader.onerror = reject;
-  //     reader.readAsDataURL(file);
-  //   });
-
-  getBase64 = (img) => {
-    const canvas = document.createElement('canvas');
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(img, 0, 0);
-    const dataURL = canvas.toDataURL('image/png');
-
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
-  };
-
-  convertFileToBase64viaFileReader = async () => {
-    const file = this.state.picture;
-    console.log(file);
-    const promise = this.getBase64(file);
-    const result = await promise;
-    // console.log(result);
-    return result;
-  };
-
   handleInputImage = (e) => {
     this.setState({
       [e.target.name]: e.target.files[0],
@@ -53,12 +22,6 @@ class AddItems extends React.Component {
   };
 
   addItem = async (event) => {
-    // event.preventDefault();
-    // let picture;
-    // if (this.state.picture) {
-    //   picture = await this.convertFileToBase64viaFileReader();
-    // }
-    console.log(this.state.picture);
     this.props.addItems(
       this.state.picture,
       this.state.title,

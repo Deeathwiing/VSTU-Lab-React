@@ -28,8 +28,6 @@ export const itemsFetchData = url => async (dispatch) => {
 
     dispatch(itemsIsLoading(false));
 
-    console.log(response.data);
-
     dispatch(itemsFetchDataSuccess(response.data));
   } catch (err) {
     dispatch(itemsIsLoading(false));
@@ -43,10 +41,7 @@ export const addItemsAPI = (url, data) => (dispatch) => {
     .post(url, data, {
       withCredentials: true,
       headers: {
-        //   // 'content-type': 'multipart/form-data; boundary=1',
-        //   // 'content-type': 'undefined',
         enctype: 'multipart/form-data',
-        // 'content-type': 'multipart/form-data; boundary=322',
       },
     })
     .catch(() => dispatch(itemsHasErrored(true)));
@@ -57,10 +52,7 @@ export const updateItemAPI = (url, data) => (dispatch) => {
     .put(url, data, {
       withCredentials: true,
       headers: {
-        //   // 'content-type': 'multipart/form-data; boundary=1',
-        //   // 'content-type': 'undefined',
         enctype: 'multipart/form-data',
-        // 'content-type': 'multipart/form-data; boundary=322',
       },
     })
     .catch(() => dispatch(itemsHasErrored(true)));

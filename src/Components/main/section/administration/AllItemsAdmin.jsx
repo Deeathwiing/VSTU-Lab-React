@@ -42,7 +42,6 @@ class AllItemsAdmin extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log(props);
     return {
       items: props.state,
       page: props.state.length / state.itemsAmount || 1,
@@ -93,7 +92,6 @@ class AllItemsAdmin extends React.Component {
 
     const editItem = this.state.items.find((item) => {
       if (Number(item.id) === Number(editId)) {
-        console.log(editId);
         return true;
       }
       return false;
@@ -118,9 +116,6 @@ class AllItemsAdmin extends React.Component {
       [e.target.name]: e.target.files[0],
     });
   };
-
-  // eslint-disable-next-line react/sort-comp
-  // lastElement = this.state.items[this.state.items.length - 1];
 
   render() {
     return (

@@ -21,8 +21,6 @@ const mapDispatchToProps = dispatch => ({
 
     page = Math.floor(page) || 1;
 
-    console.log(title);
-
     title = title || 'none';
 
     dispatch(
@@ -41,7 +39,7 @@ const mapDispatchToProps = dispatch => ({
       itemId,
       ratingValue,
     };
-    console.log(data);
+
     dispatch(addRatingAPI('http://localhost:3002/items/rating', data));
   },
 });

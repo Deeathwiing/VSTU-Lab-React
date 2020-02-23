@@ -22,7 +22,7 @@ const ItemsReducer = (state = [], action) => {
         user: user.logEmail,
         ratingValue: action.ratingValue,
       };
-      console.log(action);
+
       const newStateAfterAddRating = state.map((item) => {
         if (item.id === action.itemId) {
           const singleRating = item.rating;

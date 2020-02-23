@@ -61,8 +61,6 @@ class Items extends React.Component {
 
   static getDerivedStateFromProps(props, state) {
     if (!state.maxRating) {
-      // console.log(props);
-      // console.log(state);
       return {
         items: props.state.items,
         user: props.state.user,
@@ -165,8 +163,6 @@ class Items extends React.Component {
     event.preventDefault();
 
     await this.props.deleteStateItems();
-
-    console.log(this.state);
 
     await this.props.getProducts(
       this.state.itemsAmount,
