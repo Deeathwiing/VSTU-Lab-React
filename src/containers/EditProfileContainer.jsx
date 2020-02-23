@@ -4,6 +4,7 @@ import { userSelector } from '../selectors/Selectors';
 import {
   removeRequestAPI,
   editNamesAPI,
+  editPasswordAPI,
 } from '../redux/apiActionCreators/usersAC';
 
 const mapStateToProps = state => ({
@@ -21,6 +22,16 @@ const mapDispatchToProps = dispatch => ({
     };
 
     dispatch(editNamesAPI('http://localhost:3002/users/editprofile', data));
+  },
+  changePassword: (prevPassword, newPassword) => {
+    const data = {
+      prevPassword,
+      newPassword,
+    };
+
+    dispatch(
+      editPasswordAPI('http://localhost:3002/users/changePassword', data)
+    );
   },
 });
 

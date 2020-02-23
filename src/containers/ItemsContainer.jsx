@@ -16,10 +16,18 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getProducts: (amount, withImg, sortByName, sortByDate, page) => {
+  getProducts: (amount, withImg, sortByName, sortByDate, page, title) => {
+    amount = Math.floor(amount) || 1;
+
+    page = Math.floor(page) || 1;
+
+    console.log(title);
+
+    title = title || 'none';
+
     dispatch(
       itemsFetchData(
-        `http://localhost:3002/items/getProducts?amount=${amount}&withImg=${withImg}&sortByName=${sortByName}&sortByDate=${sortByDate}&page=${page}`
+        `http://localhost:3002/items/getProducts?amount=${amount}&withImg=${withImg}&sortByName=${sortByName}&sortByDate=${sortByDate}&page=${page}&title=${title}`
       )
     );
   },

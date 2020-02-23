@@ -17,6 +17,9 @@ const UsersReducer = (state = [], action) => {
 
       return newStateAfterDelete;
 
+    case ActionTypes.DELETE_STATE_USERS:
+      return [];
+
     case ActionTypes.INITIALIZATION_USERS:
       return action.users;
     default:

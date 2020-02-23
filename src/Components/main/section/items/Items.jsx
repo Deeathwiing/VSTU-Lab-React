@@ -17,6 +17,7 @@ class Items extends React.Component {
       sortByDate: false,
       scrollTo: 0,
       itemsAmount: 3,
+      title: 'none',
     };
   }
 
@@ -31,7 +32,8 @@ class Items extends React.Component {
         this.state.withImg,
         this.state.sortByName,
         this.state.sortByDate,
-        this.state.page
+        this.state.page,
+        this.state.title
       );
       await this.setState(state => ({
         page: state.items.length / state.itemsAmount,
@@ -42,7 +44,8 @@ class Items extends React.Component {
         this.state.withImg,
         this.state.sortByName,
         this.state.sortByDate,
-        this.state.page
+        this.state.page,
+        this.state.title
       );
       await this.setState(state => ({
         page: state.items.length / state.itemsAmount,
@@ -87,7 +90,8 @@ class Items extends React.Component {
           this.state.withImg,
           this.state.sortByName,
           this.state.sortByDate,
-          newPage
+          newPage,
+          this.state.title
         );
       }
     }
@@ -107,14 +111,13 @@ class Items extends React.Component {
       ? this.setState({ withImg: false })
       : this.setState({ withImg: true });
 
-    await this.setState({
-      itemsAmount: 0,
-    });
     this.props.getProducts(
       this.state.itemsAmount,
       this.state.withImg,
       this.state.sortByName,
-      this.state.sortByDate
+      this.state.sortByDate,
+      1,
+      this.state.title
     );
   };
 
@@ -125,14 +128,14 @@ class Items extends React.Component {
         sortByName: false,
       })
       : this.setState({ sortByName: true, sortByDate: false });
-    await this.setState({
-      itemsAmount: 0,
-    });
+
     this.props.getProducts(
       this.state.itemsAmount,
       this.state.withImg,
       this.state.sortByName,
-      this.state.sortByDate
+      this.state.sortByDate,
+      1,
+      this.state.title
     );
   };
 
@@ -143,14 +146,35 @@ class Items extends React.Component {
         sortByDate: false,
       })
       : this.setState({ sortByDate: true, sortByName: false });
-    await this.setState({
-      itemsAmount: 0,
-    });
+
     this.props.getProducts(
       this.state.itemsAmount,
       this.state.withImg,
       this.state.sortByName,
-      this.state.sortByDate
+      this.state.sortByDate,
+      1,
+      this.state.title
+    );
+  };
+
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  searchProducts = async (event) => {
+    event.preventDefault();
+
+    await this.props.deleteStateItems();
+
+    console.log(this.state);
+
+    await this.props.getProducts(
+      this.state.itemsAmount,
+      this.state.withImg,
+      this.state.sortByName,
+      this.state.sortByDate,
+      1,
+      this.state.title
     );
   };
 
@@ -205,6 +229,22 @@ class Items extends React.Component {
             </div>
           </div>
         </div>
+
+        <form>
+          <label>
+            Title:
+            <input
+              name="title"
+              className="m-2"
+              type="text"
+              id="title"
+              onChange={this.handleInput}
+            />
+          </label>
+          <button type="button" onClick={this.searchProducts}>
+            Отправить
+          </button>
+        </form>
 
         <div className="card-column">
           <React.Suspense fallback={<img alt="Loading..." src={imgLoading} />}>

@@ -17,3 +17,7 @@ export const registrationActionCreator = (
   lastName,
   password,
 });
+
+export const deleteUsersStateActionCreator = () => ({
+  type: ActionTypes.DELETE_STATE_USERS,
+});

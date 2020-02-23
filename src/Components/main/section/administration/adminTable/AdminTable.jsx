@@ -9,6 +9,9 @@ class AdminTable extends React.Component {
       page: 1,
       scrollTo: 0,
       itemsAmount: 3,
+      firstName: false,
+      lastName: false,
+      email: false,
     };
   }
 
@@ -18,12 +21,24 @@ class AdminTable extends React.Component {
     }));
 
     if (this.state.length < 1) {
-      await this.props.getUsers(this.state.itemsAmount, this.state.page);
+      await this.props.getUsers(
+        this.state.itemsAmount,
+        this.state.page,
+        this.state.firstName || 'none',
+        this.state.lastName || 'none',
+        this.state.email || 'none'
+      );
       await this.setState(state => ({
         page: state.length / state.itemsAmount,
       }));
     } else {
-      await this.props.getUsers(this.state.itemsAmount, this.state.page);
+      await this.props.getUsers(
+        this.state.itemsAmount,
+        this.state.page,
+        this.state.firstName || 'none',
+        this.state.lastName || 'none',
+        this.state.email || 'none'
+      );
       await this.setState(state => ({
         page: state.length / state.itemsAmount,
       }));
@@ -54,16 +69,76 @@ class AdminTable extends React.Component {
           scrollTo: Number(document.body.offsetHeight),
           page: newPage,
         }));
-        console.log(`page${newPage}`);
-        await this.props.getUsers(this.state.itemsAmount, newPage);
+
+        await this.props.getUsers(
+          this.state.itemsAmount,
+          newPage,
+          this.state.firstName || 'none',
+          this.state.lastName || 'none',
+          this.state.email || 'none'
+        );
       }
     }
+  };
+
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  searchUsers = (event) => {
+    event.preventDefault();
+
+    this.props.deleteStateUsers();
+
+    this.props.getUsers(
+      this.state.itemsAmount,
+      1,
+      this.state.firstName || 'none',
+      this.state.lastName || 'none',
+      this.state.email || 'none'
+    );
   };
 
   render() {
     return (
       <div className="container-fluid">
         <h1 className="header"> Administrator Page </h1>
+        <form>
+          <label className="m-2">
+            Email:
+            <input
+              className="m-2"
+              name="email"
+              type="text"
+              id="email"
+              onChange={this.handleInput}
+            />
+          </label>
+          <label>
+            First Name:
+            <input
+              name="firstName"
+              className="m-2"
+              type="text"
+              id="firstName"
+              onChange={this.handleInput}
+            />
+          </label>
+          <label>
+            Last Name:
+            <input
+              name="lastName"
+              className="m-2"
+              type="text"
+              id="lastName"
+              onChange={this.handleInput}
+            />
+          </label>
+          <button type="button" onClick={this.searchUsers}>
+            Отправить
+          </button>
+        </form>
+
         <table className="table table-striped table-dark">
           <thead>
             <tr>
@@ -76,7 +151,6 @@ class AdminTable extends React.Component {
           </thead>
           <tbody id="adminTable">
             <Table
-              getUsers={this.props.getUsers}
               state={this.props.state}
               deleteUser={this.props.deleteUser}
               addAdmin={this.props.addAdmin}

@@ -19,6 +19,8 @@ import {
   addAdminAPI,
 } from '../redux/apiActionCreators/usersAC';
 
+import { deleteUsersStateActionCreator } from '../redux/actionCreators/UsersActionCreator';
+
 const mapStateToProps = state => ({
   state: {
     items: itemsSelector(state),
@@ -29,16 +31,28 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getProducts: (amount, page) => {
+    amount = Math.floor(amount) || 1;
+
+    page = Math.floor(page) || 1;
+
     dispatch(
       itemsFetchData(
-        `http://localhost:3002/items/getProducts?amount=${amount}&withImg=false&sortByName=false&sortByDate=false&page=${page}`
+        `http://localhost:3002/items/getProducts?amount=${amount}&withImg=false&sortByName=false&sortByDate=false&page=${page}&title=none`
       )
     );
   },
-  getUsers: (amount, page) => {
+  deleteStateUsers: () => {
+    dispatch(deleteUsersStateActionCreator());
+  },
+
+  getUsers: (amount, page, firstName, lastName, email) => {
+    amount = Math.floor(amount) || 1;
+
+    page = Math.floor(page) || 1;
+
     dispatch(
       usersFetchData(
-        `http://localhost:3002/users/getusers?amount=${amount}&page=${page}`
+        `http://localhost:3002/users/getusers?amount=${amount}&page=${page}&firstName=${firstName}&lastName=${lastName}&email=${email}`
       )
     );
   },

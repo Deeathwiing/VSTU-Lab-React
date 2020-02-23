@@ -45,6 +45,7 @@ const Administration = React.memo(props => (
       render={() => (
         <React.Suspense fallback={<img alt="Loading..." src={imgLoading} />}>
           <AdminTable
+            deleteStateUsers={props.deleteStateUsers}
             getUsers={props.getUsers}
             state={props.state.users}
             deleteUser={props.deleteUser}

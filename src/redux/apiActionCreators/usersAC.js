@@ -82,3 +82,16 @@ export const editNamesAPI = (url, data) => (dispatch) => {
       dispatch(usersHasErrored(true));
     });
 };
+
+export const editPasswordAPI = (url, data) => (dispatch) => {
+  dispatch(usersIsLoading(true));
+  axios
+    .put(url, data, { withCredentials: true })
+    .then(() => {
+      dispatch(usersIsLoading(false));
+    })
+    .catch(() => {
+      dispatch(usersIsLoading(false));
+      dispatch(usersHasErrored(true));
+    });
+};

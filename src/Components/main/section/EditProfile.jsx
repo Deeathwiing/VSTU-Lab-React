@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import LoginError from './LoginError';
 
 class EditProfile extends React.Component {
-  state = { firstName: '', lastName: '' };
+  state = {
+    firstName: '',
+    lastName: '',
+    prevPassword: '',
+    newPassword1: '',
+    newPassword2: '',
+  };
 
   shouldComponentUpdate(nextProps, nextState) {
     if (nextProps.state.user !== nextState.user) {
@@ -23,11 +29,18 @@ class EditProfile extends React.Component {
   changeNames = (event) => {
     event.preventDefault();
 
-    this.props.changeFirstLastName(
-      this.state.firstName,
-      this.state.lastName,
-  
-    );
+    this.props.changeFirstLastName(this.state.firstName, this.state.lastName);
+  };
+
+  changePassword = (event) => {
+    event.preventDefault();
+
+    if (this.state.newPassword1 === this.state.newPassword2) {
+      this.props.changePassword(
+        this.state.prevPassword,
+        this.state.newPassword1
+      );
+    } else alert('Новые пароли не совпадают');
   };
 
   render() {
@@ -61,6 +74,41 @@ class EditProfile extends React.Component {
               />
             </label>
             <button type="button" onClick={this.changeNames}>
+              Отправить
+            </button>
+          </form>
+          <form>
+            <label className="m-2">
+              Пароль:
+              <input
+                className="m-2"
+                name="prevPassword"
+                type="text"
+                id="prevPassword"
+                onChange={this.handleInput}
+              />
+            </label>
+            <label>
+              Новый пароль:
+              <input
+                name="newPassword1"
+                className="m-2"
+                type="text"
+                id="newPassword1"
+                onChange={this.handleInput}
+              />
+            </label>
+            <label>
+              Повторите новый пароль:
+              <input
+                name="newPassword2"
+                className="m-2"
+                type="text"
+                id="newPassword2"
+                onChange={this.handleInput}
+              />
+            </label>
+            <button type="button" onClick={this.changePassword}>
               Отправить
             </button>
           </form>
