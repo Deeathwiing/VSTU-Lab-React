@@ -18,6 +18,7 @@ class Items extends React.Component {
       scrollTo: 0,
       itemsAmount: 3,
       title: 'none',
+      tagId: 'none',
     };
   }
 
@@ -174,6 +175,22 @@ class Items extends React.Component {
     );
   };
 
+  searchByTag = async (event) => {
+    event.preventDefault();
+    const tagId = event.target.getAttribute('value');
+    this.setState({ tagId });
+    await this.props.deleteStateItems();
+    await this.props.getProducts(
+      this.state.itemsAmount,
+      this.state.withImg,
+      this.state.sortByName,
+      this.state.sortByDate,
+      1,
+      this.state.title,
+      this.state.tagId
+    );
+  };
+
   render() {
     return (
       <>
@@ -244,7 +261,11 @@ class Items extends React.Component {
 
         <div className="card-column">
           <React.Suspense fallback={<img alt="Loading..." src={imgLoading} />}>
-            <Item addRating={this.props.addRating} state={this.state} />
+            <Item
+              addRating={this.props.addRating}
+              state={this.state}
+              searchByTag={this.searchByTag}
+            />
           </React.Suspense>
         </div>
       </>

@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransitionGroup } from 'react-transition-group';
+import Tag from './tag';
 
 class Item extends React.Component {
   constructor(props) {
@@ -54,7 +55,13 @@ class Item extends React.Component {
               <h2 className="card-title">{element.title}</h2>
               <p className="card-text">{element.description}</p>
               <p className="card-text">{element.price}</p>
-              <p className="card-text">{element.tags[0].text}</p>
+              <p className="card-text">
+                {' '}
+                <Tag
+                  state={element.tags}
+                  searchByTag={this.props.searchByTag}
+                />{' '}
+              </p>
               <p className="card-text">{element.amount}</p>
               <p className="card-text">
                 Last Update(hours):
