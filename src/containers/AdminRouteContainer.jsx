@@ -37,7 +37,7 @@ const mapDispatchToProps = dispatch => ({
 
     dispatch(
       itemsFetchData(
-        `http://localhost:3002/items/getProducts?amount=${amount}&withImg=false&sortByName=false&sortByDate=false&page=${page}&title=none`
+        `http://localhost:3002/items/getProducts?amount=${amount}&withImg=0&sortByName=0&sortByDate=0&page=${page}&title=none`
       )
     );
   },

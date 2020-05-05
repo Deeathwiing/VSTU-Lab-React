@@ -25,6 +25,12 @@ const mapDispatchToProps = dispatch => ({
     title,
     tagId
   ) => {
+    withImg ? (withImg = 1) : (withImg = 0);
+
+    sortByName ? (sortByName = 1) : (sortByName = 0);
+
+    sortByDate ? (sortByDate = 1) : (sortByDate = 0);
+
     amount = Math.floor(amount) || 1;
 
     page = Math.floor(page) || 1;

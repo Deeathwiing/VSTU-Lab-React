@@ -6,7 +6,7 @@ import { ActionTypes } from '../ActionTypes';
 const UsersReducer = (state = [], action) => {
   switch (action.type) {
     case ActionTypes.USERS_FETCH_DATA_SUCCESS:
-      return action.users;
+      return [...state, ...action.users];
     case ActionTypes.DELETE_USERS:
       const newStateAfterDelete = state.filter((user) => {
         if (user.id === action.idToDelete && user.deleteAccountRequest) {
