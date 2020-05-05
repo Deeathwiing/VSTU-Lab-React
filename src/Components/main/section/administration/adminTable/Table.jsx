@@ -13,21 +13,9 @@ const Table = props =>
       <td>{element.email}</td>
       <td>{element.deleteAccountRequest}</td>
       <td>
-        <BtnDelete
-          key={element.id}
-          state={element}
-          deleteUser={props.deleteUser}
-        />
-        <BtnAddAdmin
-          key={element.id}
-          state={element}
-          addAdmin={props.addAdmin}
-        />
-        <BtnDeleteAdmin
-          key={element.id}
-          state={element}
-          deleteAdmin={props.deleteAdmin}
-        />
+        <BtnDelete state={element} deleteUser={props.deleteUser} />
+        <BtnAddAdmin state={element} addAdmin={props.addAdmin} />
+        <BtnDeleteAdmin state={element} deleteAdmin={props.deleteAdmin} />
       </td>
     </tr>
   ));
