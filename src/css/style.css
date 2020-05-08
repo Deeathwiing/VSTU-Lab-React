@@ -36,7 +36,18 @@ aside {
 
 .aside-section {
   z-index: 99;
-  position: relative;
+}
+
+.chat {
+  z-index: 99;
+  position: sticky;
+  height: 400px;
+  /*background-color: aqua; */
+  padding: 7%;
+}
+.message-container {
+  overflow: auto;
+  height: 300px;
 }
 
 #Reg {

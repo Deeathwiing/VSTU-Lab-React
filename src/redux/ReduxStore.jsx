@@ -5,6 +5,7 @@ import throttle from 'lodash/throttle';
 import userReducer from './reducers/UserReducer';
 import usersReducer from './reducers/UsersReducer';
 import itemsReducer from './reducers/ItemsReducer';
+import messagesReducer from './reducers/MessagesReducer';
 import { loadState, saveState } from './localStorage';
 import {
   itemsHasErroredRed,
@@ -25,6 +26,7 @@ const reducers = combineReducers({
   user: userReducer,
   users: usersReducer,
   items: itemsReducer,
+  messages: messagesReducer,
   itemsHasErrored: itemsHasErroredRed,
   itemsIsLoading: itemsIsLoadingRed,
   usersHasErrored: usersHasErroredRed,

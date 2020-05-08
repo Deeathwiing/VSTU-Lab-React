@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavLinkDropDown, NavLinksAdministration } from '../NavLinks';
+import ChatContainer from '../../containers/ChatContainer';
 
 const navLinks = {
   NavLinkAside: [
@@ -109,6 +110,7 @@ const Aside = () => (
         </li>
       </ul>
     </nav>
+    <ChatContainer />
   </aside>
 );
 

@@ -106,7 +106,7 @@ class Items extends React.Component {
 
   withImg = async () => {
     await this.props.deleteStateItems();
-    (await this.state.withImg)
+    this.state.withImg
       ? this.setState({ withImg: false })
       : this.setState({ withImg: true });
 
@@ -122,7 +122,7 @@ class Items extends React.Component {
 
   sortByName = async () => {
     await this.props.deleteStateItems();
-    (await this.state.sortByName)
+    this.state.sortByName
       ? this.setState({
         sortByName: false,
       })
@@ -140,7 +140,7 @@ class Items extends React.Component {
 
   sortByDate = async () => {
     await this.props.deleteStateItems();
-    (await this.state.sortByDate)
+    this.state.sortByDate
       ? this.setState({
         sortByDate: false,
       })
