@@ -50,6 +50,11 @@ aside {
   height: 300px;
 }
 
+.message-element {
+  color: #ff6666;
+  font-weight: 700;
+}
+
 #Reg {
   width: 400%;
 }

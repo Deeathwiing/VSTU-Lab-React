@@ -10,7 +10,7 @@ class ChatMessages extends React.Component {
   render() {
     const messages = this.props.state.map(element => (
       <div className="message">
-        <p className="mb-0">{element.author}:</p>
+        <p className="mb-0 message-element">{element.author}:</p>
         <p className="">{element.message}</p>
       </div>
     ));
