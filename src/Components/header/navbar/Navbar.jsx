@@ -1,82 +1,82 @@
 /* eslint-disable max-len */
 
-import { NavLink } from 'react-router-dom';
-import React from 'react';
-import PropTypes from 'prop-types';
-import logo from '../../../public/images/icon.png';
-import AuthControl from './AuthControl';
-import { NavLinkDropDown, NavLinksAdministration } from '../../NavLinks';
+import { NavLink } from "react-router-dom";
+import React from "react";
+import PropTypes from "prop-types";
+import logo from "../../../public/images/icon.png";
+import AuthControl from "./AuthControl";
+import { NavLinkDropDown, NavLinksAdministration } from "../../NavLinks";
 
 const navLinks = {
   NavLinkNavbar: [
     {
-      to: '/newsAndPromotions',
-      classNames: 'nav-link',
-      description: 'Новости и предложения',
+      to: "/newsAndPromotions",
+      classNames: "nav-link",
+      description: "Новости и предложения",
     },
     {
-      to: '/order',
-      classNames: 'nav-link',
-      description: 'Заказ',
+      to: "/order",
+      classNames: "nav-link",
+      description: "Заказ",
     },
     {
-      to: '/warranty',
-      classNames: 'nav-link',
-      description: 'Гарантия',
+      to: "/warranty",
+      classNames: "nav-link",
+      description: "Гарантия",
     },
     {
-      to: '/newsAndPromotions',
-      classNames: 'nav-link text-danger',
-      description: 'Новинки и акции!',
+      to: "/newsAndPromotions",
+      classNames: "nav-link text-danger",
+      description: "Новинки и акции!",
     },
   ],
   NavLinkPersonalArea: [
     {
-      to: '/order',
-      classNames: 'dropdown-item',
-      description: 'Заказы',
+      to: "/order",
+      classNames: "dropdown-item",
+      description: "Заказы",
     },
     {
-      to: '#',
-      classNames: 'dropdown-item',
-      description: 'Скидки',
+      to: "#",
+      classNames: "dropdown-item",
+      description: "Скидки",
     },
     {
-      to: '/order',
-      classNames: 'dropdown-item',
-      description: 'Корзина',
+      to: "/order",
+      classNames: "dropdown-item",
+      description: "Корзина",
     },
     {
-      to: '#',
-      classNames: 'dropdown-item',
-      description: 'Избранное',
+      to: "#",
+      classNames: "dropdown-item",
+      description: "Избранное",
     },
   ],
   NavLinkCatalog: [
     {
-      to: '/items',
-      classNames: 'dropdown-item',
-      description: 'Все товары',
+      to: "/items",
+      classNames: "dropdown-item",
+      description: "Все товары",
     },
     {
-      to: '#',
-      classNames: 'dropdown-item',
-      description: 'Атомайзеры',
+      to: "#",
+      classNames: "dropdown-item",
+      description: "Атомайзеры",
     },
     {
-      to: '#',
-      classNames: 'dropdown-item',
-      description: 'Электронные парогенераторы',
+      to: "#",
+      classNames: "dropdown-item",
+      description: "Электронные парогенераторы",
     },
     {
-      to: '#',
-      classNames: 'dropdown-item',
-      description: 'Жидкости',
+      to: "#",
+      classNames: "dropdown-item",
+      description: "Жидкости",
     },
     {
-      to: '#',
-      classNames: 'dropdown-item',
-      description: 'Запчасти и комплектующие',
+      to: "#",
+      classNames: "dropdown-item",
+      description: "Запчасти и комплектующие",
     },
   ],
 };
@@ -87,7 +87,7 @@ class Navbar extends React.Component {
     this.state = this.props.state;
   }
 
-  state = { labelSearch: '' };
+  state = { labelSearch: "" };
 
   shouldComponentUpdate(nextProps, nextState) {
     if (nextProps.state.user !== nextState.user) {
@@ -108,7 +108,7 @@ class Navbar extends React.Component {
             <div className=" col m-1 mr-4">
               <NavLink to="/newsAndPromotions" className="navbar-brand">
                 <img id="img-logo" src={logo} alt="Logo" />
-                <span className="ml-3">Vape Shop</span>
+                <span className="ml-3 textlogo">Vape Shop</span>
               </NavLink>
             </div>
 

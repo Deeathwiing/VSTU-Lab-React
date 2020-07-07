@@ -1,60 +1,60 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { NavLinkDropDown, NavLinksAdministration } from '../NavLinks';
-import ChatContainer from '../../containers/ChatContainer';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { NavLinkDropDown, NavLinksAdministration } from "../NavLinks";
+import ChatContainer from "../../containers/ChatContainer";
 
 const navLinks = {
   NavLinkAside: [
     {
-      to: '/newsAndPromotions',
-      classNames: 'nav-link',
-      description: 'Новости и предложения',
-      liClass: 'col',
+      to: "/newsAndPromotions",
+      classNames: "nav-link",
+      description: "Новости и предложения",
+      liClass: "col",
     },
     {
-      to: '/order',
-      classNames: 'nav-link',
-      description: 'Заказ',
-      liClass: 'col',
+      to: "/order",
+      classNames: "nav-link",
+      description: "Заказ",
+      liClass: "col",
     },
     {
-      to: '/warranty',
-      classNames: 'nav-link',
-      description: 'Гарантия',
-      liClass: 'col',
+      to: "/warranty",
+      classNames: "nav-link",
+      description: "Гарантия",
+      liClass: "col",
     },
     {
-      to: '/newsAndPromotions',
-      classNames: 'nav-link text-danger',
-      description: 'Новинки и акции!',
-      liClass: 'col',
+      to: "/newsAndPromotions",
+      classNames: "nav-link text-danger",
+      description: "Новинки и акции!",
+      liClass: "col",
     },
   ],
   NavLinkCatalog: [
     {
-      to: '/items',
-      classNames: 'dropdown-item',
-      description: 'Все товары',
+      to: "/items",
+      classNames: "dropdown-item",
+      description: "Все товары",
     },
     {
-      to: '#',
-      classNames: 'dropdown-item',
-      description: 'Атомайзеры',
+      to: "#",
+      classNames: "dropdown-item",
+      description: "Атомайзеры",
     },
     {
-      to: '#',
-      classNames: 'dropdown-item',
-      description: 'Электронные парогенераторы',
+      to: "#",
+      classNames: "dropdown-item",
+      description: "Электронные парогенераторы",
     },
     {
-      to: '#',
-      classNames: 'dropdown-item',
-      description: 'Жидкости',
+      to: "#",
+      classNames: "dropdown-item",
+      description: "Жидкости",
     },
     {
-      to: '#',
-      classNames: 'dropdown-item',
-      description: 'Запчасти и комплектующие',
+      to: "#",
+      classNames: "dropdown-item",
+      description: "Запчасти и комплектующие",
     },
   ],
 };
@@ -110,6 +110,7 @@ const Aside = () => (
         </li>
       </ul>
     </nav>
+    <hr className="secondaryHR" />
     <ChatContainer />
   </aside>
 );
