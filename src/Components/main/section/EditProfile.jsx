@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import LoginError from './LoginError';
+import React from "react";
+import PropTypes from "prop-types";
+import LoginError from "./LoginError";
 
 class EditProfile extends React.Component {
   state = {
-    firstName: '',
-    lastName: '',
-    prevPassword: '',
-    newPassword1: '',
-    newPassword2: '',
+    firstName: "",
+    lastName: "",
+    prevPassword: "",
+    newPassword1: "",
+    newPassword2: "",
   };
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -40,7 +40,7 @@ class EditProfile extends React.Component {
         this.state.prevPassword,
         this.state.newPassword1
       );
-    } else alert('Новые пароли не совпадают');
+    } else alert("Новые пароли не совпадают");
   };
 
   render() {
@@ -48,11 +48,16 @@ class EditProfile extends React.Component {
       return (
         <>
           <div className="m-2">
-            <button type="button" onClick={this.removeReq}>
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={this.removeReq}
+            >
               Remove Request
             </button>
           </div>
-          <form>
+
+          <form className="border border-primary">
             <label className="m-2">
               Имя:
               <input
@@ -73,11 +78,15 @@ class EditProfile extends React.Component {
                 onChange={this.handleInput}
               />
             </label>
-            <button type="button" onClick={this.changeNames}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={this.changeNames}
+            >
               Отправить
             </button>
           </form>
-          <form>
+          <form className="border border-danger mt-3">
             <label className="m-2">
               Пароль:
               <input
@@ -98,7 +107,8 @@ class EditProfile extends React.Component {
                 onChange={this.handleInput}
               />
             </label>
-            <label>
+            <br />
+            <label className="ml-2">
               Повторите новый пароль:
               <input
                 name="newPassword2"
@@ -108,7 +118,12 @@ class EditProfile extends React.Component {
                 onChange={this.handleInput}
               />
             </label>
-            <button type="button" onClick={this.changePassword}>
+
+            <button
+              type="button"
+              className="btn btn-primary "
+              onClick={this.changePassword}
+            >
               Отправить
             </button>
           </form>

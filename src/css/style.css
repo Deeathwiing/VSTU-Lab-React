@@ -10,23 +10,17 @@ header {
 }
 
 .mainHR {
-  width: 60%;
-  background-color: rgb(255, 74, 8);
+  width: 80%;
+  background-color: white;
 }
 
 .secondaryHR {
   width: 100%;
-  background-color: rgb(255, 74, 8);
+  background-color: white;
 }
 
-.textlogo {
-  color: rgb(255, 74, 8);
-  font-weight: 700;
-  font-family: "Monotype Corsiva" Cursive;
-  font-stretch: condensed;
-  font-size: x-large;
-  font-style: italic;
-  font-synthesis: inherit;
+.img-logo {
+  height: 100%;
 }
 
 section {
@@ -43,10 +37,6 @@ aside {
   width: 30%;
   height: 100%;
   z-index: 1;
-}
-
-.navbar-brand #img-logo {
-  width: 35%;
 }
 
 #Search {
@@ -69,6 +59,7 @@ aside {
   /*background-color: aqua; */
   padding: 7%;
 }
+
 .message-container {
   overflow: auto;
   height: 300px;

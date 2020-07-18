@@ -3,7 +3,7 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
 import PropTypes from "prop-types";
-import logo from "../../../public/images/icon.png";
+import logotype from "../../../public/images/logotype.jpg";
 import AuthControl from "./AuthControl";
 import { NavLinkDropDown, NavLinksAdministration } from "../../NavLinks";
 
@@ -107,8 +107,7 @@ class Navbar extends React.Component {
           <nav className="navbar row  navbar-expand-md navbar-light bg-light shadow">
             <div className=" col m-1 mr-4">
               <NavLink to="/newsAndPromotions" className="navbar-brand">
-                <img id="img-logo" src={logo} alt="Logo" />
-                <span className="ml-3 textlogo">Vape Shop</span>
+                <img id="img-logo" src={logotype} alt="Logo" />
               </NavLink>
             </div>
 

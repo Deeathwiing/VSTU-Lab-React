@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { hightRating } from '../../../../selectors/Selectors';
-import imgLoading from '../../../../public/images/gearLoading.svg';
+import { hightRating } from "../../../../selectors/Selectors";
+import imgLoading from "../../../../public/images/gearLoading.svg";
 
-const Item = React.lazy(() => import('./Item'));
+const Item = React.lazy(() => import("./Item"));
 
 class Items extends React.Component {
   constructor(props) {
@@ -17,13 +17,13 @@ class Items extends React.Component {
       sortByDate: false,
       scrollTo: 0,
       itemsAmount: 3,
-      title: 'none',
-      tagId: 'none',
+      title: "none",
+      tagId: "none",
     };
   }
 
   async componentDidMount() {
-    await this.setState(state => ({
+    await this.setState((state) => ({
       page: state.items.length / state.itemsAmount || 1,
     }));
 
@@ -36,7 +36,7 @@ class Items extends React.Component {
         this.state.page,
         this.state.title
       );
-      await this.setState(state => ({
+      await this.setState((state) => ({
         page: state.items.length / state.itemsAmount,
       }));
     } else {
@@ -48,16 +48,16 @@ class Items extends React.Component {
         this.state.page,
         this.state.title
       );
-      await this.setState(state => ({
+      await this.setState((state) => ({
         page: state.items.length / state.itemsAmount,
       }));
     }
 
-    await window.addEventListener('scroll', this.handleScroll);
+    await window.addEventListener("scroll", this.handleScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -74,8 +74,8 @@ class Items extends React.Component {
 
   handleScroll = async () => {
     if (
-      window.innerHeight + window.scrollY
-      >= document.body.offsetHeight - 100
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - 100
     ) {
       if (this.state.scrollTo < document.body.offsetHeight) {
         const newPage = Math.floor(this.state.page + 1);
@@ -99,8 +99,8 @@ class Items extends React.Component {
   maxRating = () => {
     this.state.maxRating
       ? this.setState({
-        maxRating: false,
-      })
+          maxRating: false,
+        })
       : this.setState({ maxRating: true });
   };
 
@@ -124,8 +124,8 @@ class Items extends React.Component {
     await this.props.deleteStateItems();
     this.state.sortByName
       ? this.setState({
-        sortByName: false,
-      })
+          sortByName: false,
+        })
       : this.setState({ sortByName: true, sortByDate: false });
 
     this.props.getProducts(
@@ -142,8 +142,8 @@ class Items extends React.Component {
     await this.props.deleteStateItems();
     this.state.sortByDate
       ? this.setState({
-        sortByDate: false,
-      })
+          sortByDate: false,
+        })
       : this.setState({ sortByDate: true, sortByName: false });
 
     this.props.getProducts(
@@ -177,7 +177,7 @@ class Items extends React.Component {
 
   searchByTag = async (event) => {
     event.preventDefault();
-    const tagId = event.target.getAttribute('value');
+    const tagId = event.target.getAttribute("value");
     this.setState({ tagId });
     await this.props.deleteStateItems();
     await this.props.getProducts(
@@ -254,7 +254,11 @@ class Items extends React.Component {
               onChange={this.handleInput}
             />
           </label>
-          <button type="button" onClick={this.searchProducts}>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={this.searchProducts}
+          >
             Отправить
           </button>
         </form>

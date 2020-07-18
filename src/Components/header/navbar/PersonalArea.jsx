@@ -1,14 +1,14 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { NavLinkDropDown } from '../../NavLinks';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
+import { NavLinkDropDown } from "../../NavLinks";
 
-const PersonalArea = props => (
+const PersonalArea = (props) => (
   <>
     <li className="nav-item dropdown PersonalArea">
       <NavLink
         to="#"
-        className="nav-link font-weight-bold dropdown-toggle"
+        className="nav-link dropdown-toggle"
         role="button"
         data-toggle="dropdown"
         aria-expanded="false"
